@@ -1,14 +1,14 @@
 <div class="cFoo mx-[5%]">
-    <div class="ctrContent-footer flex justify-between">
+    <div class="ctrContent-footer flex flex-col xl:flex-row justify-between">
         <div class="ctrLft-cntFoo">
             <div class="cLft flex gap-6">
-                <div class="logoApp-aboutShort flex gap-4">
+                <div class="logoApp-aboutShort flex justify-between xl:justify-normal gap-4">
                     <div class="logoApp mx-auto">
                         <div class="imgLogo w-32 aspect-square p-6 bg-white rounded-[100%]">
                             <img src="{{asset('assets/img/logoApp/Logo Awan Laundry.png')}}" alt="" class="object-cover object-center">
                         </div>
                     </div>
-                    <div class="txAboutShort max-w-52">
+                    <div class="txAboutShort max-w-52 grow">
                         <div class="nameApp">
                             <div class="txNm1 text-2xl text-[#00D1FF] font-bold">Awan Laundry</div>
                             <div class="txNm2 text-lg text-white -mt-2">Express</div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="ctrRght-cntFoo">
+        <div class="ctrRght-cntFoo mt-10 xl:mt-0">
             <div class="cRght text-white">
                 <div class="headUtls-Inform grid grid-cols-2 gap-20 text-xl text-light tracking-wider border-b pb-1.5 border-white">
                     <div class="headUtls w-52">
@@ -126,7 +126,8 @@
             </div>
         </div>
     </div>
-    <div class="copyrightAWExpress">
-        
+    <div class="copyrightAWExpress text-white inline-flex gap-2 mt-4">
+        &copy;
+        <p>Awan Laundry Express 2024</p>
     </div>
 </div>

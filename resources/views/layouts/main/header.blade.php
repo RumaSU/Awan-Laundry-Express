@@ -1,5 +1,5 @@
 <div class="bg-white">
-    <div class="ctr mx-[2.5%] py-1 flex items-center justify-between">
+    <div class="ctr mx-[2.5%] py-1 flex items-center justify-center xl:justify-between">
         <div class="ctr-lft-logo">
             <div class="cn flex items-center gap-4">
                 <div class="lgo-icn">
@@ -7,13 +7,13 @@
                         <img src="{{asset('assets/img/logoApp/Logo Awan Laundry.png')}}" alt="" class="object-cover object-center">
                     </div>
                 </div>
-                <div class="tx-lgo text-xl font-bold tracking-wide">
+                <div class="tx-lgo text-xl font-bold tracking-wide hidden xl:block">
                     <div class="tx1 text-[#0493CC] -mb-2">Awan Laundry</div>
                     <div class="tx2 text-[#D42A63] -mt-2">Express</div>
                 </div>
             </div>
         </div>
-        <div class="ctr-chs">
+        <div class="ctr-chs hidden xl:block">
             <ul class="flex items-center gap-6 text-[#777676] text-[1.1rem]">
                 <li>
                     <div class="c">
