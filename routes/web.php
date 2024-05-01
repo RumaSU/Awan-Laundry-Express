@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.homepage.index');
 });
+
+Route::view('/user/1234', 'pages.users.myAccount.index');
