@@ -3,9 +3,7 @@
 @section('main-content')
     <div class="ctr">
         <div class="ctr-sdbr">
-            @section('sidebar-content')
-                @include('layouts.store.sidebar')
-            @endsection
+            @include('layouts.store.sidebar')
         </div>
         <div class="ctr-mn">
             <main>
