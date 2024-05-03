@@ -20,4 +20,4 @@ Route::get('/', function () {
     return view('pages.homepage.index');
 });
 
-Route::view('/user/1234', 'pages.users.myAccount.index');
+Route::view('/user/account', 'pages.users.myAccount.index');
