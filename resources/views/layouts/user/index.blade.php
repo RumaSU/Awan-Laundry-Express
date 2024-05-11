@@ -13,4 +13,7 @@
             </div>
         </div>
     </div>
+    <div class="ctrDiffThisPage">
+        @yield('different-content-user')
+    </div>
 @endsection
