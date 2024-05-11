@@ -134,26 +134,40 @@
             </div>
             <div class="ctr-specialList mt-0.5 mx-auto w-[95%] h-44 border-[3px] border-gray-400 p-2 rounded-xl">
                 <div class="cSpecialList h-full relative border border-black">
-                    <div class="ctr-cSpecialList">
-                        <div class="cLstSpecial">
-                            <div class="ctr-spcItm1">
-                                <div class="cSpecialItm1">
-                                    <div class="pctSpc">
-                                        <img src="" alt="">
+                    <div class="ctr-cSpecialList h-full overflow box-border">
+                        <div class="cLstSpecial flex items-center h-full relative">
+                            <div class="ctr-spcItm absolute w-full h-full transition-all translate-x-[0]">
+                                <div class="cSpecialItm1 h-full">
+                                    <div class="pctSpc h-full">
+                                        <img src="{{asset('assets/img/dumb/imgtemp 1.jpg')}}" alt="" class="h-full w-full object-cover object-center">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ctr-spcItm absolute w-full h-full transition-all translate-x-[100%]">
+                                <div class="cSpecialItm2 h-full">
+                                    <div class="pctSpc h-full">
+                                        <img src="{{asset('assets/img/dumb/imgtemp 1.jpg')}}" alt="" class="h-full w-full object-cover object-center">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ctr-spcItm absolute w-full h-full transition-all translate-x-[200%]">
+                                <div class="cSpecialItm3 h-full">
+                                    <div class="pctSpc h-full">
+                                        <img src="{{asset('assets/img/dumb/imgtemp 1.jpg')}}" alt="" class="h-full w-full object-cover object-center">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="ctr-nxtBckSpcList text-2xl text-[#3A3A3A]">
-                        <div class="ctr-backSpc border border-black absolute left-0 top-1/2 -translate-y-1/2">
+                    <div class="ctr-nxtBckSpcList text-4xl text-[#3A3A3A]">
+                        <div class="ctr-backSpc py-2 px-1 border border-black absolute z-10 left-0 top-1/2 -translate-y-1/2">
                             <div class="cBackSpecial">
                                 <span class="icn-chevLft">
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </span>
                             </div>
                         </div>
-                        <div class="ctr-nextSpc border border-black absolute right-0 top-1/2 -translate-y-1/2">
+                        <div class="ctr-nextSpc py-2 px-1 border border-black absolute z-10 right-0 top-1/2 -translate-y-1/2">
                             <div class="cNextSpecial">
                                 <span class="icn-chevLft">
                                     <i class="fa-solid fa-chevron-right"></i>
@@ -171,5 +185,5 @@
 @endsection
 
 @section('script-field')
-    
+    {{-- <script src="{{asset('assets/js/pages/users/myAccount/autoSwipeSpecial.js')}}"></script> --}}
 @endsection
