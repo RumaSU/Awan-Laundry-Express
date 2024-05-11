@@ -6,7 +6,7 @@
 @endsection
 
 @section('main-content-user')
-    <div class="ctr-summUser py-4 px-8 bg-gradient-to-b from-[#05B8FF] to-transparent">
+    <div class="ctr-summUser pt-4 pb-12 px-8 bg-gradient-to-b from-[#05B8FF] to-transparent">
         <div class="summaryUser">
             <div class="ctr-userProfile p-3 bg-white w-fit rounded-md border border-[#9D9D9D] shadow-sm shadow-gray-400">
                 <div class="userProfile flex items-center justify-between">
@@ -49,8 +49,8 @@
                 </div>
             </div>
             <div class="ctrMonyPromo mt-4 flex flex-col lg:flex-row gap-4">
-                <div class="ctr-moneyOut bg-white lg:w-fit overflow-hidden rounded-md shadow-sm shadow-gray-400">
-                    <div class="cMoneyOut">
+                <div class="ctr-moneyOut bg-white lg:w-fit overflow-hidden rounded-md">
+                    <div class="cMoneyOut *:select-none">
                         <div class="ctr-labelMoneyOut p-3 flex items-center gap-4">
                             <div class="ctr-iconOut">
                                 <div class="cIconOut flex items-center justify-center w-14 aspect-square bg-[#FF1F00] rounded-lg">
@@ -87,8 +87,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="ctr-promo bg-[#B96F00] lg:w-fit overflow-hidden rounded-md shadow-sm shadow-gray-400">
-                    <div class="cPromo">
+                <div class="ctr-promo bg-[#B96F00] lg:w-fit overflow-hidden rounded-md shadow-sm hover:shadow-gray-400">
+                    <div class="cPromo select-none">
                         <div class="ctr-labelPromo p-3 flex items-center gap-4">
                             <div class="ctr-iconOut">
                                 <div class="cIconOut flex items-center justify-center w-14 aspect-square bg-[#EB8E02] rounded-lg">
@@ -113,8 +113,10 @@
                         </div>
                         <div class="ctr-totalPromo flex justify-end">
                             <div class="cTotalPromo w-4/5 bg-[#FFC978] px-1.5 py-2 rounded-tl-3xl">
-                                <div class="txTotalPromo text-[#500A00] text-lg text-right font-bold">
-                                    <p>@{{5}} Promo</p>
+                                <div class="txTotalPromo text-[#500A00] text-lg font-bold">
+                                    <a href="" class="float-right">
+                                        <p>@{{5}} Promo</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -126,12 +128,12 @@
     <div class="ctr-specialForUser mt-10">
         <div class="cSpecialFUser">
             <div class="headSpecial ml-[2.5%]">
-                <div class="tx text-[#FF3377] italic font-black">
-                    <h2 class="drop-shadow-lg shadow-gray-400">Spesial Untukmu</h2>
+                <div class="tx text-[#FF3377] italic font-black" style="text-shadow: 0 4px 2px rgba(0, 0, 0, 0.2)">
+                    <h2>Spesial Untukmu</h2>
                 </div>
             </div>
-            <div class="ctr-specialList mt-0.5 mx-auto w-[95%] border-[3px] border-gray-400 p-2 rounded-xl">
-                <div class="cSpecialList relative">
+            <div class="ctr-specialList mt-0.5 mx-auto w-[95%] h-44 border-[3px] border-gray-400 p-2 rounded-xl">
+                <div class="cSpecialList h-full relative border border-black">
                     <div class="ctr-cSpecialList">
                         <div class="cLstSpecial">
                             <div class="ctr-spcItm1">
@@ -143,14 +145,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ctr-nxtBckSpcList">
-                        <div class="ctr-backSpc">
+                    <div class="ctr-nxtBckSpcList text-2xl text-[#3A3A3A]">
+                        <div class="ctr-backSpc border border-black absolute left-0 top-1/2 -translate-y-1/2">
                             <div class="cBackSpecial">
-
+                                <span class="icn-chevLft">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
                             </div>
                         </div>
-                        <div class="ctr-nextSpc">
-                            <div class="cNextSpecial"></div>
+                        <div class="ctr-nextSpc border border-black absolute right-0 top-1/2 -translate-y-1/2">
+                            <div class="cNextSpecial">
+                                <span class="icn-chevLft">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -34,7 +34,7 @@
                     <ul class="*:my-3">
                         <li>
                             <div class="myAccount-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'account') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{route('user\myAccount')}}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'account') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
                                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'account') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnUser text-2xl">
