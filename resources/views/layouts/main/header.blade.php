@@ -4,7 +4,7 @@
             <div class="cn flex items-center gap-4">
                 <div class="lgo-icn">
                     <div class="imgLogo w-16 aspect-square">
-                        <img src="{{asset('assets/img/logoApp/Logo Awan Laundry.png')}}" alt="" class="object-cover object-center">
+                        <img src="{{asset('assets/components/logoApp/Logo Awan Laundry.png')}}" alt="" class="object-cover object-center">
                     </div>
                 </div>
                 <div class="tx-lgo text-xl font-bold tracking-wide hidden xl:block">

@@ -19,7 +19,7 @@
                 <div class="cUser flex flex-col xl:flex-row items-center gap-4">
                     <div class="imgUser">
                         <div class="cImg w-20 p-1.5 aspect-square bg-[#D9D9D9] rounded-md">
-                            <img src="{{asset('assets/img/icon/layer.png')}}" alt="" class="object-cover object-center">
+                            <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
                         </div>
                     </div>
                     <div class="nameUser">
@@ -34,7 +34,7 @@
                     <ul class="*:my-3">
                         <li>
                             <div class="myAccount-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'account') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{route('user\myAccount')}}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'account') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
                                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'account') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnUser text-2xl">

@@ -53,7 +53,7 @@
                     </div>
                     <div class="accountUser">
                         <div class="usr-icn">
-                            <a href="" class="border border-[#D9D9D9] rounded-[100%] p-3 w-auto aspect-square bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
+                            <a href="{{route('user\myAccount')}}" class="border border-[#D9D9D9] rounded-[100%] p-3 w-auto aspect-square bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
                                 <i class="fa-solid fa-user"></i>
                             </a>
                         </div>
@@ -80,7 +80,7 @@
                         <ul class="lstChs grid gap-0.5 text-[#747474]">
                             <li class="myAccount-mobile">
                                 <div class="user-icn">
-                                    <a href="" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400 group">
+                                    <a href="{{route('user\myAccount')}}" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400 group">
                                         <span class="icnUser text-xl text-center w-8">
                                             <i class="fa-solid fa-user"></i>
                                         </span>
