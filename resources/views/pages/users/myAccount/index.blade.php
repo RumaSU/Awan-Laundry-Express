@@ -13,7 +13,7 @@
                     <div class="ctr-lftPhoName flex items-center gap-4">
                         <div class="ctr-photoUser">
                             <div class="cPhotoUser w-20 aspect-square rounded-lg p-1.5 border-2 border-[#D9D9D9]">
-                                <img src="{{asset('assets/img/icon/layer.png')}}" alt="" class="object-cover object-center">
+                                <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
                             </div>
                         </div>
                         <div class="ctr-nameUser w-48 md:w-60 xl:w-72">
