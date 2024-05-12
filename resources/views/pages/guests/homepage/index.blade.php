@@ -179,8 +179,26 @@
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="middle-conten-nd">
             <div class="scnd-middle-content">
-                
+                <div class="scnd-mid-left">
+                    <div class="text-ndmid">
+                        <div class="hdline-ndmid">
+                            <p>
+                                Pilih Layanan yang tepat untuk anda
+                            </p>
+                        </div>
+                        <div class="sbline-ndmid">
+                            <p>
+                                Dapatkan layanan yang tepat untuk keperluan anda
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="scnd-mid-right">
+
+                </div>
             </div>
         </section>
     </main>
