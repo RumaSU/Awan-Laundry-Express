@@ -24,7 +24,7 @@ use App\Http\Controllers\ForgotPWController;
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return view('pages.homepage.index');
+    return view('pages.guests.homepage.index');
 });
 
 Route::get('/login', [LoginController::class, 'loginIndex'])->name('login');

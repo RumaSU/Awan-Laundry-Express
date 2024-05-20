@@ -3,9 +3,9 @@
         <div class="ctrLft-cntFoo">
             <div class="cLft flex flex-col md:flex-row justify-between gap-6">
                 <div class="logoApp-aboutShort flex justify-between xl:justify-normal gap-4">
-                    <div class="logoApp mx-auto">
+                    <div class="logoApp mx-auto select-none" draggable="false">
                         <div class="imgLogo w-24 lg:w-28 xl:w-32 aspect-square p-2 lg:p-4 xl:p-6 bg-white rounded-[100%]">
-                            <img src="{{asset('assets/img/logoApp/Logo Awan Laundry.png')}}" alt="" class="object-cover object-center">
+                            <img src="{{asset('assets/components/logoApp/Logo Awan Laundry.png')}}" alt="" class="select-none object-cover object-center">
                         </div>
                     </div>
                     <div class="txAboutShort xl:max-w-52 grow">

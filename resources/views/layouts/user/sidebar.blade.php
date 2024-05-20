@@ -19,7 +19,7 @@
                 <div class="cUser flex flex-col xl:flex-row items-center gap-4">
                     <div class="imgUser">
                         <div class="cImg w-20 p-1.5 aspect-square bg-[#D9D9D9] rounded-md">
-                            <img src="{{asset('assets/img/icon/layer.png')}}" alt="" class="object-cover object-center">
+                            <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
                         </div>
                     </div>
                     <div class="nameUser">

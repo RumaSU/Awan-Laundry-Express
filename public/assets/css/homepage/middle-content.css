@@ -1,0 +1,66 @@
+
+.diamond-gradient {
+    width: 300px;
+    height: 200px;
+    padding-top: 15px;
+    padding-left: 15px;
+    border-radius: 0 20%  0 20%;
+    background-color: #05B8FF;
+    background-size: 100% 100%;
+    background: linear-gradient(90deg,#FF3377, #05B8FF);
+}
+.diamond-gradient-in {
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 20%  0 20%;
+    background-color: #05B8FF;
+    background-size: 100% 100%;
+    background: linear-gradient(135deg, #05B8FF, #FF3377);
+}
+.text-diamond{
+    display: block;
+    width: 70%;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.headline-diamond{
+    display: flex;
+    width: 70%;
+    color: white;
+    font-size: 24px;
+    font-weight: bolder;
+    text-shadow: 2px 0px 2px rgba(0, 0, 0, 0.3);
+}
+.subline-diamond p{
+    font-size: 12px;
+    width: 100%;
+    text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.3);
+    color: white;
+    margin-top: 25px;
+}
+
+.btn-swipe-mid{
+    display: flex;
+    float: right;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.btn-swipe-right{
+    width: 35px;
+    height: 35px;
+    background-color: #05B8FF;
+    border-radius:100%;
+    color: white;
+}
+.btn-swipe-left{
+    width: 35px;
+    height: 35px;
+    background-color: #05B8FF;
+    border-radius:100%;
+    color: white;
+}
+
