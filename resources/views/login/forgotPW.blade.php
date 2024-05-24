@@ -18,7 +18,7 @@
 				Awan Laundry siap membantu Anda<br> mengatasinya dengan cepat dan mudah.
 				</b>
 			</p>
-            <img src="{{ asset('assets/img/icon/kurir.png') }}" alt="">
+            <img src="{{ asset('assets/components/icon/kurir.png') }}" alt="">
         </div>
 		<div class="batas"></div>
         <div class="lupaPW">

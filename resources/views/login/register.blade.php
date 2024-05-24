@@ -19,7 +19,7 @@
 				Mulailah perjalanan kenyamanan Anda hari ini!
 				</b>
 			</p>
-            <img src="{{ asset('assets/img/icon/kurir.png') }}" alt="">
+            <img src="{{ asset('assets/components/icon/kurir.png') }}" alt="">
         </div>
 		<div class="batas"></div>
         <div class="register">
@@ -45,7 +45,7 @@
                 <p class="or-line" ><span>atau</span></p>
 				<div class="button google">
 					<button>
-						<img src="{{ asset('assets/img/icon/google.png') }}" alt="">Login dengan Google
+						<img src="{{ asset('assets/components/icon/google.png') }}" alt="">Login dengan Google
 					</button>
 				</div>
             </form>
