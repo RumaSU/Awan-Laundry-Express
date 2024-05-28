@@ -309,10 +309,27 @@
                 </div>
             </div>
         </section>
-        <section>
-            <div class="bottom-cont h-[400px] bg-white flex"></div>
-            ANJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAY
-        </section>
+        <section class="flex justify-center py-5">
+            <div class="flex w-11/12 lg:w-4/5 h-80 mt-5">
+                <div class="flex justify-center w-2/5">
+                    <div class="w-3/5 flex flex-col items-center">
+                        <div class="flex justify-center text-2xl font-bold text-black mt-12">
+                            <p>Ada Pertanyaan? Tanyakan Pada Kami!</p>
+                        </div>
+                        <div class="flex mt-5 w-full">
+                            <button class="w-full h-12 bg-pink-500 text-white font-bold text-lg rounded-lg hover:bg-pink-700">
+                                Lihat Selengkapnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-end w-3/5">
+                    <div class="w-[75%] h-64 flex justify-center items-center rounded-tl-[17%] rounded-br-[17%] bg-gradient-to-tr from-[#05B8FF] to-[#FF3377]">
+                        <p class="text-white text-[20px] font-bold text-center">YUUUUUUUUUUUUUUK Bagi yang penasaran Boleh Tanya tanya kami</p>
+                    </div>
+                </div>
+            </div>
+        </section>        
     </main>
 @endsection
 
