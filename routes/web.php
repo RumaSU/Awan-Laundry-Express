@@ -31,5 +31,7 @@ Route::get('/login', [LoginController::class, 'loginIndex'])->name('login');
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::get('/lupa_password', [ForgotPWController::class, 'forgotindex'])->name('forgot_password');
 
+Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
 // Route::view('/user/account', 'pages.users.myAccount.index');
+
