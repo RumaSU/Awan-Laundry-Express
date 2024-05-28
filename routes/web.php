@@ -27,11 +27,14 @@ Route::get('/', function () {
     return view('pages.guests.homepage.index');
 });
 
-Route::get('/login', [LoginController::class, 'loginIndex'])->name('login');
-Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::get('/login', [LoginController::class, 'loginIndex'])->name('loginIndex');
+Route::post('/login', [LoginController::class, 'loginPost'])->name('loginPost');
+Route::get('/register', [RegisterController::class, 'registerIndex'])->name('registerIndex');
+Route::post('/register', [RegisterController::class, 'registerPost'])->name('registerPost');
 Route::get('/lupa_password', [ForgotPWController::class, 'forgotindex'])->name('forgot_password');
 
 Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
+Route::view('/user/notifikasi', 'pages.users.notifikasi.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 
