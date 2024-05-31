@@ -5,9 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
-
-
-
+use App\Http\Controllers\User\myPromoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +34,7 @@ Route::get('/lupa_password', [ForgotPWController::class, 'forgotindex'])->name('
 
 Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
+Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
 Route::view('/user/notifikasi', 'pages.users.notifikasi.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 

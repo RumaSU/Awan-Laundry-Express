@@ -68,7 +68,8 @@
                         </span>
                     </div>
                 </div>
-                <div id="container-utilsMobile" class="ctr-utilsChsMbls bg-white border border-[#D9D9D9] rounded-md -mt-6 fixed right-[5%]" style="display: none">
+                {{-- <div id="container-utilsMobile" class="ctr-utilsChsMbls bg-white border border-[#D9D9D9] rounded-md -mt-6 fixed right-[5%]" style="display: none"> --}}
+                <div id="container-utilsMobile" class="ctr-utilsChsMbls w-full h-[100vh] bg-white overflow-auto border border-[#D9D9D9] fixed top-0 right-0 sm:w-fit sm:h-fit sm:rounded-md sm:-mt-6 sm:top-auto sm:right-[5%]" style="display: none">
                     <div class="clsClck absolute right-4 top-2">
                         <div class="cls-icn">
                             <span id="clckClsNavMobile" class="clsClck rounded-md cursor-pointer">
@@ -85,6 +86,16 @@
                                             <i class="fa-solid fa-user"></i>
                                         </span>
                                         <p>Akun Saya</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="stores-mobile">
+                                <div class="stores-icn">
+                                    <a href="" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
+                                        <span class="icnStores text-xl text-center w-8">
+                                            <i class="fa-solid fa-store"></i>
+                                        </span>
+                                        <p>Toko Saya</p>
                                     </a>
                                 </div>
                             </li>
@@ -105,6 +116,16 @@
                                             <i class="fa-solid fa-bell"></i>
                                         </span>
                                         <p>Notifikasi</p>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="promo-mobile">
+                                <div class="promo-icn">
+                                    <a href="" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
+                                        <span class="icnPromo text-xl text-center w-8">
+                                            <i class="fa-solid fa-bullhorn"></i>
+                                        </span>
+                                        <p>Promo</p>
                                     </a>
                                 </div>
                             </li>

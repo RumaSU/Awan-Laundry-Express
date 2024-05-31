@@ -82,7 +82,7 @@
                         </li>
                         <li>
                             <div class="promo-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'promo') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{route('user\myPromo')}}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'promo') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
                                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'promo') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnPromo text-2xl">
