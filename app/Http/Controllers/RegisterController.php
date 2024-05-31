@@ -4,16 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
-use  App\Models\User;
+use App\Models\UserRegister;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function registerIndex()
     {
         return view('login.register');
@@ -21,64 +17,32 @@ class RegisterController extends Controller
 
     public function registerPost(Request $request)
     {
-        // dd($request->all());
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->telp = $request->telp;
-        $user->password = Hash::make($request->password);
-        $user->save();
+        Log::info('registerPost method called.');
 
-        Session::put('user', $user);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:newusers',
+            'telp' => 'required|string|max:15',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-        return redirect()->route('loginIndex')->with('success', 'Register successfully');
-    }
+        Log::info('Validation passed.', ['request' => $request->all()]);
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        try {
+            $user = UserRegister::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'telp' => $request->telp,
+                'password' => Hash::make($request->password),
+            ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+            Log::info('User created successfully.', ['user' => $user]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            Session::flash('success', 'Registrasi berhasil!');
+            return redirect()->route('loginIndex');
+        } catch (\Exception $e) {
+            Log::error('Error creating user.', ['error' => $e->getMessage()]);
+            return back()->withErrors(['error' => 'Registrasi gagal. Silakan coba lagi.']);
+        }
     }
 }

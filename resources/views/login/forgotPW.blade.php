@@ -31,7 +31,7 @@
 				<button class="lanjutkan">Lanjutkan</button>
 				<div class="bawah">
 					<p>Belum memiliki akun?
-						<a href="{{ route('register') }}">Daftar Sekarang</a>
+						<a href="{{ route('registerIndex') }}">Daftar Sekarang</a>
 					</p>
 				</div>
             </form>

@@ -26,6 +26,7 @@ use App\Http\Controllers\ForgotPWController;
 Route::get('/', function () {
     return view('pages.guests.homepage.index');
 });
+Route::view('/page/promo', 'pages.guests.promo.index');
 
 Route::get('/login', [LoginController::class, 'loginIndex'])->name('loginIndex');
 Route::post('/login', [LoginController::class, 'loginPost'])->name('loginPost');
@@ -37,4 +38,6 @@ Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
 Route::view('/user/notifikasi', 'pages.users.notifikasi.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
+
+Route::view('/store/notifikasi', 'pages.stores.notifikasi.index');
 

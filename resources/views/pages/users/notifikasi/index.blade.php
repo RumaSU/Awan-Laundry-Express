@@ -2,6 +2,7 @@
 @section('titlePage', 'Akun saya')
 
 @section('head-field')
+<link rel="stylesheet" href="{{ asset('assets/css/page/notifikasi.css') }}">
     <style>
         .lftBubble::before {
             content: "";
@@ -148,8 +149,58 @@
                 <div class="tx text-xl font-bold">
                     <h2>Notifikasi</h2>
                 </div>
+                <div class="notifikasi-buttons">
+                    <a href="#" class="notifikasi-button active" id="btn-semua">Semua</a>
+                    <a href="#" class="notifikasi-button" id="btn-transaksi">Transaksi</a>
+                    <a href="#" class="notifikasi-button" id="btn-promo">Promo</a>
+                    <a href="#" class="notifikasi-button" id="btn-info">Info</a>
+                </div>
+                <div class="notifikasi-item" id="item-info-1" data-type="info">
+                    <div class="notifikasi-icon">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="icon-text">info</span>
+                    </div>
+                    <div class="notifikasi-item-title">Selamat datang di Awan Laundry Express!</div>
+                    <div class="notifikasi-item-content">
+                        Haloo {nama}, selamat datang di Awan Laundry Express. Nikmati berbagai
+                        kemudahan lainnya untuk memenuhi kebutuhan pencucian kamu.
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
+                </div>
+                <div class="notifikasi-item" id="item-info-2" data-type="info">
+                    <div class="notifikasi-icon">
+                        i
+                    </div>
+                    <div class="notifikasi-item-title">Ada aktivitas login di perangkat baru</div>
+                    <div class="notifikasi-item-content">
+                        Akunmu telah login melalui perangkat Chrome 123 pada Selasa, 26 Maret
+                        2024 23:57 WIB.
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
+                </div>
+                <div class="notifikasi-item" id="item-transaksi-1" data-type="transaksi">
+                    <div class="notifikasi-icon">
+                        <img src="cart.svg" alt="cart icon">
+                    </div>
+                    <div class="notifikasi-item-title">Pesananmu saat ini sedang diproses</div>
+                    <div class="notifikasi-item-content">
+                        Pesananmu dengan layanan {nama layanan} sedang diproses!
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
+                </div>
+                <div class="notifikasi-item" id="item-promo-1" data-type="promo">
+                    <div class="notifikasi-icon">
+                        <img src="megaphone.svg" alt="megaphone icon">
+                    </div>
+                    <div class="notifikasi-item-title">Hore! Selamat, Anda telah berhasil mendapatkan promo menarik.</div>
+                    <div class="notifikasi-item-content">
+                        Selamat! Anda berhasil mendapatkan promo {nama promo}. Pastikan untuk
+                        memanfaatkannya saat pencucian laundry berikutnya untuk menghemat
+                        biaya.
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
+                </div>
             </div>
-            <div></div>
         </div>
     </div>
 

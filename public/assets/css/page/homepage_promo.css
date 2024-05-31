@@ -11,30 +11,42 @@ body {
     padding: 20px;
 }
 
-h1 {
+.container-promo h1 {
     text-align: center;
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+.container-promo p {
+    text-align: center;
+    /* margin-bottom: 20px; */
 }
 
 .filter-bar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Posisikan di tengah */
+    align-items: center; /* Vertikal align tengah */
     margin-bottom: 20px;
 }
 
 .filter {
     position: relative;
     display: inline-block;
+    margin-right: 10px; /* Spasi antara filter dan tombol */
 }
 
 .filter-button {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
+    padding: 10px 60px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    /* text-align: left; */
+}
+
+.apply-reset-buttons {
+    display: flex;
 }
 
 .apply-button {
