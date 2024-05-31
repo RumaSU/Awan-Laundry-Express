@@ -98,14 +98,14 @@
                         </li>
                         <li>
                             <div class="settings-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'Settings') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'settings') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
-                                        <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'Settings') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
+                                        <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'settings') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnSettings text-2xl">
                                                 <i class="fa-solid fa-gear"></i>
                                             </span>
                                         </div>
-                                        <div class="tx text-xl hidden xl:block {{($urlChoosed === 'Settings') ? $ifChoosedTx : $ifNotChoosedTx}}">
+                                        <div class="tx text-xl hidden xl:block {{($urlChoosed === 'settings') ? $ifChoosedTx : $ifNotChoosedTx}}">
                                             <p>Pengaturan</p>
                                         </div>
                                     </div>
