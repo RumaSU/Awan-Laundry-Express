@@ -40,4 +40,4 @@ Route::view('/user/notification', 'pages.users.notifikasi.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 
 
-Route::get('/store/mystore', [myStoreController::class, 'index'])->name('user\myPromo');
+Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');

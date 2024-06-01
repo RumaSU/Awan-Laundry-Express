@@ -45,7 +45,7 @@
                 </div>
                 <div class="myAccount-desktop flex items-center gap-2 text-xl xl:text-2xl">
                     <div class="navAccountStore">
-                        <a href="" class="block border border-[#D9D9D9] rounded-md xl:rounded-[100%] p-3 w-auto aspect-square bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
+                        <a href="{{route('store\myStore')}}" class="block border border-[#D9D9D9] rounded-md xl:rounded-[100%] p-3 w-auto aspect-square bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
                             <div class="store-icn relative">
                                 <i class="fa-solid fa-store"></i>
                             </div>
