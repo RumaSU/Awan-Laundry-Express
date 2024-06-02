@@ -22,7 +22,7 @@
                         </li>
                         <li class="notification-desktop">
                             <div class="notif-icn">
-                                <a href="" class="border border-[#D9D9D9] p-3 rounded-md bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
+                                <a href="{{route('user\notification')}}" class="border border-[#D9D9D9] p-3 rounded-md bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
                                     <i class="fa-solid fa-bell"></i>
                                 </a>
                             </div>
@@ -98,7 +98,7 @@
                             </li>
                             <li class="notification-mobile">
                                 <div class="notif-icn">
-                                    <a href="" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
+                                    <a href="{{route('user\notification')}}" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
                                         <span class="icnBell text-xl text-center w-8">
                                             <i class="fa-solid fa-bell"></i>
                                         </span>
