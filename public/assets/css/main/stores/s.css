@@ -1,0 +1,23 @@
+.clckShowListStore {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+}
+
+.clckShowListStore:hover {
+    transform: rotate(90);
+    -webkit-transform: rotate(90);
+    -moz-transform: rotate(90);
+    -ms-transform: rotate(90);
+    -o-transform: rotate(90);
+}
+
+.clckActiveShowListStore {
+    transform: rotate(90);
+    -webkit-transform: rotate(90);
+    -moz-transform: rotate(90);
+    -ms-transform: rotate(90);
+    -o-transform: rotate(90);
+}

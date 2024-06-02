@@ -15,17 +15,29 @@
 <div class="cSidebar">
     <div class="ctrUtils-sb py-6 px-4 border-2 border-[#D9D9D9] rounded-xl">
         <div class="cUtils-sb">
-            <div class="ctr-headTUser">
-                <div class="cUser flex flex-col xl:flex-row items-center gap-4">
-                    <div class="imgUser">
-                        <div class="cImg w-20 p-1.5 aspect-square bg-[#D9D9D9] rounded-md">
-                            <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
+            <div class="ctr-headTStore">
+                <div class="cStore flex flex-col xl:flex-row h-28 xl:h-auto gap-1 xl:gap-0 relative bg-gray-200 rounded-md">
+                    <div class="ctr-detCStore">
+                        <div class="detCStore flex flex-col xl:flex-row items-center gap-4">
+                            <div class="imgStore">
+                                <div class="cImg w-20 p-1.5 aspect-square bg-[#D9D9D9] rounded-md">
+                                    <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
+                                </div>
+                            </div>
+                            <div class="nameStore w-[9.25rem] hidden xl:block">
+                                <div class="tx line-clamp-2">
+                                    <p>@{{Awan Laundry Express}}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="nameUser">
-                        <div class="tx line-clamp-2">
-                            <p>Nama User</p>
+                    <div class="ctr-clckStr flex-1 rounded-b-md xl:rounded-bl-none xl:rounded-r-md cursor-pointer relative transition-colors hover:bg-gray-300 ">
+                        <div class="icClStore block absolute transition-all left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                            <span class="icn text-2xl">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
                         </div>
+                        {{-- <input type="checkbox" name="chckLstStore" id="inpSChckLstStore" class=""> --}}
                     </div>
                 </div>
             </div>
@@ -34,15 +46,15 @@
                     <ul class="*:my-3">
                         <li>
                             <div class="myAccount-sb">
-                                <a href="{{route('user\myAccount')}}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'account') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{route('store\myStore')}}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'mystore') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
-                                        <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'account') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
+                                        <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'mystore') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnUser text-2xl">
-                                                <i class="fa-solid fa-user"></i>
+                                                <i class="fa-solid fa-store"></i>
                                             </span>
                                         </div>
-                                        <div class="tx text-xl hidden xl:block {{($urlChoosed === 'account') ? $ifChoosedTx : $ifNotChoosedTx}}">
-                                            <p>Akun Saya</p>
+                                        <div class="tx text-xl hidden xl:block {{($urlChoosed === 'mystore') ? $ifChoosedTx : $ifNotChoosedTx}}">
+                                            <p>Toko Saya</p>
                                         </div>
                                     </div>
                                 </a>

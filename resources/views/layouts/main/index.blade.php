@@ -1,3 +1,7 @@
+@php
+    $isThisStore = explode('/', url()->current());
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +14,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('assets/bootstrap-icons/bootstrap-icons.min.css')}}">
     <link rel="icon" href="{{asset('assets/components/logoApp/Logo Awan Laundry.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('assets/bootstrap-icons/bootstrap-icons.min.css')}}">
+    @if (count($isThisStore) > 3)
+        @if ($isThisStore[3] === 'store')
+            <link rel="stylesheet" href="{{asset('assets/css/main/stores/s.css')}}">
+        @endif
+    @endif
+    @yield('head-link-field')
+    <link rel="stylesheet" href="{{asset('assets/css/main/stores/s.css')}}">
     <script src="https://kit.fontawesome.com/15f35fc9f3.js" crossorigin="anonymous"></script>
     <style>
         * {
@@ -31,7 +42,7 @@
             aspect-ratio: 1/1;
         }
     </style>
-    @yield('head-field')
+    @yield('head-style-field')
 </head>
 <body>
     <header>
@@ -48,5 +59,10 @@
 
     <script src="{{asset('assets/js/main/navMobile.js')}}"></script>
     @yield('script-field')
+    @if (count($isThisStore) > 3)
+        @if ($isThisStore[3] === 'store')
+            <script src="{{asset('assets/js/pages/stores/sidebar/s.js')}}"></script>
+        @endif
+    @endif
 </body>
 </html>

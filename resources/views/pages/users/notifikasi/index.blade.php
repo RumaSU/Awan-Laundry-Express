@@ -1,8 +1,11 @@
 @extends('layouts.user.index')
 @section('titlePage', 'Akun saya')
 
-@section('head-field')
-<link rel="stylesheet" href="{{ asset('assets/css/page/notifikasi.css') }}">
+@section('head-link-field')
+    <link rel="stylesheet" href="{{ asset('assets/css/page/notifikasi.css') }}">
+@endsection
+
+@section('head-style-field')
     <style>
         .lftBubble::before {
             content: "";

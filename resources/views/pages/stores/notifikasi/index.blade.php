@@ -1,11 +1,18 @@
 @extends('layouts.store.index')
 @section('titlePage', 'Notifikasi')
 
-@section('head-field')
+@section('head-link-field')
+    
 @endsection
 
-@section('main-content')
+@section('head-style-field')
+    
+@endsection
+
+@section('main-content-store')
+    
 @endsection
 
 @section('script-field')
+    
 @endsection

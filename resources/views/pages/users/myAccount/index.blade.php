@@ -1,7 +1,11 @@
 @extends('layouts.user.index')
 @section('titlePage', 'Akun saya')
 
-@section('head-field')
+@section('head-link-field')
+    
+@endsection
+
+@section('head-style-field')
     <style>
         .lftBubble::before {
             content: "";
