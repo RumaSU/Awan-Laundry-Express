@@ -22,25 +22,36 @@ $(document).ready(function () {
     
     function changeStClickIcon () {
         // let $whatClass = $($clickShowListStore + ' .icClStore').attr('class');
-        let $whatClass = $($clickShowListStore + ' #icClSwr');
+        let $icnShLSt = $($clickShowListStore + ' #icClSwr');
         let $listIconStyle = ['rotate-90', '-rotate-90', 'xl:rotate-0', 'xl:rotate-90', 'xl:group-hover/icClSwr:rotate-90'];
         $listIconStyle.forEach(($thisClass, idx) => {
-            if ( $whatClass.hasClass($thisClass) ) {
-                $whatClass.removeClass($thisClass);
+            if ( $icnShLSt.hasClass($thisClass) ) {
+                $icnShLSt.removeClass($thisClass);
             }
         });
         
-        if ( $whatClass.hasClass('activateShowListStore') ) {
-            $whatClass.removeClass('activateShowListStore');
-            $whatClass.addClass($stRottClstStrShow);
+        if ( $icnShLSt.hasClass('activateShowListStore') ) {
+            $icnShLSt.removeClass('activateShowListStore');
+            $icnShLSt.addClass($stRottClstStrShow);
         } else {
-            $whatClass.addClass('activateShowListStore ' + $stActiveRottClstStrShow);
+            $icnShLSt.addClass('activateShowListStore ' + $stActiveRottClstStrShow);
         }
         
-        if ( $whatClass.hasClass('activateShowListStore') ) {
-            
+        if ( ($icnShLSt.hasClass('activateShowListStore') ) ) {
+            if ( ($($containerListStore).css('display') === 'none') ) {
+                
+            }
         }
         
+    }
+    
+    function showListStore() {
+        $($containerListStore).show();
+        $($contentListStore).css(
+            {
+                'height': '24rem'
+            }
+        );
     }
 
     setTimeout(() => {
