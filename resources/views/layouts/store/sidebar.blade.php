@@ -32,8 +32,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ctr-clckStr flex-1 rounded-b-md xl:rounded-bl-none xl:rounded-r-md cursor-pointer relative transition-colors hover:bg-gray-300">
-                        <div class="icClStore absolute transition-all left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 xl:rotate-0 xl:hover:rotate-90">
+                    <div id="clSwLsSre" class="ctr-clckStr flex-1 rounded-b-md xl:rounded-bl-none xl:rounded-r-md cursor-pointer relative transition-colors hover:bg-gray-300 group/icClSwr">
+                        <div id="icClSwr" class="icClStore absolute transition-all left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 xl:rotate-0 xl:group-hover/icClSwr:rotate-90">
                             <span class="icn text-xl">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </span>
@@ -50,7 +50,7 @@
                     @endphp
                     <div class="cListStore p-2 space-y-1 overflow-y-scroll" style="height: 24rem;">
                         <div class="ctr-storeItm block cursor-pointer group/store">
-                            <div class="cStoreItm flex items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$activeThisStore}}">
+                            <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$activeThisStore}}">
                                 <div class="cCStoreItm flex items-center gap-2">
                                     <div class="lftImgStore">
                                         <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-md shadow-black/50 rounded-md">
@@ -77,7 +77,7 @@
                         </div>
                         @for ($i = 0; $i < 10; $i++)
                             <div class="ctr-storeItm block cursor-pointer group/store">
-                                <div class="cStoreItm flex items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$notActiveThisStore}}">
+                                <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$notActiveThisStore}}">
                                     <div class="cCStoreItm flex items-center gap-2">
                                         <div class="lftImgStore">
                                             <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-md shadow-black/50 rounded-md">
@@ -87,7 +87,7 @@
                                         </div>
                                         <div class="rghtNameStore text-sm md:text-lg font-light">
                                             <div class="tx">
-                                                <p>@{{ Awan Laundry Express }}</p>
+                                                <p>@{{ Laundry $i+1 }}</p>
                                             </div>
                                         </div>
                                     </div>
