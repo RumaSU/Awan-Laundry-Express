@@ -40,4 +40,5 @@ Route::view('/user/notifikasi', 'pages.users.notifikasi.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 
 Route::view('/store/notifikasi', 'pages.stores.notifikasi.index');
+Route::view('/store/pengaturan', 'pages.stores.pengaturan.index');
 

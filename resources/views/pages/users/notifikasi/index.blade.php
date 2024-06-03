@@ -157,8 +157,8 @@
                 </div>
                 <div class="notifikasi-item" id="item-info-1" data-type="info">
                     <div class="notifikasi-icon">
-                        <i class="fas fa-info-circle"></i>
-                        <span class="icon-text">info</span>
+                        <img src="{{ asset('assets/components/icon/circle-info-solid.png') }}" alt="">
+                        <span class="icon-text">Info</span>
                     </div>
                     <div class="notifikasi-item-title">Selamat datang di Awan Laundry Express!</div>
                     <div class="notifikasi-item-content">
@@ -169,7 +169,8 @@
                 </div>
                 <div class="notifikasi-item" id="item-info-2" data-type="info">
                     <div class="notifikasi-icon">
-                        i
+                        <img src="{{ asset('assets/components/icon/circle-info-solid.png') }}" alt="">
+                        <span class="icon-text">Info</span>
                     </div>
                     <div class="notifikasi-item-title">Ada aktivitas login di perangkat baru</div>
                     <div class="notifikasi-item-content">
@@ -180,7 +181,8 @@
                 </div>
                 <div class="notifikasi-item" id="item-transaksi-1" data-type="transaksi">
                     <div class="notifikasi-icon">
-                        <img src="cart.svg" alt="cart icon">
+                        <img src="{{ asset('assets/components/icon/circle-cart-shopping-solid.png') }}" alt="">
+                        <span class="icon-text">Transaksi</span>
                     </div>
                     <div class="notifikasi-item-title">Pesananmu saat ini sedang diproses</div>
                     <div class="notifikasi-item-content">
@@ -190,7 +192,8 @@
                 </div>
                 <div class="notifikasi-item" id="item-promo-1" data-type="promo">
                     <div class="notifikasi-icon">
-                        <img src="megaphone.svg" alt="megaphone icon">
+                        <img src="{{ asset('assets/components/icon/circle-cart-promo-solid.png') }}" alt="">
+                        <span class="icon-text">Promo</span>
                     </div>
                     <div class="notifikasi-item-title">Hore! Selamat, Anda telah berhasil mendapatkan promo menarik.</div>
                     <div class="notifikasi-item-content">

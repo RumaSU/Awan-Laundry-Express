@@ -46,7 +46,7 @@ body {
 }
 
 .notifikasi-icon {
-    display: inline-block;
+    display: flex;
     width: 30px;
     height: 30px;
     background-color: #ddd;
@@ -57,14 +57,22 @@ body {
 }
 
 .notifikasi-icon .icon-text {
-    margin-left: 5px; /* Jarak antara ikon dan teks */
+    margin-left: 15px;
 }
 
 .notifikasi-item-title {
     font-weight: bold;
     margin-bottom: 5px;
+    margin-left: 45px;
 }
 
 .notifikasi-item-content {
     color: #666;
+    margin-left: 45px;
 }
+
+.notifikasi-item-date {
+    color: #888;
+    margin-left: 45px;
+}
+
