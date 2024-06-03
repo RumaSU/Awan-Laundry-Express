@@ -1,8 +1,11 @@
 @extends('layouts.user.index')
 @section('titlePage', 'Akun saya')
 
-@section('head-field')
-<link rel="stylesheet" href="{{ asset('assets/css/page/notifikasi.css') }}">
+@section('head-link-field')
+    <link rel="stylesheet" href="{{ asset('assets/css/page/notifikasi.css') }}">
+@endsection
+
+@section('head-style-field')
     <style>
         .lftBubble::before {
             content: "";
@@ -149,11 +152,85 @@
                 <div class="tx text-xl font-bold">
                     <h2>Notifikasi</h2>
                 </div>
-                <div class="notifikasi-buttons">
+                {{-- <div class="notifikasi-buttons">
                     <a href="#" class="notifikasi-button active" id="btn-semua">Semua</a>
                     <a href="#" class="notifikasi-button" id="btn-transaksi">Transaksi</a>
                     <a href="#" class="notifikasi-button" id="btn-promo">Promo</a>
                     <a href="#" class="notifikasi-button" id="btn-info">Info</a>
+                </div> --}}
+                <div class="ctr-promo mb-4">
+                    <div class="cPromo flex justify-center">
+                        <div class="ctr-headPromo">
+                            <div class="cHeadPromo">
+                                <div class="ctr-listFilterPromo">
+                                    <div class="cListFilterPromo">
+                                        <div class="ctr-filterItm selectDisable flex flex-wrap items-center gap-4  font-bold">
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmAllPromo" class="peer/allPromo hidden sr-only" checked>
+                                                <label for="filterItmAllPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/allPromo:bg-[#FF3377] peer-checked/allPromo:text-white peer-checked/allPromo:border-pink-900">
+                                                    <div class="cFAllPromo">
+                                                        <div class="tx">Semua</div>
+                                                    </div>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Semua</div>
+                                                        </div>
+                                                    </button>
+                                                </div> --}}
+                                            </div>
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmKiloanPromo" class="peer/kiloanPromo hidden sr-only">
+                                                <label for="filterItmKiloanPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/kiloanPromo:bg-[#FF3377] peer-checked/kiloanPromo:text-white peer-checked/kiloanPromo:border-pink-900">
+                                                    <div class="cFKiloanPromo">
+                                                        <div class="tx">Kiloan</div>
+                                                    </div>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Kiloan</div>
+                                                        </div>
+                                                    </button>
+                                                </div> --}}
+                                            </div>
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmSatuanPromo" class="peer/satuanPromo hidden sr-only">
+                                                <label for="filterItmSatuanPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/satuanPromo:bg-[#FF3377] peer-checked/satuanPromo:text-white peer-checked/satuanPromo:border-pink-900">
+                                                    <div class="cFSatuanPromo">
+                                                        <div class="tx">Satuan</div>
+                                                    </div>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Satuan</div>
+                                                        </div>
+                                                    </button>
+                                                </div> --}}
+                                            </div>
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmOngkirPromo" class="peer/ongkirPromo hidden sr-only">
+                                                <label for="filterItmOngkirPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/ongkirPromo:bg-[#FF3377] peer-checked/ongkirPromo:text-white peer-checked/ongkirPromo:border-pink-900">
+                                                    <div class="cFOngkirPromo">
+                                                        <div class="tx">Ongkir</div>
+                                                    </div>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Ongkir</div>
+                                                        </div>
+                                                    </button>
+                                                </div> --}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="notifikasi-item" id="item-info-1" data-type="info">
                     <div class="notifikasi-icon">

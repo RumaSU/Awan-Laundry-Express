@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Controllers\User\myAccountController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\User\myAccountController;
+use App\Http\Controllers\User\myPromoController;
+use App\Http\Controllers\store\myStoreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +35,11 @@ Route::get('/lupa_password', [ForgotPWController::class, 'forgotindex'])->name('
 
 Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
-Route::view('/user/notifikasi', 'pages.users.notifikasi.index');
+Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
+Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 
 Route::view('/store/notifikasi', 'pages.stores.notifikasi.index');
 Route::view('/store/pengaturan', 'pages.stores.pengaturan.index');
 
+Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');

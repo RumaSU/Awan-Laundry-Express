@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Laundry</title>
     <link rel="stylesheet" href="{{ asset('assets/css/login/register.css') }}">
-    <link rel="icon" href="{{asset('assets/img/logoApp/[mobile]Logo Awan Laundry.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/components/logoApp/Logo Awan Laundry.png')}}" type="image/x-icon">
 </head>
 
 <body>
