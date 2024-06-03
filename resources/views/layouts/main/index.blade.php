@@ -22,7 +22,6 @@
         @endif
     @endif
     @yield('head-link-field')
-    <link rel="stylesheet" href="{{asset('assets/css/main/stores/s.css')}}">
     <script src="https://kit.fontawesome.com/15f35fc9f3.js" crossorigin="anonymous"></script>
     <style>
         * {
@@ -40,6 +39,21 @@
         }
         .aspect-square {
             aspect-ratio: 1/1;
+        }
+    </style>
+    <style>
+        .cListStore::-webkit-scrollbar {
+            width: 5px;
+        }
+        .cListStore::-webkit-scrollbar-track {
+            box-shadow: 0;
+        }
+        .cListStore::-webkit-scrollbar-thumb {
+            background: #FF3377;
+            border-radius: 10px;
+        }
+        .cListStore::-webkit-scrollbar-thumb:hover {
+            background: #ff1E69;
         }
     </style>
     @yield('head-style-field')

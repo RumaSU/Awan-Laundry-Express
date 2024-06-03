@@ -1,6 +1,11 @@
 $(document).ready(function () {
+    let $clickShowListStore = '.ctr-clckStr';
+    let $contentListStore = '.cListStore';
+    
+    let $stRottClstStrShow = 'rotate-90 xl:rotate-0 xl:hover:rotate-90';
+    let $stActiveRottClstStrShow = '-rotate-90 xl:rotate-90 xl:hover:rotate-0';
+    
     let wWind = $(window).width();
-    let ctrClckLstStr = $()
     
     $(window).resize((e) => { 
         wWind = $(window).width();
@@ -10,11 +15,31 @@ $(document).ready(function () {
     
     function styleListStore(nowWindWidth) {
         if(nowWindWidth > 1281) {
-            
+            $(selector).removeClass(className);
         }
     }
     
-    function ifBiggerStyle(nowStatus) {
+    function changeStClickIcon () {
+        // let $whatClass = $($clickShowListStore + ' .icClStore').attr('class');
+        let $whatClass = $($clickShowListStore + ' .icClStore');
+        let $listIconStyle = ['rotate-90', '-rotate-90', 'xl:rotate-0', 'xl:rotate-90', 'xl:hover:rotate-90', 'xl:hover:rotate-0'];
+        $listIconStyle.forEach(($thisClass, idx) => {
+            if ( $whatClass.hasClass($thisClass) ) {
+                $whatClass.removeClass($thisClass);
+            }
+        });
         
+        
+        if ( $whatClass.hasClass('activateShowListStore') ) {
+            $whatClass.addClass($stRottClstStrShow);
+        } else {
+            $whatClass.addClass('activateShowListStore ' + $stActiveRottClstStrShow);
+        }
     }
+    
+    $($clickShowListStore).click(function (e) { 
+        e.preventDefault();
+        changeStClickIcon();
+    });
+    
 });
