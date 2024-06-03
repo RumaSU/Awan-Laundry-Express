@@ -1,6 +1,7 @@
 $(document).ready(function () {
     let $clickShowListStore = '#clSwLsSre';
-    let $contentListStore = '.cListStore';
+    let $containerListStore = '#ctCCLsSTSnThs';
+    let $contentListStore = '#cCLsSTrSN';
     
     let $stRottClstStrShow = 'rotate-90 xl:rotate-0 xl:group-hover/icClSwr:rotate-90';
     let $stActiveRottClstStrShow = '-rotate-90 xl:rotate-90';
@@ -35,7 +36,21 @@ $(document).ready(function () {
         } else {
             $whatClass.addClass('activateShowListStore ' + $stActiveRottClstStrShow);
         }
+        
+        if ( $whatClass.hasClass('activateShowListStore') ) {
+            
+        }
+        
     }
+
+    setTimeout(() => {
+        $($containerListStore).show();
+        $($contentListStore).css(
+            {
+                'height': '24rem'
+            }
+        );
+    }, 5000);
     
     $($clickShowListStore).click(function (e) { 
         e.preventDefault();
