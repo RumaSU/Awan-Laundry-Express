@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    let $clickShowListStore = '.ctr-clckStr';
+    let $clickShowListStore = '#clSwLsSre';
     let $contentListStore = '.cListStore';
     
-    let $stRottClstStrShow = 'rotate-90 xl:rotate-0 xl:hover:rotate-90';
-    let $stActiveRottClstStrShow = '-rotate-90 xl:rotate-90 xl:hover:rotate-0';
+    let $stRottClstStrShow = 'rotate-90 xl:rotate-0 xl:group-hover/icClSwr:rotate-90';
+    let $stActiveRottClstStrShow = '-rotate-90 xl:rotate-90';
     
     let wWind = $(window).width();
     
@@ -21,16 +21,16 @@ $(document).ready(function () {
     
     function changeStClickIcon () {
         // let $whatClass = $($clickShowListStore + ' .icClStore').attr('class');
-        let $whatClass = $($clickShowListStore + ' .icClStore');
-        let $listIconStyle = ['rotate-90', '-rotate-90', 'xl:rotate-0', 'xl:rotate-90', 'xl:hover:rotate-90', 'xl:hover:rotate-0'];
+        let $whatClass = $($clickShowListStore + ' #icClSwr');
+        let $listIconStyle = ['rotate-90', '-rotate-90', 'xl:rotate-0', 'xl:rotate-90', 'xl:group-hover/icClSwr:rotate-90'];
         $listIconStyle.forEach(($thisClass, idx) => {
             if ( $whatClass.hasClass($thisClass) ) {
                 $whatClass.removeClass($thisClass);
             }
         });
         
-        
         if ( $whatClass.hasClass('activateShowListStore') ) {
+            $whatClass.removeClass('activateShowListStore');
             $whatClass.addClass($stRottClstStrShow);
         } else {
             $whatClass.addClass('activateShowListStore ' + $stActiveRottClstStrShow);

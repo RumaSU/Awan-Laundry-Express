@@ -196,8 +196,8 @@
                         </div>
                     </div>
                     <div class="ctr-listFilterPromo mt-4 ml-[5%]">
-                        <div class="cListFilterPromo">
-                            <div class="ctr-filterItm selectDisable flex flex-wrap items-center gap-4  font-bold">
+                        <div class="cListFilterPromo selectDisable flex flex-wrap items-center gap-4  font-bold">
+                            <div class="ctr-filterItm">
                                 <div class="cFilterItm">
                                     <input type="radio" name="filterPromo" id="filterItmAllPromo" class="peer/allPromo hidden sr-only" checked>
                                     <label for="filterItmAllPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/allPromo:bg-[#FF3377] peer-checked/allPromo:text-white peer-checked/allPromo:border-pink-900">
@@ -205,14 +205,9 @@
                                             <div class="tx">Semua</div>
                                         </div>
                                     </label>
-                                    {{-- <div class="btn-filterItm">
-                                        <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmActive">
-                                            <div class="cBtn">
-                                                <div class="tx">Semua</div>
-                                            </div>
-                                        </button>
-                                    </div> --}}
                                 </div>
+                            </div>
+                            <div class="ctr-filterItm">
                                 <div class="cFilterItm">
                                     <input type="radio" name="filterPromo" id="filterItmKiloanPromo" class="peer/kiloanPromo hidden sr-only">
                                     <label for="filterItmKiloanPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/kiloanPromo:bg-[#FF3377] peer-checked/kiloanPromo:text-white peer-checked/kiloanPromo:border-pink-900">
@@ -220,14 +215,9 @@
                                             <div class="tx">Kiloan</div>
                                         </div>
                                     </label>
-                                    {{-- <div class="btn-filterItm">
-                                        <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
-                                            <div class="cBtn">
-                                                <div class="tx">Kiloan</div>
-                                            </div>
-                                        </button>
-                                    </div> --}}
                                 </div>
+                            </div>
+                            <div class="ctr-filterItm">
                                 <div class="cFilterItm">
                                     <input type="radio" name="filterPromo" id="filterItmSatuanPromo" class="peer/satuanPromo hidden sr-only">
                                     <label for="filterItmSatuanPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/satuanPromo:bg-[#FF3377] peer-checked/satuanPromo:text-white peer-checked/satuanPromo:border-pink-900">
@@ -235,14 +225,9 @@
                                             <div class="tx">Satuan</div>
                                         </div>
                                     </label>
-                                    {{-- <div class="btn-filterItm">
-                                        <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
-                                            <div class="cBtn">
-                                                <div class="tx">Satuan</div>
-                                            </div>
-                                        </button>
-                                    </div> --}}
                                 </div>
+                            </div>
+                            <div class="ctr-filterItm">
                                 <div class="cFilterItm">
                                     <input type="radio" name="filterPromo" id="filterItmOngkirPromo" class="peer/ongkirPromo hidden sr-only">
                                     <label for="filterItmOngkirPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/ongkirPromo:bg-[#FF3377] peer-checked/ongkirPromo:text-white peer-checked/ongkirPromo:border-pink-900">
@@ -250,13 +235,6 @@
                                             <div class="tx">Ongkir</div>
                                         </div>
                                     </label>
-                                    {{-- <div class="btn-filterItm">
-                                        <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
-                                            <div class="cBtn">
-                                                <div class="tx">Ongkir</div>
-                                            </div>
-                                        </button>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>
