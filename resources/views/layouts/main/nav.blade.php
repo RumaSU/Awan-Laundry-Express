@@ -130,7 +130,7 @@
                                 <div class="transac-icn">
                                     <a href="" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
                                         <span class="icnTransac text-xl text-center w-8">
-                                            <i class="fa-solid fa-receipt"></i>                                    
+                                            <i class="fa-solid fa-receipt"></i>
                                         </span>
                                         <p>Daftar Transaksi</p>
                                     </a>
@@ -141,7 +141,7 @@
                             <div class="logout-icn text-[#747474]">
                                 <a href="" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
                                     <span class="icnTransac text-xl text-center w-8">
-                                        <i class="fa-solid fa-right-from-bracket"></i>                                    
+                                        <i class="fa-solid fa-right-from-bracket"></i>
                                     </span>
                                     <p>Logout</p>
                                 </a>
