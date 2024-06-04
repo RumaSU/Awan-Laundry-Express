@@ -1,0 +1,78 @@
+body {
+    font-family: sans-serif;
+}
+
+.notifikasi-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.notifikasi-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.notifikasi-header h2 {
+    margin: 0;
+}
+
+.notifikasi-buttons {
+    display: flex;
+    /* justify-content: space-around; */
+    padding: 10px;
+}
+
+.notifikasi-button {
+    padding: 10px 40px;
+    border: 1px solid #9d9d9d;
+    border-radius: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    background-color: #fff;
+    color: black;
+}
+
+.notifikasi-button.active {
+    background-color: #ff007f;
+    color: #fff;
+}
+
+.notifikasi-item {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.notifikasi-icon {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 10px;
+}
+
+.notifikasi-icon .icon-text {
+    margin-left: 15px;
+}
+
+.notifikasi-item-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 45px;
+}
+
+.notifikasi-item-content {
+    color: #666;
+    margin-left: 45px;
+}
+
+.notifikasi-item-date {
+    color: #888;
+    margin-left: 45px;
+}
+

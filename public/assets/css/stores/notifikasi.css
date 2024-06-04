@@ -1,0 +1,152 @@
+body {
+    font-family: sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    /* position: relative; */
+}
+
+.coupon {
+    width: 8%;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px; /* Memberikan jarak bawah pada elemen coupon */
+    margin-left: 10px;
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px; /* Memberikan jarak bawah pada elemen title */
+}
+
+.image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    background-color: #ddd;
+    margin-right: 20px; /* Memberi jarak antara gambar dan konten */
+    flex-shrink: 0;
+}
+
+.content-wrapper {
+    display: flex;
+    margin-bottom: 10px; /* Memberikan jarak bawah pada elemen content-wrapper */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Agar content mengambil ruang yang tersisa */
+}
+
+.description {
+    font-size: 20px;
+    margin-bottom: 10px; /* Memberi jarak antara deskripsi dan elemen lainnya */
+}
+
+.promo-button-wrapper {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.promo-button {
+    width: 8%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: #ddd;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+}
+
+.kategori-price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px; /* Memberikan jarak bawah pada elemen kategori-price-wrapper */
+}
+
+.kategori {
+    flex-basis: 50%; /* Membagi lebar elemen kategori */
+}
+
+.price {
+    flex-basis: 50%; /* Membagi lebar elemen price */
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #333;
+}
+
+.waktuKisaran {
+    width: 100%;
+    padding: 10px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #ddd;
+    color: black;
+    margin-top: 10px;
+    display: flex; /* Tambahkan flexbox */
+    justify-content: space-between;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.time .icon img {
+    width: 35px; /* Sesuaikan ukuran ikon */
+    height: 35px;
+    margin-right: 10px; /* Sesuaikan jarak antara ikon dan teks */
+}
+
+.waktu {
+    font-size: 17px; /* Ukuran font waktu */
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.transaction {
+    /* display: flex;
+    align-items: center; */
+    display: grid; /* Menggunakan grid layout */
+    grid-template-columns: auto 1fr; /* Kolom pertama untuk icon, kolom kedua untuk detail transaksi */
+    align-items: center;
+}
+
+.transaction-icon {
+    margin-right: 10px;
+}
+
+/* .kisaran {
+    font-weight: bold;
+} */
+
+.kisaran-harga {
+    margin-top: 5px; /* Berikan jarak atas antara kisaran dan harga */
+    font-size: 0.9em;
+    color: #666;
+}

@@ -2,7 +2,7 @@
 @section('titlePage', 'Akun saya')
 
 @section('head-link-field')
-    
+    <link rel="stylesheet" href="{{ asset('assets/css/page/notifikasi.css') }}">
 @endsection
 
 @section('head-style-field')
@@ -22,62 +22,43 @@
             -o-user-select: none;
             user-select: none;
         }
-
-        .cCTransactionItm {
-            display: block;
-        }
-        .txTimeTras {
-            font-size: 0.65rem;
-            line-height: 0.85rem;
-        }
-        
-        @media only screen and (min-width: 321px) {
-            .cCTransactionItm {
-                display: flex;
-            }
-            .txTimeTras {
-                font-size: 0.75rem;
-                line-height: 1rem;                
-            }
-        }
     </style>
 @endsection
 
 @section('main-content-user')
     <div class="ctr-summUser pt-4 pb-12 px-8 bg-gradient-to-b from-[#05B8FF] to-transparent">
         <div class="summaryUser">
-            <div class="ctr-userProfile p-3 bg-white w-full md:w-fit rounded-md border border-[#9D9D9D] shadow-sm shadow-gray-400">
-                <div class="userProfile flex items-center justify-between relative overflow-hidden">
+            <div class="ctr-userProfile p-3 bg-white w-fit rounded-md border border-[#9D9D9D] shadow-sm shadow-gray-400">
+                <div class="userProfile flex items-center justify-between">
                     <div class="ctr-lftPhoName flex items-center gap-4">
                         <div class="ctr-photoUser">
                             <div class="cPhotoUser w-20 aspect-square rounded-lg p-1.5 border-2 border-[#D9D9D9]">
                                 <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
                             </div>
                         </div>
-                        <div class="ctr-nameUser w-full md:w-60 xl:w-72">
-                            <div class="cNameUser md:-space-y-1">
+                        <div class="ctr-nameUser w-48 md:w-60 xl:w-72">
+                            <div class="cNameUser -space-y-1">
                                 <div class="nameUser">
-                                    <div class="txNmU text-sm md:text-lg font-light line-clamp-1">
+                                    <div class="txNmU text-lg font-light line-clamp-2">
                                         <p>
-                                            @{{Nama User}}
                                             @{{Nama User}}
                                         </p>
                                     </div>
                                 </div>
                                 <div class="emailUser">
-                                    <div class="txEmU text-xs md:text-sm line-clamp-1">
+                                    <div class="txEmU text-sm line-clamp-1">
                                         <p>@{{emailuser@gmail.com}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="ctr-rghtSett absolute  sm:relative top-0 right-0">
+                    <div class="ctr-rghtSett">
                         <div class="ctr-setting">
                             <div class="cSetting">
-                                <a href="" class="flex items-center justify-center w-10 md:w-14 aspect-square bg-white border border-[#9D9D9D] rounded-lg">
+                                <a href="" class="flex items-center justify-center w-14 aspect-square border border-[#9D9D9D] rounded-lg">
                                     <div class="icn">
-                                        <span class="icnSettings text-[#9D9D9D] text-xl md:text-2xl lg:text-3xl">
+                                        <span class="icnSettings text-[#9D9D9D] text-3xl">
                                             <i class="fa-solid fa-gear"></i>
                                         </span>
                                     </div>
@@ -102,14 +83,14 @@
                             </div>
                             <div class="ctr-labelOut w-40 md:w-52 xl:w-64">
                                 <div class="cLabelOut">
-                                    <div class="labelOut -space-y-1 md:-space-y-2 text-[#747474]">
+                                    <div class="labelOut -space-y-2 text-[#747474]">
                                         <div class="tx-lblT">
-                                            <div class="txT text-xs md:text-sm">
+                                            <div class="txT text-sm">
                                                 <p>Catatan Keuangan</p>
                                             </div>
                                         </div>
                                         <div class="tx-lblB">
-                                            <div class="txB text-base md:text-lg">
+                                            <div class="txB text-lg">
                                                 <p>Uang Keluar</p>
                                             </div>
                                         </div>
@@ -119,7 +100,7 @@
                         </div>
                         <div class="ctr-totalMoney flex justify-end">
                             <div class="cTotalMoney w-4/5 bg-[#FF8777] px-1.5 py-2 rounded-tl-3xl">
-                                <div class="txTotalMoney text-[#500A00] text-sm md:text-base lg:text-lg text-right font-bold">
+                                <div class="txTotalMoney text-[#500A00] text-lg text-right font-bold">
                                     <p>Rp @{{800.000}}</p>
                                 </div>
                             </div>
@@ -142,7 +123,7 @@
                                 <div class="cLabelOut">
                                     <div class="labelOut -space-y-2 text-[#FFDFAF]">
                                         <div class="tx-lblT">
-                                            <div class="txT text-base md:text-lg">
+                                            <div class="txT text-lg">
                                                 <p>Promo</p>
                                             </div>
                                         </div>
@@ -152,7 +133,7 @@
                         </div>
                         <div class="ctr-totalPromo flex justify-end">
                             <div class="cTotalPromo w-4/5 bg-[#FFC978] px-1.5 py-2 rounded-tl-3xl">
-                                <div class="txTotalPromo text-[#500A00] text-sm md:text-base lg:text-lg font-bold">
+                                <div class="txTotalPromo text-[#500A00] text-lg font-bold">
                                     <a href="" class="float-right">
                                         <p>@{{5}} Promo</p>
                                     </a>
@@ -164,178 +145,152 @@
             </div>
         </div>
     </div>
-    <div class="ctr-specialForUser mt-10">
-        <div class="cSpecialFUser">
-            <div class="headSpecial text-xl ml-[10%]">
-                <div class="tx text-[#FF3377] italic font-black" style="text-shadow: 0 4px 2px rgba(0, 0, 0, 0.2)">
-                    <h2>Spesial Untukmu</h2>
-                </div>
-            </div>
-            <div class="ctr-specialList mt-1 mx-auto w-[95%] h-44 border-[3px] border-gray-400 p-2 rounded-xl" data-carousel="slide">
-                <div class="cSpecialList h-full relative" >
-                    <div class="ctr-cSpecialList h-full overflow-hidden box-border" >
-                        <div class="cLstSpecial flex items-center h-full relative">
-                            @php
-                                $nowActive = "translate-x-0";
-                                $toActive = "translate-x-full";
-                                $notActive = "-translate-x-full";
-                                
-                                $intTo = 8;
-                            @endphp
-                            @for ($i = 0; $i < $intTo; $i++)
-                                <a href="#item-{{$i+1}}" class="ctr-spcItm absolute w-full h-full px-2 transition-all duration-700 {{ ($i === 0) ? $nowActive : (($i === $intTo - 1) ? $notActive : $toActive) }}" data-carousel-item>
-                                    <div class="cSpecialItm h-full">
-                                        <div class="pctSpc h-full">
-                                            <img src="{{asset('assets/img/dumb/imgtemp ' . $i+1 . '.jpg')}}" alt="" class="h-full w-full rounded-xl object-cover object-center">
-                                        </div>
-                                    </div>
-                                </a>
-                            @endfor
-                        </div>
-                    </div>
-                    <div class="ctr-nxtBckSpcList text-2xl md:text-4xl">
-                        <button type="button" class="ctr-backSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-[80] left-0 top-1/2 -translate-y-1/2" data-carousel-prev>
-                            <div class="cBackSpecial">
-                                <span class="icn-chevLft">
-                                    <i class="fa-solid fa-chevron-left"></i>
-                                </span>
-                            </div>
-                        </button>
-                        <button type="button" class="ctr-nextSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-[80] right-0 top-1/2 -translate-y-1/2" data-carousel-next>
-                            <div class="cNextSpecial">
-                                <span class="icn-chevLft">
-                                    <i class="fa-solid fa-chevron-right"></i>
-                                </span>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+
     <div class="ctr-transaction mt-8">
         <div class="cTransaction">
             <div class="headTransaction ml-[10%]">
                 <div class="tx text-xl font-bold">
-                    <h2>Riwayat Transaksi</h2>
+                    <h2>Notifikasi</h2>
                 </div>
-            </div>
-            <div class="ctr-listTransaction mt-4 px-4">
-                <div class="cListTransaction space-y-2">
-                    @for ($i = 0; $i < 3; $i++)
-                        <div class="ctr-transactionItm border-2 border-gray-400 py-4 px-6 rounded-xl shadow-md shadow-gray-400">
-                            <div class="cTransactionItm">
-                                <div class="ctr-headTrscTimeStatusItm">
-                                    <div class="cHeadTrscTimeStatusItm flex items-center justify-between">
-                                        <div class="ctr-lftTime">
-                                            <div class="cLftTime flex items-center gap-4 md:gap-6">
-                                                <div class="icn">
-                                                    <span class="icn-bag text-2xl md:text-3xl">
-                                                        <i class="fa-solid fa-bag-shopping"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="ctr-timeTrsc">
-                                                    <div class="cTimeTrsc">
-                                                        <div class="txH text-sm">
-                                                            <strong>Belanja</strong>
-                                                        </div>
-                                                        <div class="txTimeTras">
-                                                            <p>@{{25 Mar 2024}}</p>
-                                                        </div>
+                {{-- <div class="notifikasi-buttons">
+                    <a href="#" class="notifikasi-button active" id="btn-semua">Semua</a>
+                    <a href="#" class="notifikasi-button" id="btn-transaksi">Transaksi</a>
+                    <a href="#" class="notifikasi-button" id="btn-promo">Promo</a>
+                    <a href="#" class="notifikasi-button" id="btn-info">Info</a>
+                </div> --}}
+                <div class="ctr-promo mb-4">
+                    <div class="cPromo flex justify-center">
+                        <div class="ctr-headPromo">
+                            <div class="cHeadPromo">
+                                <div class="ctr-listFilterPromo">
+                                    <div class="cListFilterPromo">
+                                        <div class="ctr-filterItm selectDisable flex flex-wrap items-center gap-4  font-bold">
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmAllPromo" class="peer/allPromo hidden sr-only" checked>
+                                                <label for="filterItmAllPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/allPromo:bg-[#FF3377] peer-checked/allPromo:text-white peer-checked/allPromo:border-pink-900">
+                                                    <div class="cFAllPromo">
+                                                        <div class="tx">Semua</div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ctr-rghtStatus">
-                                            <div class="cStatusTrsc px-4 md:px-8 py-2 rounded-xl  border border-black">
-                                                <div class="txSt text-xs md:text-sm font-semibold">
-                                                    <strong>@{{Selesai}}</strong>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ctr-cTrscItm mt-4">
-                                    <div class="cCTransactionItm gap-6">
-                                        <div class="ctr-lftImg flex-shrink-0">
-                                            <div class="cLftImage">
-                                                <div class="imageTransaction w-24 aspect-square rounded-xl overflow-hidden">
-                                                    <img src="{{asset('assets/img/dumb/imgtemp 1.jpg')}}" alt="" class="w-full h-full object-cover object-center">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="ctr-rghtDetTransaction w-full">
-                                            <div class="cDetTransaction select-none">
-                                                <div class="headDetTransaction">
-                                                    <div class="txHDet md:text-xl font-bold">
-                                                        <h2>Pemesanan jasa @{{Kiloan dan Satuan}}</h2>
-                                                    </div>
-                                                </div>
-                                                <div class="ctr-listDetTrsc">
-                                                    <div class="cListDetTrsc sm:-space-y-1 text-xs sm:text-sm">
-                                                        <div class="itm-detTrsc">
-                                                            <div class="tx">
-                                                                <p>2 Jenis (Kiloan dan Satuan)</p>
-                                                            </div>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Semua</div>
                                                         </div>
-                                                        <div class="itm-detTrsc">
-                                                            <div class="tx">
-                                                                <p>2 Jenis (Kiloan dan Satuan)</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="itm-detTrsc">
-                                                            <div class="tx">
-                                                                <p>2 Jenis (Kiloan dan Satuan)</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    </button>
+                                                </div> --}}
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="ctr-fooTrscItm mt-4 md:mt-1">
-                                    <div class="cFooTrscItm">
-                                        <div class="ctr-lftTPrice flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
-                                            <div class="cTPrice md:-space-y-1 text-sm">
-                                                <div class="headTPrice">
-                                                    <div class="tx">
-                                                        <p>Total Belanja</p>
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmKiloanPromo" class="peer/kiloanPromo hidden sr-only">
+                                                <label for="filterItmKiloanPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/kiloanPromo:bg-[#FF3377] peer-checked/kiloanPromo:text-white peer-checked/kiloanPromo:border-pink-900">
+                                                    <div class="cFKiloanPromo">
+                                                        <div class="tx">Kiloan</div>
                                                     </div>
-                                                </div>
-                                                <div class="cPrice">
-                                                    <div class="tx font-bold">
-                                                        <p>Rp. @{{21821817257125}}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="ctr-rghtShwDetTrsc">
-                                                <div class="cShwDetTrsc">
-                                                    <a href="" class="shwThs block px-4 md:px-8 lg:px-12 py-2 border border-black rounded-xl">
-                                                        <div class="tx text-sm text-center sm:text-left font-semibold">
-                                                            <p>Lihat Detail</p>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Kiloan</div>
                                                         </div>
-                                                    </a>
-                                                </div>
+                                                    </button>
+                                                </div> --}}
+                                            </div>
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmSatuanPromo" class="peer/satuanPromo hidden sr-only">
+                                                <label for="filterItmSatuanPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/satuanPromo:bg-[#FF3377] peer-checked/satuanPromo:text-white peer-checked/satuanPromo:border-pink-900">
+                                                    <div class="cFSatuanPromo">
+                                                        <div class="tx">Satuan</div>
+                                                    </div>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Satuan</div>
+                                                        </div>
+                                                    </button>
+                                                </div> --}}
+                                            </div>
+                                            <div class="cFilterItm">
+                                                <input type="radio" name="filterPromo" id="filterItmOngkirPromo" class="peer/ongkirPromo hidden sr-only">
+                                                <label for="filterItmOngkirPromo" class="block cursor-pointer border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/ongkirPromo:bg-[#FF3377] peer-checked/ongkirPromo:text-white peer-checked/ongkirPromo:border-pink-900">
+                                                    <div class="cFOngkirPromo">
+                                                        <div class="tx">Ongkir</div>
+                                                    </div>
+                                                </label>
+                                                {{-- <div class="btn-filterItm">
+                                                    <button class="border px-6 md:px-8 xl:px-10 py-2 rounded-full transition-all duration-300 btnFilterItmNotActive">
+                                                        <div class="cBtn">
+                                                            <div class="tx">Ongkir</div>
+                                                        </div>
+                                                    </button>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    </div>
+                </div>
+                <div class="notifikasi-item" id="item-info-1" data-type="info">
+                    <div class="notifikasi-icon">
+                        <img src="{{ asset('assets/components/icon/circle-info-solid.png') }}" alt="">
+                        <span class="icon-text">Info</span>
+                    </div>
+                    <div class="notifikasi-item-title">Selamat datang di Awan Laundry Express!</div>
+                    <div class="notifikasi-item-content">
+                        Haloo {nama}, selamat datang di Awan Laundry Express. Nikmati berbagai
+                        kemudahan lainnya untuk memenuhi kebutuhan pencucian kamu.
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
+                </div>
+                <div class="notifikasi-item" id="item-info-2" data-type="info">
+                    <div class="notifikasi-icon">
+                        <img src="{{ asset('assets/components/icon/circle-info-solid.png') }}" alt="">
+                        <span class="icon-text">Info</span>
+                    </div>
+                    <div class="notifikasi-item-title">Ada aktivitas login di perangkat baru</div>
+                    <div class="notifikasi-item-content">
+                        Akunmu telah login melalui perangkat Chrome 123 pada Selasa, 26 Maret
+                        2024 23:57 WIB.
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
+                </div>
+                <div class="notifikasi-item" id="item-transaksi-1" data-type="transaksi">
+                    <div class="notifikasi-icon">
+                        <img src="{{ asset('assets/components/icon/circle-cart-shopping-solid.png') }}" alt="">
+                        <span class="icon-text">Transaksi</span>
+                    </div>
+                    <div class="notifikasi-item-title">Pesananmu saat ini sedang diproses</div>
+                    <div class="notifikasi-item-content">
+                        Pesananmu dengan layanan {nama layanan} sedang diproses!
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
+                </div>
+                <div class="notifikasi-item" id="item-promo-1" data-type="promo">
+                    <div class="notifikasi-icon">
+                        <img src="{{ asset('assets/components/icon/circle-cart-promo-solid.png') }}" alt="">
+                        <span class="icon-text">Promo</span>
+                    </div>
+                    <div class="notifikasi-item-title">Hore! Selamat, Anda telah berhasil mendapatkan promo menarik.</div>
+                    <div class="notifikasi-item-content">
+                        Selamat! Anda berhasil mendapatkan promo {nama promo}. Pastikan untuk
+                        memanfaatkannya saat pencucian laundry berikutnya untuk menghemat
+                        biaya.
+                    </div>
+                    <div class="notifikasi-item-date">26 Maret 2024</div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('different-content-user')
     <div class="ctr-createOrder">
         <div class="cCreateOrder flex items-center gap-4">
-            <div class="ctr-lftCreateOrder md:flex-shrink-0 p-8 md:p-0">
-                <div class="cLeftCreateOrder bg-[#05B8FF] xl:w-80 h-60 px-6 pt-6 pb-12 relative overflow-hidden rounded-tl-3xl rounded-br-[6rem] md:rounded-br-[12rem] xl:rounded-br-none transition-all duration-500 shadow-lg shadow-gray-400">
+            <div class="ctr-lftCreateOrder flex-shrink-0">
+                <div class="cLeftCreateOrder bg-[#05B8FF] w-80 h-60 px-6 pt-6 pb-12 relative overflow-hidden rounded-tl-3xl shadow-lg shadow-gray-400">
                     {{-- bg-[#05B8FF] bg-[url({{asset('assets/components/pages/left 05B8FF water.png')}})] --}}
                     {{-- style="background-image: url('{{asset('assets/components/pages/left 05B8FF water.png')}}')" --}}
                     <div class="ctr-cLeftCreateOrder z-10 relative">
@@ -356,7 +311,7 @@
                             </div>
                             <div class="ctr-clickCreateOrder mt-12">
                                 <div class="cClickCreateOrder font-bold">
-                                    <a href="" class="clCreateOrder block w-fit px-8 py-2 text-sm rounded-xl bg-[#FF3377]">
+                                    <a href="" class="clCreateOrder w-fit px-8 py-2 text-sm rounded-xl border border-black block">
                                         <div class="txCr">
                                             <p>Buat Pesanan</p>
                                         </div>
@@ -374,7 +329,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ctr-rghtImgLaundry flex-shrink w-[50rem] relative hidden xl:block">
+            <div class="ctr-rghtImgLaundry flex-shrink w-[50rem] relative">
                 <div class="cRghtImgLaundry">
                     <div class="ctr-laundryMachn">
                         <div class="cLaundryMachn">

@@ -2,63 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Models\UserRegister;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function registerIndex()
     {
         return view('login.register');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function registerPost(Request $request)
     {
-        //
-    }
+        Log::info('registerPost method called.');
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:newusers',
+            'telp' => 'required|string|max:15',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        Log::info('Validation passed.', ['request' => $request->all()]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        try {
+            $user = UserRegister::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'telp' => $request->telp,
+                'password' => Hash::make($request->password),
+            ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+            Log::info('User created successfully.', ['user' => $user]);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+            Session::flash('success', 'Registrasi berhasil!');
+            return redirect()->route('loginIndex');
+        } catch (\Exception $e) {
+            Log::error('Error creating user.', ['error' => $e->getMessage()]);
+            return back()->withErrors(['error' => 'Registrasi gagal. Silakan coba lagi.']);
+        }
     }
 }

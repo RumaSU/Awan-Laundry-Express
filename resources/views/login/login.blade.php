@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Laundry</title>
     <link rel="stylesheet" href="{{ asset('assets/css/login/login.css') }}">
-    <link rel="icon" href="{{asset('assets/img/logoApp/[mobile]Logo Awan Laundry.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/components/logoApp/Logo Awan Laundry.png')}}" type="image/x-icon">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 					</button>
 				</div>
 				<p class="daftar">Belum memiliki akun?
-					<a href="{{ route('register') }}">Daftar Sekarang</a>
+					<a href="{{ route('registerIndex') }}">Daftar Sekarang</a>
 				</p>
             </form>
         </div>
