@@ -17,32 +17,29 @@ class RegisterController extends Controller
 
     public function registerPost(Request $request)
     {
-        Log::info('registerPost method called.');
 
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:newusers',
             'telp' => 'required|string|max:15',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
         ]);
 
-        Log::info('Validation passed.', ['request' => $request->all()]);
+        // $newUser = new UserRegister();
+        // $newUser->name = $request->name;
+        // $newUser->email = $request->email;
+        // $newUser->telp = $request->telp;
+        // $newUser->password = Hash::make($request->password);
+        // $newUser->save();
+        $user = UserRegister::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'telp' => $request->telp,
+            'password' => Hash::make($request->password),
+        ]);
 
-        try {
-            $user = UserRegister::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'telp' => $request->telp,
-                'password' => Hash::make($request->password),
-            ]);
-
-            Log::info('User created successfully.', ['user' => $user]);
-
-            Session::flash('success', 'Registrasi berhasil!');
-            return redirect()->route('loginIndex');
-        } catch (\Exception $e) {
-            Log::error('Error creating user.', ['error' => $e->getMessage()]);
-            return back()->withErrors(['error' => 'Registrasi gagal. Silakan coba lagi.']);
-        }
+        Session::flash('success', 'Registrasi berhasil!');
+        return redirect()->route('loginIndex');
     }
+        // return back()->withErrors(['error' => 'Registrasi gagal. Silakan coba lagi.']);
 }

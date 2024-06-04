@@ -20,13 +20,19 @@
 
 		</div>
         <div class="login">
-            <form action="">
+            @if (Session::has('error'))
+            <div class='alert alert-danger' role="alert">
+                {{ Session::get('error') }}
+            </div>
+            @endif
+            <form action="{{ route('loginIndex') }}" method="POST">
+                @csrf
                 <h3>AWAN LAUNDRY EXPRESS</h3>
                 <p class="deskripsi">Selamat Datang di Awan Laundry <br>Silahkan Masuk Dengan Akun Anda</p>
                 <label for="">Email</label>
-                <input type="text" placeholder="example@gmail.com" style="background: #EDFAFF;">
+                <input type="email" name="email" placeholder="example@gmail.com" style="background: #EDFAFF;">
                 <label for="">Password</label>
-                <input type="password" placeholder="Password" style="background: #EDFAFF;">
+                <input type="password" name="password" placeholder="Password" style="background: #EDFAFF;">
                 <a class="lupaPW" href="{{ route('forgot_password') }}">Lupa Password?</a>
 				<button>Login</button>
                 <p class="or-line"><span> atau masuk dengan</span></p>

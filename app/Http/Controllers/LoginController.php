@@ -20,7 +20,20 @@ class LoginController extends Controller
 
     public function loginPost(Request $request)
     {
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
 
+        if (Auth::attempt($credentials)) {
+            // Jika login berhasil, simpan data pengguna dalam sesi
+            $user = Auth::user();
+            session(['user' => $user]);
+
+            return redirect('/user/homepage')->with('success', 'Login berhasil');
+        }
+
+        return back()->with('error', 'Email atau Password yang Anda masukkan salah. Silahkan ulangi!');
     }
 
 }
