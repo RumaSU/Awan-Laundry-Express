@@ -43,14 +43,14 @@
                 <div id="ctCCLsSTSnThs" class="ctr-listStore absolute w-auto bg-white shadow-lg shadow-black/60 rounded-lg p-2 whitespace-nowrap" style="display: none">
                     @php
                         $activeThisStore = "shadow-pink-800 bg-[#FF3377] text-white";
-                        $notActiveThisStore = "shadow-gray-600 hover:text-white bg-white group-hover/store:bg-[#FF3377] group-hover/store:shadow-pink-800";
+                        $notActiveThisStore = "shadow-black/30 hover:text-white bg-white group-hover/store:bg-[#FF3377] group-hover/store:shadow-pink-800";
                         
                         $activeThisStoreSetting = "text-pink-900 group-hover/settingStore:text-pink-950";
                         $notActiveThisStoreSetting = "text-[#9D9D9D] group-hover/store:text-pink-900 group-hover/store:group-hover/settingStore:text-pink-950";
                     @endphp
                     <div id="cCLsSTrSN" class="cListStore p-2 space-y-1 overflow-y-scroll transition-all duration-500" style="height: 0;">
                         <div class="ctr-storeItm block cursor-pointer group/store">
-                            <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$activeThisStore}}">
+                            <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-sm transition-all {{$activeThisStore}}">
                                 <div class="cCStoreItm flex items-center gap-2">
                                     <div class="lftImgStore">
                                         <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-md shadow-black/50 rounded-md">
@@ -80,7 +80,7 @@
                                 <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$notActiveThisStore}}">
                                     <div class="cCStoreItm flex items-center gap-2">
                                         <div class="lftImgStore">
-                                            <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-md shadow-black/50 rounded-md">
+                                            <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-sm shadow-black/30 rounded-md">
                                                 <img src="{{ asset('assets/components/icon/layer.png') }}" alt=""
                                                     class="object-cover object-center">
                                             </div>
