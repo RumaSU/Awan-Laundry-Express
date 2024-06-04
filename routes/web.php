@@ -7,6 +7,7 @@ use App\Http\Controllers\store\myStoreController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
+use App\Http\Controllers\SettingAccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
 Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
 Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
+Route::get('/pages/users/settingaccount', [SettingAccountController::class, 'index'])->name('settingaccount.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 
 Route::view('/store/notifikasi', 'pages.stores.notifikasi.index');

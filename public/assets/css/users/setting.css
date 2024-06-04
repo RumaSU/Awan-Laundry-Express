@@ -1,0 +1,63 @@
+.setheader{
+    display: block;
+}
+.set-nav{
+
+}
+.tittle-set{
+    font-size: 18px;
+    font-weight: bolder;
+}
+.button-set{
+    display: flex;
+    width: 70%;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid rgb(223, 223, 223);
+    justify-content: center;
+    height: 40px;
+
+}
+
+.button-set .biodat{
+    display: flex;
+    border-radius: 15px 0 0 15px;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: bolder;
+}
+.button-set .alamat{
+    display: flex;
+    justify-content: center;
+    width: 34%;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: bolder;
+}
+.button-set .ubahpw{
+    display: flex;
+    border-radius: 0 15px 15px 0;
+    justify-content: center;
+    width: 33%;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.button-set button:hover{
+    background-color: #FF3377;
+    color: white;
+}
+
+
+.set-main{
+
+}
