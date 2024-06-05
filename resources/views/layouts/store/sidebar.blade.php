@@ -40,7 +40,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="ctCCLsSTSnThs" class="ctr-listStore absolute w-auto bg-white shadow-lg shadow-black/60 rounded-lg p-2 whitespace-nowrap" style="display: none">
+                <div id="ctCSdbCLsSTSnThs" class="ctr-listStore absolute w-auto bg-white shadow-lg shadow-black/60 rounded-lg p-2 whitespace-nowrap left-full top-0 z-10 lg:left-0 lg:top-auto" style="display: none">
                     @php
                         $activeThisStore = "shadow-pink-800 bg-[#FF3377] text-white";
                         $notActiveThisStore = "shadow-black/30 hover:text-white bg-white group-hover/store:bg-[#FF3377] group-hover/store:shadow-pink-800";
@@ -48,7 +48,7 @@
                         $activeThisStoreSetting = "text-pink-900 group-hover/settingStore:text-pink-950";
                         $notActiveThisStoreSetting = "text-[#9D9D9D] group-hover/store:text-pink-900 group-hover/store:group-hover/settingStore:text-pink-950";
                     @endphp
-                    <div id="cCLsSTrSN" class="cListStore p-2 space-y-1 overflow-y-scroll transition-all duration-500" style="height: 0;">
+                    <div id="cCLsSdbSTrSN" class="cListStore p-2 space-y-1 overflow-y-scroll transition-all duration-500" style="height: 0;">
                         <div class="ctr-storeItm block cursor-pointer group/store">
                             <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-sm transition-all {{$activeThisStore}}">
                                 <div class="cCStoreItm flex items-center gap-2">
@@ -58,9 +58,15 @@
                                                 class="object-cover object-center">
                                         </div>
                                     </div>
-                                    <div class="rghtNameStore text-sm md:text-lg font-light">
-                                        <div class="tx">
-                                            <p>@{{ Awan Laundry Express }}</p>
+                                    <div class="rghtNameStore md:w-60 xl:w-72 whitespace-normal">
+                                        <div class="tx text-sm md:text-lg font-light line-clamp-2">
+                                            <p>
+                                                @{{ Awan Laundry Express }}
+                                                @{{ Awan Laundry Express }}
+                                                @{{ Awan Laundry Express }}
+                                                @{{ Awan Laundry Express }}
+                                                @{{ Awan Laundry Express }}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -85,8 +91,8 @@
                                                     class="object-cover object-center">
                                             </div>
                                         </div>
-                                        <div class="rghtNameStore text-sm md:text-lg font-light">
-                                            <div class="tx">
+                                        <div class="rghtNameStore md:w-60 xl:w-72 whitespace-normal">
+                                            <div class="tx text-sm md:text-lg font-light line-clamp-2">
                                                 <p>Laundry {{$i + 1}}</p>
                                             </div>
                                         </div>

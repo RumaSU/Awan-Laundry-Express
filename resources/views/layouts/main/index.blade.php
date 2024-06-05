@@ -62,7 +62,7 @@
     <header>
         @include('layouts.main.header')
     </header>
-    <nav class="py-2 md:py-4 lg:py-6 bg-[#FFDCE8] sticky top-0 z-[9999]">
+    <nav class="py-2 md:py-4 lg:py-6 bg-[#FFDCE8] sticky top-0 z-50">
         @include('layouts.main.nav')
     </nav>
     @yield('main-content')
