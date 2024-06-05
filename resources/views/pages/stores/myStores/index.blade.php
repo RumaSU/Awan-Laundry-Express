@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="ctCCLsSTSnThs" class="ctr-listStore w-full p-2 sm:mt-2 bg-white shadow-lg shadow-black/60 sm:rounded-lg whitespace-nowrap fixed top-0 left-0 z-[60] sm:absolute sm:top-full md:left-auto transition-all duration-[2000ms] sm:h-auto h-0" style="display: none;">
+                <div id="ctCCLsSTSnThs" class="ctr-listStore w-full p-2 sm:mt-2 bg-white shadow-lg shadow-black/60 sm:rounded-lg whitespace-nowrap fixed top-0 left-0 z-[60] sm:absolute sm:top-full md:left-auto h-[100vh] sm:h-auto" style="display: none;">
                     <div class="ctr-headListStore p-2 sm:hidden">
                         <div class="cHLStore flex items-center justify-between">
                             <div class="cThX">
@@ -76,7 +76,7 @@
                         $activeThisStoreSetting = "text-pink-900 group-hover/settingStore:text-pink-950";
                         $notActiveThisStoreSetting = "text-[#9D9D9D] group-hover/store:text-pink-900 group-hover/store:group-hover/settingStore:text-pink-950";
                     @endphp
-                    <div id="cCLsSTrSN" class="cListStore p-2 space-y-1 overflow-y-scroll transition-all duration-[2000ms] h-0">
+                    <div id="cCLsSTrSN" class="cListStore p-2 space-y-1 overflow-y-scroll transition-all duration-500 h-0">
                         <div class="ctr-storeItm block cursor-pointer group/store">
                             <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-sm transition-all {{$activeThisStore}}">
                                 <div class="cCStoreItm flex items-center gap-2">

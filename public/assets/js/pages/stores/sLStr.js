@@ -18,21 +18,14 @@ $(document).ready(function () {
     let resObsContentLsStore = new ResizeObserver(entries => {
         for (let entry of entries) {
             sizeHCnLsStore = entry.contentRect.height;
-            // console.log(typeof sizeHCnLsStore);
-            
             if (!statusShowCnLsStore) {
                 if (sizeHCnLsStore < sizeCloseCntListStore) {
-                    // console.log("Hide container : " + sizeHCnLsStore);
-                    $($containerListStore).addClass("h-0");
                     $($containerListStore).removeClass("h-[100vh]");
                 }
                 if (sizeHCnLsStore < 2) {
                     $($containerListStore).hide();
                     statusShowCnLsStore = false;    
                 }
-                
-                
-                // console.log("Size height : " + sizeHCnLsStore + "    " + sizeCloseCntListStore);
             }
         }
     });
@@ -66,16 +59,15 @@ $(document).ready(function () {
         
         $($containerListStore).show();
         $($containerListStore).addClass("h-[100vh]");
-        $($containerListStore).removeClass("h-0");
         
+        $($contentListStore).removeClass("h-0");
         $($contentListStore).addClass("h-[90vh] sm:h-96");
     }
     
     function hideShowListStore() {
         $icnShwListStore.find("span").removeClass("rotate-90");
-        $($containerListStore).addClass("h-0");
         $($containerListStore).removeClass("h-[100vh]");
-                   
+        
         $($contentListStore).addClass("h-0");
         $($contentListStore).removeClass("h-[90vh] sm:h-96");
     }
@@ -86,19 +78,19 @@ $(document).ready(function () {
     
     $icnClsListStore.click((e) => {
         resetStListStore();
-    })
+    });
     
     $(document).on('mouseup', function (e) {
         if (statusShowCnLsStore) {
             if (!($($containerListStore)).is(e.target) && 
                 ($($containerListStore).has(e.target).length === 0) &&
-                ($icnShwListStore.is(e.target))) {
+                !($icnShwListStore.is(e.target))) {
                 
                 resetStListStore();
-                // console.log("Icon Click : " + $icnShwListStore.is(e.target));
-                // console.log("Content Click : " + $($containerListStore).is(e.target));
-                // console.log("Content Length : " + $($containerListStore).has(e.target).length);
             }
+            // if (!$(e.target).closest($containerListStore).length && !$(e.target).is($icnShwListStore)) {
+            //     resetStListStore();
+            // }
         }
     });
 });
