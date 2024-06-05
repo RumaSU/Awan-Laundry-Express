@@ -85,10 +85,53 @@
                     </p>
                 </div>
             </div>
-            <div class="w-1/2 h-72 flex items-center justify-end ">
-                <div class="bg-white text-[#FF3377] font-bold italic pl-8 pt-5 w-3/5 h-4/5 -mt-72 rounded-xl shadow-lg flex">
-                    CONTEN PROMO
-                </div>
+            <div class="w-[100%] h-72 flex items-center justify-end mt-[-150px] mr-[20px]">
+                <div class="cSpecialFUser">
+                    <div class="headSpecial text-xl ml-[10%]">
+                        <div class="tx text-[#FF3377] italic font-black" style="text-shadow: 0 4px 2px rgba(0, 0, 0, 0.2)">
+                            <h2>Promo Spesial Untukmu</h2>
+                        </div>
+                    </div>
+                    <div class="ctr-specialList mt-1 bg-white shadow-md mx-auto w-80 h-56 border-[3px]  p-2 rounded-xl" data-carousel="slide">
+                        <div class="cSpecialList h-full relative">
+                            <div class="ctr-cSpecialList h-full overflow-hidden box-border">
+                                <div class="cLstSpecial flex items-center h-full relative">
+                                    @php
+                                        $nowActive = "translate-x-0";
+                                        $toActive = "translate-x-full";
+                                        $notActive = "-translate-x-full";
+                                        
+                                        $intTo = 8;
+                                    @endphp
+                                    @for ($i = 0; $i < $intTo; $i++)
+                                        <a href="#item-{{$i+1}}" class="ctr-spcItm absolute w-full h-full px-2 transition-all duration-700 {{ ($i === 0) ? $nowActive : (($i === $intTo - 1) ? $notActive : $toActive) }}" data-carousel-item>
+                                            <div class="cSpecialItm h-full">
+                                                <div class="pctSpc h-full">
+                                                    <img src="{{asset('assets/img/dumb/imgtemp ' . $i+1 . '.jpg')}}" alt="" class="h-full w-full rounded-xl object-cover object-center">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    @endfor
+                                </div>
+                            </div>
+                            <div class="ctr-nxtBckSpcList text-4xl">
+                                <button type="button" class="ctr-backSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-[80] left-0 top-1/2 -translate-y-1/2" data-carousel-prev>
+                                    <div class="cBackSpecial">
+                                        <span class="icn-chevLft">
+                                            <i class="fa-solid fa-chevron-left"></i>
+                                        </span>
+                                    </div>
+                                </button>
+                                <button type="button" class="ctr-nextSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-[80] right-0 top-1/2 -translate-y-1/2" data-carousel-next>
+                                    <div class="cNextSpecial">
+                                        <span class="icn-chevLft">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </section>
         
