@@ -10,46 +10,131 @@
 @endsection
 
 @section('main-content-store')
-    <div class="ctr-summUser pt-4 pb-12 px-8 bg-gradient-to-b from-[#05B8FF] to-transparent">
-        <div class="summaryUser">
-            <div class="ctr-userProfile p-3 bg-white w-full md:w-fit rounded-md border border-[#9D9D9D] shadow-sm shadow-gray-400">
-                <div class="userProfile flex items-center justify-between relative overflow-hidden">
-                    <div class="ctr-lftPhoName flex items-center gap-4">
-                        <div class="ctr-photoUser">
-                            <div class="cPhotoUser w-20 aspect-square rounded-lg p-1.5 border-2 border-[#D9D9D9]">
-                                <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
+    <div class="ctr-summStore pt-4 pb-12 px-8 bg-gradient-to-b from-[#05B8FF] to-transparent">
+        <div class="summaryStore">
+            <div class="ctr-storeProfile p-3 bg-white w-full md:w-fit sm:rounded-md border border-[#9D9D9D] shadow-sm shadow-gray-400 sm:relative">
+                <div class="cCStoreProfile">
+                    <div class="cCCStoreProfile flex items-center justify-between relative overflow-hidden">
+                        <div class="ctr-lftPhoName flex items-center gap-4">
+                            <div class="ctr-photoStore">
+                                <div class="cPhotoStore w-20 aspect-square rounded-lg p-1.5 border-2 border-[#D9D9D9]">
+                                    <img src="{{asset('assets/components/icon/layer.png')}}" alt="" class="object-cover object-center">
+                                </div>
                             </div>
-                        </div>
-                        <div class="ctr-nameUser w-full md:w-60 xl:w-72">
-                            <div class="cNameUser md:-space-y-1">
-                                <div class="nameUser">
-                                    <div class="txNmU text-sm md:text-lg font-light line-clamp-1">
-                                        <p>
-                                            @{{Nama User}}
-                                            @{{Nama User}}
-                                        </p>
+                            <div class="ctr-nameStore w-full md:w-60 xl:w-72">
+                                <div class="cNameStore md:-space-y-1">
+                                    <div class="nameStore">
+                                        <div class="txNmU text-sm md:text-lg font-light line-clamp-1">
+                                            <p>
+                                                @{{Nama Store}}
+                                                @{{Nama Store}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="emailStore">
+                                        <div class="txEmU text-xs md:text-sm line-clamp-1">
+                                            <p>@{{emailStore@gmail.com}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="emailUser">
-                                    <div class="txEmU text-xs md:text-sm line-clamp-1">
-                                        <p>@{{emailuser@gmail.com}}</p>
+                            </div>
+                        </div>
+                        <div class="ctr-rghtShwLsStr absolute  sm:relative top-0 right-0">
+                            <div class="ctr-showLstStr">
+                                <div class="cShowLstStr-icn">
+                                    <div id="icnClSLSt" class="icnshowLstStrs flex items-center justify-center w-10 md:w-14 cursor-pointer aspect-square bg-white border border-[#9D9D9D] rounded-lg relative">
+                                        <span class="icn text-gray-700 text-xl md:text-2xl lg:text-3xl transition-all absolute">
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="ctr-rghtSett absolute  sm:relative top-0 right-0">
-                        <div class="ctr-setting">
-                            <div class="cSetting">
-                                <a href="" class="flex items-center justify-center w-10 md:w-14 aspect-square bg-white border border-[#9D9D9D] rounded-lg">
-                                    <div class="icn">
-                                        <span class="icnSettings text-[#9D9D9D] text-xl md:text-2xl lg:text-3xl">
-                                            <i class="fa-solid fa-gear"></i>
-                                        </span>
+                </div>
+                <div id="ctCCLsSTSnThs" class="ctr-listStore w-full p-2 sm:mt-2 bg-white shadow-lg shadow-black/60 sm:rounded-lg whitespace-nowrap fixed top-0 left-0 z-[60] sm:absolute sm:top-full md:left-auto transition-all duration-[2000ms] sm:h-auto h-0" style="display: none;">
+                    <div class="ctr-headListStore p-2 sm:hidden">
+                        <div class="cHLStore flex items-center justify-between">
+                            <div class="cThX">
+                                <div class="thX lg:text-lg">
+                                    <strong>Daftar Toko</strong>
+                                </div>
+                            </div>
+                            <div class="clsShwLStr">
+                                <div class="icn">
+                                    <span id="clckThsCShwStr" class="p-2 cursor-pointer rounded-lg">
+                                        <i class="fa-solid fa-x text-lg"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                        $activeThisStore = "shadow-pink-800 bg-[#FF3377] text-white";
+                        $notActiveThisStore = "shadow-black/30 hover:text-white bg-white group-hover/store:bg-[#FF3377] group-hover/store:shadow-pink-800";
+                        
+                        $activeThisStoreSetting = "text-pink-900 group-hover/settingStore:text-pink-950";
+                        $notActiveThisStoreSetting = "text-[#9D9D9D] group-hover/store:text-pink-900 group-hover/store:group-hover/settingStore:text-pink-950";
+                    @endphp
+                    <div id="cCLsSTrSN" class="cListStore p-2 space-y-1 overflow-y-scroll transition-all duration-[2000ms] h-0">
+                        <div class="ctr-storeItm block cursor-pointer group/store">
+                            <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-sm transition-all {{$activeThisStore}}">
+                                <div class="cCStoreItm flex items-center gap-2">
+                                    <div class="lftImgStore">
+                                        <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-md shadow-black/50 rounded-md">
+                                            <img src="{{ asset('assets/components/icon/layer.png') }}" alt=""
+                                                class="object-cover object-center">
+                                        </div>
+                                    </div>
+                                    <div class="rghtNameStore md:w-60 xl:w-72 whitespace-normal">
+                                        <div class="tx  text-sm md:text-lg font-light line-clamp-2">
+                                            <p>
+                                                @{{ Awan Laundry Express }}
+                                                @{{ Awan Laundry Express }}
+                                                @{{ Awan Laundry Express }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="" class="toSettTStore block relative group/settingStore">
+                                    <div class="stngTStore">
+                                        <div class="icn">
+                                            <span class="icnSettings {{$activeThisStoreSetting}} text-lg md:text-xl lg:text-2xl transition-all">
+                                                <i class="fa-solid fa-gear"></i>
+                                            </span>
+                                        </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
+                        @for ($i = 0; $i < 10; $i++)
+                            <div class="ctr-storeItm block cursor-pointer group/store">
+                                <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$notActiveThisStore}}">
+                                    <div class="cCStoreItm flex items-center gap-2">
+                                        <div class="lftImgStore">
+                                            <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-sm shadow-black/30 rounded-md">
+                                                <img src="{{ asset('assets/components/icon/layer.png') }}" alt=""
+                                                    class="object-cover object-center">
+                                            </div>
+                                        </div>
+                                        <div class="rghtNameStore text-sm md:text-lg font-light">
+                                            <div class="tx">
+                                                <p>Laundry {{$i + 1}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="" class="toSettTStore block relative group/settingStore">
+                                        <div class="stngTStore">
+                                            <div class="icn">
+                                                <span class="icnSettings {{$notActiveThisStoreSetting}} text-lg md:text-xl lg:text-2xl transition-all">
+                                                    <i class="fa-solid fa-gear"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endfor
                     </div>
                 </div>
             </div>
@@ -137,5 +222,6 @@
 @endsection
 
 @section('script-field')
+    <script src="{{asset('assets/js/pages/stores/sLStr.js')}}"></script>
     {{-- <script src="{{asset('assets/js/pages/users/myAccount/autoSwipeSpecial.js')}}"></script> --}}
 @endsection
