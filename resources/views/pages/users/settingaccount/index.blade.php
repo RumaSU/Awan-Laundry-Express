@@ -176,7 +176,88 @@
             </div>
         </div>
         <div class="set-main">
+            <div class="main-biodata">
+                <div class="bd-profil">
+                    <div class="foto-profil">
+                        <img src="{{asset('assets/components/icon/layer.png')}}" alt="">
+                    </div>
+                    <div class="pilih-profil">
+                        <button type="button">Pilih Profil</button>
+                    </div>
+                    <div class="warning-profil">
+                        <p>Maksimal file diunggah 10 MB (Megabytes)</p>
+                        <P>Type File : JPG, PNG, JPEG</P>
+                    </div>
+                </div>
+                <div class="bd-edit">
+                    <div class="table-bd">
+                        <div class="judul-bio">
+                            <p>Ubah Biodata Diri</p>
+                        </div>
+                        <table class="biodatadiri" border: 1>
+                            <tr>
+                                <td class="kolom1">Nama</td>
+                                <td class="kolom2">Nama User</td>
+                                <td class="kolom3">
+                                    <div class="edit">
+                                        <p>Ubah</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="kolom1">Jenis Kelamin</td>
+                                <td>Laki-Laki</td>
+                                <td>
+                                    <div class="edit">
+                                        <p>Ubah</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="kolom1">Tanggal Lahir</td>
+                                <td>19 Desember 2024</td>
+                                <td>
+                                    <div class="edit">
+                                        <p>Ubah</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                    <div class="table-kontak">
+                        <div class="judul-kontak">
+                            <p>Ubah Kontak</p>
+                        </div>
+                        <table class="kontak" border: 1>
+                            <tr>
+                                <td class="kolom1">Email</td>
+                                <td class="kolom2">emailuser123@gmail.com</td>
+                                <td>
+                                    <div class="edit">
+                                        <p>Ubah</p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="kolom1">No Handphone</td>
+                                <td>081234567890</td>
+                                <td>
+                                    <div class="edit">
+                                        <p>Ubah</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="main-alamat">
 
+            </div>
+            <div class="main-ubahpw">
+
+            </div>
         </div>
     </div>
     
