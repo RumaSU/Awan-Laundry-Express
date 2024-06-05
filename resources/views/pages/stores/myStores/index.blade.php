@@ -138,7 +138,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ctrMonyPromo mt-4 flex flex-col lg:flex-row gap-4">
+            <div class="ctrMoneyOutIn mt-4 flex flex-col lg:flex-row gap-4">
                 <div class="ctr-moneyOut bg-white lg:w-fit overflow-hidden rounded-md">
                     <div class="cMoneyOut *:select-none">
                         <div class="ctr-labelMoneyOut p-3 flex items-center gap-4">
@@ -177,36 +177,78 @@
                         </div>
                     </div>
                 </div>
-                <div class="ctr-promo bg-[#B96F00] lg:w-fit overflow-hidden rounded-md shadow-sm hover:shadow-gray-400">
-                    <div class="cPromo select-none">
-                        <div class="ctr-labelPromo p-3 flex items-center gap-4">
-                            <div class="ctr-iconOut">
-                                <div class="cIconOut flex items-center justify-center w-14 aspect-square bg-[#EB8E02] rounded-lg">
-                                    <div class="icnOut">
-                                        <span class="icn text-[#6F4200] text-3xl">
-                                            <i class="fa-solid fas fa-bullhorn"></i>
+                <div class="ctr-moneyIn bg-white lg:w-fit overflow-hidden rounded-md">
+                    <div class="cMoneyIn *:select-none">
+                        <div class="ctr-labelMoneyIn p-3 flex items-center gap-4">
+                            <div class="ctr-iconIn">
+                                <div class="cIconIn flex items-center justify-center w-14 aspect-square bg-[#0099FF] rounded-lg">
+                                    <div class="icnIn">
+                                        <span class="icn text-white text-3xl">
+                                            <i class="fa-solid fa-arrow-down-long"></i>
                                         </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="ctr-labelOut w-40 md:w-52 xl:w-64">
-                                <div class="cLabelOut">
-                                    <div class="labelOut -space-y-2 text-[#FFDFAF]">
+                            <div class="ctr-labelIn w-40 md:w-52 xl:w-64">
+                                <div class="cLabelIn">
+                                    <div class="labelIn -space-y-1 md:-space-y-2 text-[#747474]">
                                         <div class="tx-lblT">
-                                            <div class="txT text-base md:text-lg">
-                                                <p>Promo</p>
+                                            <div class="txT text-xs md:text-sm">
+                                                <p>Catatan Keuangan</p>
+                                            </div>
+                                        </div>
+                                        <div class="tx-lblB">
+                                            <div class="txB text-base md:text-lg">
+                                                <p>Uang Masuk</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="ctr-totalPromo flex justify-end">
-                            <div class="cTotalPromo w-4/5 bg-[#FFC978] px-1.5 py-2 rounded-tl-3xl">
-                                <div class="txTotalPromo text-[#500A00] text-sm md:text-base lg:text-lg font-bold">
-                                    <a href="" class="float-right">
-                                        <p>@{{5}} Promo</p>
-                                    </a>
+                        <div class="ctr-totalMoney flex justify-end">
+                            <div class="cTotalMoney w-4/5 bg-[#8DCCF7] px-1.5 py-2 rounded-tl-3xl">
+                                <div class="txTotalMoney text-[#0f283f] text-sm md:text-base lg:text-lg text-right font-bold">
+                                    <p>Rp @{{800.000}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ctr-promoStoreHv mt-4">
+                <div class="cPromoStoreHv">
+                    <div class="ctr-promo bg-[#B96F00] overflow-hidden rounded-md shadow-sm hover:shadow-gray-400">
+                        <div class="cPromo select-none">
+                            <div class="ctr-labelPromo p-3 flex items-center gap-4">
+                                <div class="ctr-iconOut">
+                                    <div class="cIconOut flex items-center justify-center w-14 aspect-square bg-[#EB8E02] rounded-lg">
+                                        <div class="icnOut">
+                                            <span class="icn text-[#6F4200] text-3xl">
+                                                <i class="fa-solid fas fa-bullhorn"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ctr-labelOut w-40 md:w-52 xl:w-64">
+                                    <div class="cLabelOut">
+                                        <div class="labelOut -space-y-2 text-[#FFDFAF]">
+                                            <div class="tx-lblT">
+                                                <div class="txT text-base md:text-lg">
+                                                    <p>Promo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ctr-totalPromo flex justify-end">
+                                <div class="cTotalPromo w-4/5 bg-[#FFC978] px-1.5 py-2 rounded-tl-3xl">
+                                    <div class="txTotalPromo text-[#500A00] text-sm md:text-base lg:text-lg font-bold">
+                                        <a href="" class="float-right">
+                                            <p>@{{5}} Promo</p>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
