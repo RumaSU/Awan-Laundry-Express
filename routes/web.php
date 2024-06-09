@@ -34,18 +34,20 @@ Route::get('/login', [LoginController::class, 'loginIndex'])->name('loginIndex')
 Route::post('/login', [LoginController::class, 'loginPost'])->name('loginPost');
 Route::get('/register', [RegisterController::class, 'registerIndex'])->name('registerIndex');
 Route::post('/register', [RegisterController::class, 'registerPost'])->name('registerPost');
-Route::get('/lupa_password', [ForgotPWController::class, 'forgotindex'])->name('forgot_password');
+Route::get('/forgot_password', [ForgotPWController::class, 'forgotindex'])->name('forgot_password');
 
 Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
 Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
 Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
+Route::view('/user/coba', 'pages.users.homepage.coba')->name('user\coba');
 Route::get('/user/transaction', [myTransactionController::class, 'index'])->name('user\myTransaction');
 Route::get('/pages/users/settingaccount', [SettingAccountController::class, 'index'])->name('settingaccount.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 
-Route::view('/store/notifikasi', 'pages.stores.notifikasi.index');
-Route::view('/store/pengaturan', 'pages.stores.pengaturan.index');
+Route::view('/store/notification', 'pages.stores.notifikasi.index');
+Route::view('/store/setting', 'pages.stores.pengaturan.index');
 
 Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
 Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
+

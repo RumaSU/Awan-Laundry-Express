@@ -1,0 +1,120 @@
+.EditToko {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.toko-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ctr-toko {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ctr-toko h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.ctr-toko p {
+    color: #666;
+    margin-bottom: 10px;
+}
+.ctr-toko input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.ctr-toko button {
+    background-color: #D42A63;
+    color: white;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 4px;
+}
+.ctr-toko button:hover {
+    background-color: #C2185B;
+}
+
+.keterangan {
+    margin-bottom: 15px;
+}
+.keterangan label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.keterangan input[type="text"],
+.keterangan textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+.keterangan select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.rt-rw-container {
+    display: flex;
+    gap: 10px;
+    /* justify-content: space-between; */
+}
+
+.rt-container, .rw-container {
+    width: 20%; /* Menyesuaikan lebar agar sejajar */
+}
+
+.rt-container label, .rw-container label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.rt-container input, .rw-container input {
+    width: 100%;
+    padding: 4px;
+    box-sizing: border-box;
+}
+

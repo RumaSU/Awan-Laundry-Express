@@ -8,6 +8,10 @@
 @section('head-link-field')
 <link rel="stylesheet" href="{{ asset('assets/css/page/homepage_promo.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/page/homepage_transaksi.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/page/homepage_semuaStatus.css') }}">
+{{-- <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”rel=”nofollow” integritas=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ 4Saya” crossorigin=”anonim”>
+<skrip src=”https://cdn.jsdelivr.net/npm/ popper.js@1.16.0 /dist/umd/popper.min.js” integritas=”sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo” crossorigin=”anonim”> </skrip>
+<skrip src=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js” integritas=”sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/” crossorigin=”anonymous”></script > --}}
 @endsection
 
 @section('head-style-field')
@@ -216,10 +220,13 @@
     <div class="container-promo my-20">
         <h1><b>PROMO LAUNDRY</b></h1>
         <br>
-        <div class="filter-bar" style="justify-content: center; align-items: center;">
-            <div class="filter" style=" margin-right: 10px;">
-                <button class="filter-button" style="padding: 10px 60px;">Filter Berdasarkan Periode</button>
-                <div class="dropdown-content">
+        <div class="filter-bar-promo" style="justify-content: center; align-items: center;">
+            <div class="filter-promo" style=" margin-right: 10px;">
+                <button class="filter-button-promo" style="padding: 10px 60px;">
+                    Filter Berdasarkan Periode
+                    <span class="arrow-promo">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-promo">
                     <a href="#">Periode 1</a>
                     <a href="#">Periode 2</a>
                     <a href="#">Periode 3</a>
@@ -316,22 +323,22 @@
         <div class="promo-cards">
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
         </div>
@@ -340,21 +347,159 @@
     <div class="container-transaksi mt-20">
         <h1><b>RIWAYAT TRANSAKSI</b></h1>
         <br>
-        <div class="filter-bar">
-            <button class="filter-button">Semua Status</button>
-            <button class="filter-button">Semua Layanan</button>
-            <button class="filter-button">Semua Tanggal</button>
+        <div class="filter-bar-transaksi">
+            {{-- <div class="filter-transaksi">
+                <button class="filter-button-transaksi-pertama"><b>Semua Status</b>
+                    <span class="arrow-transaksi-pertama">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-transaksi-pertama">
+                        <a href="#" class="option">Semua Status</a>
+                        <a href="#" class="option">Semua Transaksi Berlangsung</a>
+                        <a href="#" class="option">Menunggu Konfirmasi</a>
+                        <a href="#" class="option">Diproses</a>
+                        <a href="#" class="option">Dikirim</a>
+                        <a href="#" class="option">Tiba di Tujuan</a>
+                        <a href="#" class="option">Berhasil</a>
+                        <a href="#" class="option">Tidak Berhasil</a>
+                </div>
+            </div> --}}
+            <div class="filter-transaksi">
+                <button class="filter-button-transaksi-pertama"><b>Semua Status</b>
+                    <span class="arrow-transaksi-pertama">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-transaksi-pertama">
+                    <div class="radio">
+                        <label for="all-status">Semua Status</label>
+                        <input type="radio" name="transaction-status" id="all-status" checked>
+                    </div>
+                    <div class="radio">
+                        <label for="ongoing-transactions">Semua Transaksi Berlangsung</label>
+                        <input type="radio" name="transaction-status" id="ongoing-transactions">
+                    </div>
+                    <div class="radio">
+                        <label for="waiting-confirmation">Menunggu Konfirmasi</label>
+                        <input type="radio" name="transaction-status" id="waiting-confirmation">
+                    </div>
+                    <div class="radio">
+                        <label for="processed">Diproses</label>
+                        <input type="radio" name="transaction-status" id="processed">
+                    </div>
+                    <div class="radio">
+                        <label for="shipped">Dikirim</label>
+                        <input type="radio" name="transaction-status" id="shipped">
+                    </div>
+                    <div class="radio">
+                        <label for="arrived">Tiba di Tujuan</label>
+                        <input type="radio" name="transaction-status" id="arrived">
+                    </div>
+                    <div class="radio">
+                        <label for="successful">Berhasil</label>
+                        <input type="radio" name="transaction-status" id="successful">
+                    </div>
+                    <div class="radio">
+                        <label for="unsuccessful">Tidak Berhasil</label>
+                        <input type="radio" name="transaction-status" id="unsuccessful">
+                    </div>
+                </div>
+            </div>
+
+
+            {{-- <div class="filter-transaksi">
+                <button class="filter-button-transaksi-dua"><b>Semua Layanan</b>
+                    <span class="arrow-transaksi-dua">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-transaksi-dua">
+                    <a href="#" class="option">Semua Layanan</a>
+                    <a href="#" class="option">Kiloan</a>
+                    <a href="#" class="option">Satuan</a>
+                </div>
+            </div> --}}
+            <div class="filter-transaksi">
+                <button class="filter-button-transaksi-dua"><b>Semua Layanan</b>
+                    <span class="arrow-transaksi-dua">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-transaksi-dua">
+                    <div class="radio">
+                        <label for="all-services">Semua Layanan</label>
+                        <input type="radio" name="service-type" id="all-services" checked>
+                    </div>
+                    <div class="radio">
+                        <label for="kiloan">Kiloan</label>
+                        <input type="radio" name="service-type" id="kiloan">
+                    </div>
+                    <div class="radio">
+                        <label for="satuan">Satuan</label>
+                        <input type="radio" name="service-type" id="satuan">
+                    </div>
+                </div>
+            </div>
+
+
+            {{-- <div class="filter-transaksi">
+                <button class="filter-button-transaksi-tiga"><b>Semua Tanggal</b>
+                    <span class="arrow-transaksi-tiga">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-transaksi-tiga">
+                    <a href="#" class="option">Semua Transaksi</a>
+                    <a href="#" class="option">Kurang Dari 30 Hari</a>
+                    <a href="#" class="option">Lebih Dari 30 Hari</a>
+                    <a href="#" class="option">Pilih Tanggal</a>
+                </div>
+            </div> --}}
+            <div class="filter-transaksi">
+                <button class="filter-button-transaksi-tiga"><b>Semua Tanggal</b>
+                    <span class="arrow-transaksi-tiga">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-transaksi-tiga">
+                    <div class="radio">
+                        <label for="all-transactions">Semua Transaksi</label>
+                        <input type="radio" name="date-range" id="all-transactions" checked>
+                    </div>
+                    <div class="radio">
+                        <label for="less-than-30">Kurang Dari 30 Hari</label>
+                        <input type="radio" name="date-range" id="less-than-30">
+                    </div>
+                    <div class="radio">
+                        <label for="more-than-30">Lebih Dari 30 Hari</label>
+                        <input type="radio" name="date-range" id="more-than-30">
+                    </div>
+                    <div class="radio">
+                        <label for="custom-dates">Pilih Tanggal</label>
+                        <input type="radio" name="date-range" id="custom-dates">
+                    </div>
+                    {{-- <div class="date" id="custom-date-range" style="display:none;">
+                        <label for="start-date">Mulai dari</label>
+                        <input type="date" id="start-date" value="">
+                        <i class="fas fa-calendar-alt"></i>
+                        <label for="end-date">Sampai</label>
+                        <input type="date" id="end-date" value="">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div> --}}
+                    <div class="date" id="custom-date-range" style="display:none;">
+                        <label for="start-date">Mulai dari
+                            <input type="date" id="start-date" value="">
+                        </label>
+                        <label for="end-date">Sampai
+                            <input type="date" id="end-date" value="">
+                        </label>
+                        {{-- <i class="fas fa-calendar-alt"></i> --}}
+                    </div>
+
+                </div>
+            </div>
+
+
         </div>
         <div class="transaction-card">
             <div class="transaction-info">
                 <div class="transaction-icon"></div>
                 <div class="transaction-details">
-                    <p class="transaction-type">Belanja</p>
+                    <p class="transaction-type"><b>Belanja</b></p>
                     <p class="transaction-date">25 Mar 2024</p>
-                    <p class="transaction-description">Pemesanan jasa Kiloan dan Satuan</p>
+                    <p class="transaction-description"><b>Pemesanan jasa Kiloan dan Satuan</b></p>
                     <p class="transaction-items">2 Jenis (Kiloan dan Satuan)</p>
                     <p class="transaction-total">Total Belanja</p>
-                    <p class="transaction-amount">Rp. 218958192571</p>
+                    <p class="transaction-amount"><b>Rp. 218958192571</b></p>
                 </div>
             </div>
             <div class="transaction-actions">
@@ -366,12 +511,12 @@
             <div class="transaction-info">
                 <div class="transaction-icon"></div>
                 <div class="transaction-details">
-                    <p class="transaction-type">Belanja</p>
+                    <p class="transaction-type"><b>Belanja</b></p>
                     <p class="transaction-date">25 Mar 2024</p>
-                    <p class="transaction-description">Pemesanan jasa Kiloan dan Satuan</p>
+                    <p class="transaction-description"><b>Pemesanan jasa Kiloan dan Satuan</b></p>
                     <p class="transaction-items">2 Jenis (Kiloan dan Satuan)</p>
                     <p class="transaction-total">Total Belanja</p>
-                    <p class="transaction-amount">Rp. 218958192571</p>
+                    <p class="transaction-amount"><b>Rp. 218958192571</b></p>
                 </div>
             </div>
             <div class="transaction-actions">
@@ -460,21 +605,284 @@
 
 
 @section('script-field')
+{{-- pertama --}}
 {{-- <script>
     document.addEventListener('DOMContentLoaded', function() {
-        var filterButton = document.getElementById('filterButton');
-        var dropdownContent = document.getElementById('dropdownContent');
+        var filterButton = document.querySelector('.filter-button-promo');
+        var dropdownContent = document.querySelector('.dropdown-content-promo');
+        var arrow = document.querySelector('.arrow-promo');
 
-        filterButton.onclick = function(event) {
-            event.stopPropagation();
-            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-        };
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.filter-button')) {
-                dropdownContent.style.display = 'none';
+        filterButton.addEventListener('click', function() {
+            if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+                dropdownContent.style.display = "block";
+                arrow.innerHTML = "&#x25BC;"; // Panah ke bawah
+            } else {
+                dropdownContent.style.display = "none";
+                arrow.innerHTML = "&#x25B6;"; // Panah ke samping
             }
-        };
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!filterButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+                dropdownContent.style.display = "none";
+                arrow.innerHTML = "&#x25B6;"; // Panah ke samping
+            }
+        });
     });
 </script> --}}
+
+{{-- kedua --}}
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var filterButtonsTransaksi = document.querySelectorAll('.filter-button-transaksi-pertama');
+        var dropdownsTransaksi = document.querySelectorAll('.dropdown-content-transaksi-pertama');
+        var arrowsTransaksi = document.querySelectorAll('.arrow-transaksi-pertama');
+
+        filterButtonsTransaksi.forEach(function(button, index) {
+            button.addEventListener('click', function() {
+                dropdownsTransaksi[index].style.display = (dropdownsTransaksi[index].style.display === "none" || dropdownsTransaksi[index].style.display === "") ? "block" : "none";
+                arrowsTransaksi[index].innerHTML = (dropdownsTransaksi[index].style.display === "none" || dropdownsTransaksi[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            filterButtonsTransaksi.forEach(function(button, index) {
+                if (!button.contains(event.target) && !dropdownsTransaksi[index].contains(event.target)) {
+                    dropdownsTransaksi[index].style.display = "none";
+                    arrowsTransaksi[index].innerHTML = "&#x25B6;";
+                }
+            });
+        });
+
+        var filterButtonPromo = document.querySelector('.filter-button-promo');
+        var dropdownContentPromo = document.querySelector('.dropdown-content-promo');
+        var arrowPromo = document.querySelector('.arrow-promo');
+
+        filterButtonPromo.addEventListener('click', function() {
+            if (dropdownContentPromo.style.display === "none" || dropdownContentPromo.style.display === "") {
+                dropdownContentPromo.style.display = "block";
+                arrowPromo.innerHTML = "&#x25BC;"; // Panah ke bawah
+            } else {
+                dropdownContentPromo.style.display = "none";
+                arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!filterButtonPromo.contains(event.target) && !dropdownContentPromo.contains(event.target)) {
+                dropdownContentPromo.style.display = "none";
+                arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+            }
+        });
+    });
+</script> --}}
+
+{{-- ketiga --}}
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Logic for dropdown pertama
+    var filterButtonsTransaksiPertama = document.querySelectorAll('.filter-button-transaksi-pertama');
+    var dropdownsTransaksiPertama = document.querySelectorAll('.dropdown-content-transaksi-pertama');
+    var arrowsTransaksiPertama = document.querySelectorAll('.arrow-transaksi-pertama');
+
+    filterButtonsTransaksiPertama.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            dropdownsTransaksiPertama[index].style.display = (dropdownsTransaksiPertama[index].style.display === "none" || dropdownsTransaksiPertama[index].style.display === "") ? "block" : "none";
+            arrowsTransaksiPertama[index].innerHTML = (dropdownsTransaksiPertama[index].style.display === "none" || dropdownsTransaksiPertama[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        filterButtonsTransaksiPertama.forEach(function(button, index) {
+            if (!button.contains(event.target) && !dropdownsTransaksiPertama[index].contains(event.target)) {
+                dropdownsTransaksiPertama[index].style.display = "none";
+                arrowsTransaksiPertama[index].innerHTML = "&#x25B6;";
+            }
+        });
+    });
+
+    // Logic for dropdown kedua (Semua Layanan)
+    var filterButtonsTransaksiDua = document.querySelectorAll('.filter-button-transaksi-dua');
+    var dropdownsTransaksiDua = document.querySelectorAll('.dropdown-content-transaksi-dua');
+    var arrowsTransaksiDua = document.querySelectorAll('.arrow-transaksi-dua');
+
+    filterButtonsTransaksiDua.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            dropdownsTransaksiDua[index].style.display = (dropdownsTransaksiDua[index].style.display === "none" || dropdownsTransaksiDua[index].style.display === "") ? "block" : "none";
+            arrowsTransaksiDua[index].innerHTML = (dropdownsTransaksiDua[index].style.display === "none" || dropdownsTransaksiDua[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        filterButtonsTransaksiDua.forEach(function(button, index) {
+            if (!button.contains(event.target) && !dropdownsTransaksiDua[index].contains(event.target)) {
+                dropdownsTransaksiDua[index].style.display = "none";
+                arrowsTransaksiDua[index].innerHTML = "&#x25B6;";
+            }
+        });
+    });
+
+    // Logic for dropdown ketiga (Semua Tanggal)
+    var filterButtonsTransaksiTiga = document.querySelectorAll('.filter-button-transaksi-tiga');
+    var dropdownsTransaksiTiga = document.querySelectorAll('.dropdown-content-transaksi-tiga');
+    var arrowsTransaksiTiga = document.querySelectorAll('.arrow-transaksi-tiga');
+
+    filterButtonsTransaksiTiga.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            dropdownsTransaksiTiga[index].style.display = (dropdownsTransaksiTiga[index].style.display === "none" || dropdownsTransaksiTiga[index].style.display === "") ? "block" : "none";
+            arrowsTransaksiTiga[index].innerHTML = (dropdownsTransaksiTiga[index].style.display === "none" || dropdownsTransaksiTiga[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        filterButtonsTransaksiTiga.forEach(function(button, index) {
+            if (!button.contains(event.target) && !dropdownsTransaksiTiga[index].contains(event.target)) {
+                dropdownsTransaksiTiga[index].style.display = "none";
+                arrowsTransaksiTiga[index].innerHTML = "&#x25B6;";
+            }
+        });
+    });
+
+    // Logic for dropdown promo
+    var filterButtonPromo = document.querySelector('.filter-button-promo');
+    var dropdownContentPromo = document.querySelector('.dropdown-content-promo');
+    var arrowPromo = document.querySelector('.arrow-promo');
+
+    filterButtonPromo.addEventListener('click', function() {
+        if (dropdownContentPromo.style.display === "none" || dropdownContentPromo.style.display === "") {
+            dropdownContentPromo.style.display = "block";
+            arrowPromo.innerHTML = "&#x25BC;"; // Panah ke bawah
+        } else {
+            dropdownContentPromo.style.display = "none";
+            arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+        }
+    });
+
+    window.addEventListener('click', function(event) {
+        if (!filterButtonPromo.contains(event.target) && !dropdownContentPromo.contains(event.target)) {
+            dropdownContentPromo.style.display = "none";
+            arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+        }
+    });
+});
+
+</script> --}}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Logic for dropdown pertama
+    var filterButtonsTransaksiPertama = document.querySelectorAll('.filter-button-transaksi-pertama');
+    var dropdownsTransaksiPertama = document.querySelectorAll('.dropdown-content-transaksi-pertama');
+    var arrowsTransaksiPertama = document.querySelectorAll('.arrow-transaksi-pertama');
+
+    filterButtonsTransaksiPertama.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            dropdownsTransaksiPertama[index].style.display = (dropdownsTransaksiPertama[index].style.display === "none" || dropdownsTransaksiPertama[index].style.display === "") ? "block" : "none";
+            arrowsTransaksiPertama[index].innerHTML = (dropdownsTransaksiPertama[index].style.display === "none" || dropdownsTransaksiPertama[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        filterButtonsTransaksiPertama.forEach(function(button, index) {
+            if (!button.contains(event.target) && !dropdownsTransaksiPertama[index].contains(event.target)) {
+                dropdownsTransaksiPertama[index].style.display = "none";
+                arrowsTransaksiPertama[index].innerHTML = "&#x25B6;";
+            }
+        });
+    });
+
+    // Logic for dropdown kedua (Semua Layanan)
+    var filterButtonsTransaksiDua = document.querySelectorAll('.filter-button-transaksi-dua');
+    var dropdownsTransaksiDua = document.querySelectorAll('.dropdown-content-transaksi-dua');
+    var arrowsTransaksiDua = document.querySelectorAll('.arrow-transaksi-dua');
+
+    filterButtonsTransaksiDua.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            dropdownsTransaksiDua[index].style.display = (dropdownsTransaksiDua[index].style.display === "none" || dropdownsTransaksiDua[index].style.display === "") ? "block" : "none";
+            arrowsTransaksiDua[index].innerHTML = (dropdownsTransaksiDua[index].style.display === "none" || dropdownsTransaksiDua[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        filterButtonsTransaksiDua.forEach(function(button, index) {
+            if (!button.contains(event.target) && !dropdownsTransaksiDua[index].contains(event.target)) {
+                dropdownsTransaksiDua[index].style.display = "none";
+                arrowsTransaksiDua[index].innerHTML = "&#x25B6;";
+            }
+        });
+    });
+
+    // Logic for dropdown ketiga (Semua Tanggal)
+    var filterButtonsTransaksiTiga = document.querySelectorAll('.filter-button-transaksi-tiga');
+    var dropdownsTransaksiTiga = document.querySelectorAll('.dropdown-content-transaksi-tiga');
+    var arrowsTransaksiTiga = document.querySelectorAll('.arrow-transaksi-tiga');
+
+    filterButtonsTransaksiTiga.forEach(function(button, index) {
+        button.addEventListener('click', function() {
+            dropdownsTransaksiTiga[index].style.display = (dropdownsTransaksiTiga[index].style.display === "none" || dropdownsTransaksiTiga[index].style.display === "") ? "block" : "none";
+            arrowsTransaksiTiga[index].innerHTML = (dropdownsTransaksiTiga[index].style.display === "none" || dropdownsTransaksiTiga[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        filterButtonsTransaksiTiga.forEach(function(button, index) {
+            if (!button.contains(event.target) && !dropdownsTransaksiTiga[index].contains(event.target)) {
+                dropdownsTransaksiTiga[index].style.display = "none";
+                arrowsTransaksiTiga[index].innerHTML = "&#x25B6;";
+            }
+        });
+    });
+
+    // Logic for dropdown promo
+    var filterButtonPromo = document.querySelector('.filter-button-promo');
+    var dropdownContentPromo = document.querySelector('.dropdown-content-promo');
+    var arrowPromo = document.querySelector('.arrow-promo');
+
+    filterButtonPromo.addEventListener('click', function() {
+        if (dropdownContentPromo.style.display === "none" || dropdownContentPromo.style.display === "") {
+            dropdownContentPromo.style.display = "block";
+            arrowPromo.innerHTML = "&#x25BC;"; // Panah ke bawah
+        } else {
+            dropdownContentPromo.style.display = "none";
+            arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+        }
+    });
+
+    window.addEventListener('click', function(event) {
+        if (!filterButtonPromo.contains(event.target) && !dropdownContentPromo.contains(event.target)) {
+            dropdownContentPromo.style.display = "none";
+            arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+        }
+    });
+
+    // Logic for custom date range display
+    const customDates = document.getElementById("custom-date-range");
+        const customDatesRadio = document.getElementById("custom-dates");
+
+        customDatesRadio.addEventListener("change", () => {
+            if (customDatesRadio.checked) {
+                customDates.style.display = "flex";
+            } else {
+                customDates.style.display = "none";
+            }
+        });
+
+        const dateRangeRadios = document.querySelectorAll('input[name="date-range"]');
+        dateRangeRadios.forEach(function(radio) {
+            radio.addEventListener('change', function() {
+                if (this.id === "custom-dates" && this.checked) {
+                    customDates.style.display = "flex";
+                } else {
+                    customDates.style.display = "none";
+                }
+            });
+        });
+});
+</script>
+
+</script>
+
+
+
+
 @endsection

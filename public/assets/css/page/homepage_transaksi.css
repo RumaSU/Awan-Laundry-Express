@@ -11,7 +11,7 @@ body {
     padding: 20px;
 }
 
-h1 {
+.container-transaksi h1 {
     text-align: center;
     font-size: 2em;
     margin-bottom: 20px;
@@ -23,7 +23,36 @@ h1 {
     margin-bottom: 20px;
 }
 
-.filter-button {
+.dropdown-content-transaksi-pertama {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content-transaksi-pertama .radio {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-content-transaksi-pertama a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-transaksi-pertama a:hover {
+    background-color: #f1f1f1;
+}
+
+.filter-button-transaksi-pertama {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -31,6 +60,24 @@ h1 {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     margin: 0 10px;
+}
+
+.filter-bar-transaksi {
+    display: flex;
+    justify-content: center; /* Posisikan di tengah */
+    align-items: center; /* Vertikal align tengah */
+    margin-bottom: 20px;
+}
+
+.filter-transaksi {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px; /* Spasi antara filter dan tombol */
+}
+
+.arrow-transaksi-pertama {
+    margin-left: 10px;
+    transition: transform 0.3s;
 }
 
 .transaction-card {
@@ -90,4 +137,125 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.dropdown-content-transaksi-dua {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content-transaksi-dua .radio {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-content-transaksi-dua a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-transaksi-dua a:hover {
+    background-color: #f1f1f1;
+}
+
+.filter-button-transaksi-dua {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.arrow-transaksi-dua {
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.dropdown-content-transaksi-tiga {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content-transaksi-tiga .radio {
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown-content-transaksi-tiga a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-transaksi-tiga a:hover {
+    background-color: #f1f1f1;
+}
+
+.filter-button-transaksi-tiga {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.arrow-transaksi-tiga {
+    margin-left: 10px;
+    transition: transform 0.3s;
+}
+
+.radio input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ff007f;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio input[type="radio"]:checked::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff007f;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.date label {
+    margin-right: 10px; /* Menambahkan jarak antara elemen label */
+}
+
+.date input[type="date"] {
+    font-size: 14px; /* Atur ukuran teks */
+    width: 120px; /* Atur lebar input */
 }
