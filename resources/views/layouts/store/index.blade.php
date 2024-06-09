@@ -6,7 +6,7 @@
             <div class="ctr-sdbr flex-shrink-0 bg-white py-4 relative hidden md:block">
                 @include('layouts.store.sidebar')
             </div>
-            <div class="ctr-mn  w-full">
+            <div class="ctr-mn lg:w-[49rem] w-full">
                 <main class="">
                     @yield('main-content-store')
                 </main>

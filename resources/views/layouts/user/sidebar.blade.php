@@ -50,7 +50,7 @@
                         </li>
                         <li>
                             <div class="notification-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'notification') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{route('user\notification')}}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'notification') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
                                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'notification') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnNotif text-2xl">
@@ -66,7 +66,7 @@
                         </li>
                         <li>
                             <div class="transaction-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'transaction') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{route('user\myTransaction')}}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'transaction') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
                                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'transaction') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnTransac text-2xl">

@@ -16,6 +16,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
     <link rel="icon" href="{{asset('assets/components/logoApp/Logo Awan Laundry.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('assets/bootstrap-icons/bootstrap-icons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main/s.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main/stores/cLStr.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main/stores/cMdlStr.css')}}">
     @if (count($isThisStore) > 3)
         @if ($isThisStore[3] === 'store')
             <link rel="stylesheet" href="{{asset('assets/css/main/stores/s.css')}}">
@@ -23,46 +26,13 @@
     @endif
     @yield('head-link-field')
     <script src="https://kit.fontawesome.com/15f35fc9f3.js" crossorigin="anonymous"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            font-family: "Inter", sans-serif;
-            box-sizing: border-box;
-        }
-        .selectDisable {
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
-            user-select: none;
-        }
-        .aspect-square {
-            aspect-ratio: 1/1;
-        }
-    </style>
-    <style>
-        .cListStore::-webkit-scrollbar {
-            width: 5px;
-        }
-        .cListStore::-webkit-scrollbar-track {
-            box-shadow: 0;
-        }
-        .cListStore::-webkit-scrollbar-thumb {
-            background: #FF3377;
-            border-radius: 10px;
-        }
-        .cListStore::-webkit-scrollbar-thumb:hover {
-            background: #ff1E69;
-        }
-    </style>
     @yield('head-style-field')
 </head>
 <body>
     <header>
         @include('layouts.main.header')
     </header>
-    <nav class="py-2 md:py-4 lg:py-6 bg-[#FFDCE8] sticky top-0 z-50">
+    <nav class="py-2 md:py-4 lg:py-6 bg-[#FFDCE8] sticky top-0 z-[80]">
         @include('layouts.main.nav')
     </nav>
     @yield('main-content')
@@ -72,6 +42,7 @@
     
 
     <script src="{{asset('assets/js/main/navMobile.js')}}"></script>
+    @yield('popup-content-field')
     @yield('script-field')
     @if (count($isThisStore) > 3)
         @if ($isThisStore[3] === 'store')

@@ -1,0 +1,13 @@
+.cListStore::-webkit-scrollbar {
+    width: 5px;
+}
+.cListStore::-webkit-scrollbar-track {
+    box-shadow: 0;
+}
+.cListStore::-webkit-scrollbar-thumb {
+    background: #FF3377;
+    border-radius: 10px;
+}
+.cListStore::-webkit-scrollbar-thumb:hover {
+    background: #ff1E69;
+}
