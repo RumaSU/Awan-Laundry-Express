@@ -1,0 +1,54 @@
+.header-alamat{
+    margin-top: 2rem;
+}
+.button-alamat{
+    width: 12rem;
+    background-color: #FF3377;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 5px;
+    height: 3rem;
+    margin-bottom: 2rem;
+}
+
+.button-alamat:hover{
+    background-color: #D42A63;
+}
+.rtrw{
+    display: flex;
+    width: 50%;
+    gap: 1rem;
+}
+.input-popup label{
+    font-weight: bolder;
+}
+
+
+.field-alamat{
+    background-color: #E1F3FE;
+    border: 2px solid #0493CC;
+    border-radius: 16px;
+    width: 50rem;
+    height: 13rem;
+    justify-content: left;
+    align-items: center;
+    padding-left: 3rem !important;
+    padding: 20px;
+}
+.nm-user{
+    font-weight: bolder;
+}
+.detail-alamat{
+    margin-bottom: 1rem;
+}
+.kordinat-maps{
+    margin-bottom: 1rem;
+}
+.field-alamat button{
+    color: #0493CC;
+}

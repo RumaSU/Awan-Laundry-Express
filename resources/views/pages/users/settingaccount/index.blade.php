@@ -3,6 +3,7 @@
 
 @section('head-link-field')
     <link rel="stylesheet" href="{{ asset('assets/css/users/setting.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/users/set-alamat.css') }}">
 @endsection
 
 @section('head-style-field')
@@ -170,94 +171,46 @@
                 <p>Pengaturan Akun</p>
             </div>
             <div class="button-set">
-                <button class="biodat">Biodata Diri</button>
-                <button class="alamat">Alamat</button>
-                <button class="ubahpw">Ubah Password</button>
+                <button class="biodata" onclick="showSection('biodata', this)">Biodata Diri</button>
+                <button class="alamat" onclick="showSection('alamat', this)">Alamat</button>
+                <button class="ubahpw" onclick="showSection('ubahpw', this)">Ubah Password</button>
             </div>
         </div>
         <div class="set-main">
-            <div class="main-biodata">
-                <div class="bd-profil">
-                    <div class="foto-profil">
-                        <img src="{{asset('assets/components/icon/layer.png')}}" alt="">
-                    </div>
-                    <div class="pilih-profil">
-                        <button type="button">Pilih Profil</button>
-                    </div>
-                    <div class="warning-profil">
-                        <p>Maksimal file diunggah 10 MB (Megabytes)</p>
-                        <P>Type File : JPG, PNG, JPEG</P>
-                    </div>
-                </div>
-                <div class="bd-edit">
-                    <div class="table-bd">
-                        <div class="judul-bio">
-                            <p>Ubah Biodata Diri</p>
-                        </div>
-                        <table class="biodatadiri" border: 1>
-                            <tr>
-                                <td class="kolom1">Nama</td>
-                                <td class="kolom2">Nama User</td>
-                                <td class="kolom3">
-                                    <div class="edit">
-                                        <p>Ubah</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="kolom1">Jenis Kelamin</td>
-                                <td>Laki-Laki</td>
-                                <td>
-                                    <div class="edit">
-                                        <p>Ubah</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="kolom1">Tanggal Lahir</td>
-                                <td>19 Desember 2024</td>
-                                <td>
-                                    <div class="edit">
-                                        <p>Ubah</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        
-                    </div>
-                    <div class="table-kontak">
-                        <div class="judul-kontak">
-                            <p>Ubah Kontak</p>
-                        </div>
-                        <table class="kontak" border: 1>
-                            <tr>
-                                <td class="kolom1">Email</td>
-                                <td class="kolom2">emailuser123@gmail.com</td>
-                                <td>
-                                    <div class="edit">
-                                        <p>Ubah</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="kolom1">No Handphone</td>
-                                <td>081234567890</td>
-                                <td>
-                                    <div class="edit">
-                                        <p>Ubah</p>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+            <div class="main-biodata active">
+                @include('pages.users.settingaccount.biodata')
             </div>
             <div class="main-alamat">
-
+                @include('pages.users.settingaccount.alamat')
             </div>
             <div class="main-ubahpw">
-
+                @include('pages.users.settingaccount.ubahpw')
             </div>
+            <script>
+               function showSection(section, button) {
+                    // Hide all sections
+                    document.querySelector('.main-biodata').classList.remove('active');
+                    document.querySelector('.main-alamat').classList.remove('active');
+                    document.querySelector('.main-ubahpw').classList.remove('active');
+
+                    // Show the selected section
+                    document.querySelector('.main-' + section).classList.add('active');
+
+                    // Remove active class from all buttons
+                    var buttons = document.querySelectorAll('.button-set button');
+                    buttons.forEach(function(btn) {
+                        btn.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked button
+                    button.classList.add('active');
+                }
+
+                // Show the first section by default
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.querySelector('.button-set button.biodata').click();
+                });
+            </script>
         </div>
     </div>
     
