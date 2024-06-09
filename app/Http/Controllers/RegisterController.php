@@ -25,12 +25,6 @@ class RegisterController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        // $newUser = new UserRegister();
-        // $newUser->name = $request->name;
-        // $newUser->email = $request->email;
-        // $newUser->telp = $request->telp;
-        // $newUser->password = Hash::make($request->password);
-        // $newUser->save();
         $user = UserRegister::create([
             'name' => $request->name,
             'email' => $request->email,
