@@ -38,6 +38,7 @@ Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
 Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
 Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
+Route::view('/user/coba', 'pages.users.homepage.coba')->name('user\coba');
 Route::get('/pages/users/settingaccount', [SettingAccountController::class, 'index'])->name('settingaccount.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 

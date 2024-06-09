@@ -97,6 +97,7 @@ body {
 
 .button:hover {
     background-color: #0587FF;
+    color: white;
 }
 
 .logo {
