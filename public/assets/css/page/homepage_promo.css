@@ -35,7 +35,7 @@ body {
     margin-right: 10px; /* Spasi antara filter dan tombol */
 }
 
-.filter-button {
+.filter-button-promo {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 60px;
@@ -43,6 +43,11 @@ body {
     border-radius: 5px;
     cursor: pointer;
     /* text-align: left; */
+}
+
+.arrow {
+    margin-left: 10px;
+    transition: transform 0.3s;
 }
 
 .apply-reset-buttons {
@@ -78,6 +83,14 @@ body {
     border-radius: 5px;
     overflow: hidden;
 }
+
+/* .dropdown-content {
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+} */
 
 .dropdown-content a {
     color: black;
@@ -128,6 +141,11 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    text-align: left;
+}
+
+.promo-card p{
+    text-align: left;
 }
 
 .promo-card {
@@ -137,7 +155,7 @@ body {
     width: 23%;
     margin-bottom: 20px;
     padding: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .promo-image {

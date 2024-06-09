@@ -8,6 +8,10 @@
 @section('head-link-field')
 <link rel="stylesheet" href="{{ asset('assets/css/page/homepage_promo.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/page/homepage_transaksi.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/css/page/homepage_semuaStatus.css') }}">
+{{-- <link rel=”stylesheet” href=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css”rel=”nofollow” integritas=”sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ 4Saya” crossorigin=”anonim”>
+<skrip src=”https://cdn.jsdelivr.net/npm/ popper.js@1.16.0 /dist/umd/popper.min.js” integritas=”sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo” crossorigin=”anonim”> </skrip>
+<skrip src=”https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js” integritas=”sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/” crossorigin=”anonymous”></script > --}}
 @endsection
 
 @section('head-style-field')
@@ -218,7 +222,10 @@
         <br>
         <div class="filter-bar" style="justify-content: center; align-items: center;">
             <div class="filter" style=" margin-right: 10px;">
-                <button class="filter-button" style="padding: 10px 60px;">Filter Berdasarkan Periode</button>
+                <button class="filter-button-promo" style="padding: 10px 60px;">
+                    Filter Berdasarkan Periode
+                    <span class="arrow">&#x25B6;</span>
+                </button>
                 <div class="dropdown-content">
                     <a href="#">Periode 1</a>
                     <a href="#">Periode 2</a>
@@ -316,22 +323,22 @@
         <div class="promo-cards">
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
             <div class="promo-card">
                 <div class="promo-image"></div>
-                <p>Diskon pencucian sebanyak 10% bla bla bla</p>
+                <p><b>Diskon pencucian sebanyak 10%</b></p>
                 <small>Berlaku hingga (waktu)</small>
             </div>
         </div>
@@ -341,20 +348,44 @@
         <h1><b>RIWAYAT TRANSAKSI</b></h1>
         <br>
         <div class="filter-bar">
-            <button class="filter-button">Semua Status</button>
-            <button class="filter-button">Semua Layanan</button>
-            <button class="filter-button">Semua Tanggal</button>
+            <button class="filter-button-transksi"><b>Semua Status</b>
+                <span class="arrow">&#x25B6;</span>
+            </button>
+            <div class="status-container">
+                <h2>Semua Status</h2>
+                <ul class="status-list">
+                    <li><span>Semua Transaksi Berlangsung</span></li>
+                    <li><span>Menunggu Konfirmasi</span></li>
+                    <li><span>Diproses</span></li>
+                    <li><span>Dikirim</span></li>
+                    <li><span>Tiba di Tujuan</span></li>
+                    <li><span>Berhasil</span></li>
+                    <li><span>Tidak Berhasil</span></li>
+                </ul>
+            </div>
+            {{-- <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div> --}}
+            <button class="filter-button-transksi"><b>Semua Layanan</b></button>
+            <button class="filter-button-transksi"><b>Semua Tanggal</b></button>
         </div>
         <div class="transaction-card">
             <div class="transaction-info">
                 <div class="transaction-icon"></div>
                 <div class="transaction-details">
-                    <p class="transaction-type">Belanja</p>
+                    <p class="transaction-type"><b>Belanja</b></p>
                     <p class="transaction-date">25 Mar 2024</p>
-                    <p class="transaction-description">Pemesanan jasa Kiloan dan Satuan</p>
+                    <p class="transaction-description"><b>Pemesanan jasa Kiloan dan Satuan</b></p>
                     <p class="transaction-items">2 Jenis (Kiloan dan Satuan)</p>
                     <p class="transaction-total">Total Belanja</p>
-                    <p class="transaction-amount">Rp. 218958192571</p>
+                    <p class="transaction-amount"><b>Rp. 218958192571</b></p>
                 </div>
             </div>
             <div class="transaction-actions">
@@ -366,12 +397,12 @@
             <div class="transaction-info">
                 <div class="transaction-icon"></div>
                 <div class="transaction-details">
-                    <p class="transaction-type">Belanja</p>
+                    <p class="transaction-type"><b>Belanja</b></p>
                     <p class="transaction-date">25 Mar 2024</p>
-                    <p class="transaction-description">Pemesanan jasa Kiloan dan Satuan</p>
+                    <p class="transaction-description"><b>Pemesanan jasa Kiloan dan Satuan</b></p>
                     <p class="transaction-items">2 Jenis (Kiloan dan Satuan)</p>
                     <p class="transaction-total">Total Belanja</p>
-                    <p class="transaction-amount">Rp. 218958192571</p>
+                    <p class="transaction-amount"><b>Rp. 218958192571</b></p>
                 </div>
             </div>
             <div class="transaction-actions">
@@ -460,21 +491,79 @@
 
 
 @section('script-field')
-{{-- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
-        var filterButton = document.getElementById('filterButton');
-        var dropdownContent = document.getElementById('dropdownContent');
+        var filterButton = document.querySelector('.filter-button-promo');
+        var dropdownContent = document.querySelector('.dropdown-content');
+        var arrow = document.querySelector('.arrow');
 
-        filterButton.onclick = function(event) {
-            event.stopPropagation();
-            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
-        };
-
-        window.onclick = function(event) {
-            if (!event.target.matches('.filter-button')) {
-                dropdownContent.style.display = 'none';
+        filterButton.addEventListener('click', function() {
+            if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
+                dropdownContent.style.display = "block";
+                arrow.innerHTML = "&#x25BC;"; // Panah ke bawah
+            } else {
+                dropdownContent.style.display = "none";
+                arrow.innerHTML = "&#x25B6;"; // Panah ke samping
             }
-        };
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!filterButton.contains(event.target) && !dropdownContent.contains(event.target)) {
+                dropdownContent.style.display = "none";
+                arrow.innerHTML = "&#x25B6;"; // Panah ke samping
+            }
+        });
     });
-</script> --}}
+
+//     document.addEventListener('DOMContentLoaded', function() {
+//     var filterButtonPromo = document.querySelector('.filter-button-promo');
+//     var promoDropdownContent = document.querySelector('.dropdown-content');
+//     var promoArrow = document.querySelector('.promo-arrow');
+
+//     filterButtonPromo.addEventListener('click', function() {
+//         if (promoDropdownContent.style.display === "none" || promoDropdownContent.style.display === "") {
+//             promoDropdownContent.style.display = "block";
+//             promoArrow.innerHTML = "&#x25BC;"; // Panah ke bawah
+//         } else {
+//             promoDropdownContent.style.display = "none";
+//             promoArrow.innerHTML = "&#x25B6;"; // Panah ke samping
+//         }
+//     });
+
+//     window.addEventListener('click', function(event) {
+//         if (!filterButtonPromo.contains(event.target) && !promoDropdownContent.contains(event.target)) {
+//             promoDropdownContent.style.display = "none";
+//             promoArrow.innerHTML = "&#x25B6;"; // Panah ke samping
+//         }
+//     });
+
+//     var filterButtonTransaksi = document.querySelector('.filter-button-transaksi');
+//     var statusContainer = document.querySelector('.status-container');
+//     var arrow = document.createElement('span'); // Buat elemen span untuk panah
+
+//     filterButtonTransaksi.appendChild(arrow);
+//     arrow.classList.add('arrow');
+
+//     filterButtonTransaksi.addEventListener('click', function() {
+//         if (statusContainer.style.display === "none" || statusContainer.style.display === "") {
+//             statusContainer.style.display = "block";
+//             arrow.innerHTML = "&#x25BC;"; // Panah ke bawah
+//         } else {
+//             statusContainer.style.display = "none";
+//             arrow.innerHTML = "&#x25B6;"; // Panah ke samping
+//         }
+//     });
+
+//     window.addEventListener('click', function(event) {
+//         if (!filterButtonTransaksi.contains(event.target) && !statusContainer.contains(event.target)) {
+//             statusContainer.style.display = "none";
+//             arrow.innerHTML = "&#x25B6;"; // Panah ke samping
+//         }
+//     });
+// });
+
+</script>
+
+
+
 @endsection

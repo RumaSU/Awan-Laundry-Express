@@ -11,7 +11,7 @@ body {
     padding: 20px;
 }
 
-h1 {
+.container-transaksi h1 {
     text-align: center;
     font-size: 2em;
     margin-bottom: 20px;
@@ -23,7 +23,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.filter-button {
+.filter-button-transksi {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
