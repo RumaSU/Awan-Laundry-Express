@@ -533,6 +533,10 @@
 @endsection
 
 @section('popup-content-field')
+    @php
+        $totalPriceTransaction;
+        $getDiscountTransaction = rand(1, 100) / 100;
+    @endphp
     <div class="ctr-shwMdlDetOrder w-full p-2 md:w-3/4 max-w-[1280px] h-[100vh] md:h-[80vh] bg-pink-200 transition-all fixed z-[100] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-black">
         <div class="cShwMdlDetOrder p-1 h-full relative">
             <div class="icnClsMdlDetOrder">
@@ -613,6 +617,10 @@
                                         <div class="cDetLstMdlTrsc space-y-6">
                                             {{-- Content Detail Transaksi Kiloan --}}
                                             <div class="ctr-itmDetTrsc">
+                                                @php
+                                                    $TMP_VAL_KILOS = rand(10, 100) / 10;
+                                                    $TMP_VAL_PRCKILOS = rand(80, 120) * 100;
+                                                @endphp
                                                 <div class="cItmDetTrsc">
                                                     <div class="ctr-hTypeDetTrsc">
                                                         <div class="cHTypeDetTrsc flex gap-2">
@@ -628,11 +636,6 @@
                                                                         <div class="descTpDetTrsc">
                                                                             <div class="txD">
                                                                                 <strong>Pesanan Kiloan</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="vlTpDetTrsc">
-                                                                            <div class="txVl">
-                                                                                <strong>@{{3}} Kg</strong>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -853,14 +856,13 @@
                                         </div>
                                     </div>
                                     <div class="ctr-detLstMdlTrscPaymn pl-8 pr-4 mt-2">
-                                        <div class="cDetLstMdlTrscPaymn space-y-6">
+                                        <div class="cDetLstMdlTrscPaymn space-y-4">
                                             @php
-                                                $randMt = mt_rand();
-                                                $randFloat = $randMt / mt_getrandmax();
-                                                $roundRFloat = round($randFloat, 2);
+                                                $randMtMax = mt_getrandmax();
+                                                $randMtMaxLength = Str::length($randMtMax);
+                                                // $roundRFloat = round($randFloat, 2);
                                             @endphp
-                                            {{-- Content Detail Transaksi Kiloan --}}
-                                            <div>
+                                            {{-- <div>
                                                 {{mt_getrandmax()}}
                                             </div>
                                             <div>
@@ -871,12 +873,12 @@
                                             </div>
                                             <div>
                                                 {{$roundRFloat}}
-                                            </div>
+                                            </div> --}}
                                             <div class="ctr-itmDetTrscPaymn">
                                                 <div class="cItmDetTrscPaymn flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                                                     <div class="lblMethodDetTrascPaymn  shrink-0">
                                                         <div class="txLb">
-                                                            <p>Metode Pembayaran</p>
+                                                            <p>Metode Pembayaran {{$randMtMaxLength}}</p>
                                                         </div>
                                                     </div>
                                                     <div class="valMethodDetTrascPaymn sm:w-3/5 break-all">
@@ -886,88 +888,33 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- Content Detail Transaksi Satuan --}}
-                                            {{-- <div class="ctr-itmDetTrsc">
-                                                @php
-                                                    $tempRandTotalTrsc = rand(1, 10);
-                                                @endphp
-                                                <div class="cItmDetTrsc">
-                                                    <div class="ctr-hTypeDetTrsc">
-                                                        <div class="cHTypeDetTrsc flex gap-2">
-                                                            <i class="lstIcn w-4 h-2 bg-gray-300 rounded-lg mt-2"></i>
-                                                            <div class="cCHTpDetTrsc w-full flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                                                <div class="ctr-typeDetTrsc shrink-0">
-                                                                    <div class="cTpDetTrsc leading-[1.35rem]">
-                                                                        <div class="lblTpDetTrsc">
-                                                                            <div class="txLb">
-                                                                                <strong>Satuan</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="descTpDetTrsc">
-                                                                            <div class="txD">
-                                                                                <strong>Total Pesanan Satuan</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="vlTpDetTrsc">
-                                                                            <div class="txVl">
-                                                                                <strong> { {{$tempRandTotalTrsc}} } Jenis</strong>
-                                                                            </div>
+                                            <div class="ctr-itmDetTrscPaymn">
+                                                <div class="cItmDetTrscPaymn">
+                                                    <div class="ctr-lstTlPrcDetTrscPaymn">
+                                                        <div class="cLstTlPrcDTrsP">
+                                                            <div class="ctr-itmTlPrcsDTrsP">
+                                                                @php
+                                                                    $randPrc = mt_rand() / $randMtMax;
+                                                                    $randPrcRound= $randPrc * 10000;
+                                                                @endphp
+                                                                <div class="cItmTlPrcsDTrsP flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                                                    <div class="lblPrcDTrsP shrink-0">
+                                                                        <div class="txLb">
+                                                                            <p>Total Harga (@{{1}} Layanan)</p>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="ctr-tlItmDetTrsc sm:w-3/5 break-all">
-                                                                    <div class="cTlItmDetTrsc leading-[1.35rem] sm:text-right">
-                                                                        <div class="lblTlItmDetTrsc">
-                                                                            <div class="txLbl">
-                                                                                <p>Total Harga</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="vlTlItmDetTrsc line-clamp-1">
-                                                                            <div class="txVl">
-                                                                                <strong>Rp. @{{26319494236156787652133216591189}}</strong>
-                                                                            </div>
+                                                                    <div class="valPrcDTrsP sm:w-3/5 break-all">
+                                                                        <div class="valMthd leading-[1.35rem] sm:text-right">
+                                                                            <p>Rp. { {{$randPrc}} }</p>
+                                                                            <p>Rp. { {{$randPrcRound}} }</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="ctr-lstTypeDetTrsc mt-2 pl-4">
-                                                        <div class="cLstTpDetTrsc">
-                                                            @for ($i = 0; $i < $tempRandTotalTrsc; $i++)
-                                                                @php
-                                                                    $tempTotalVal = rand(1, 20);
-                                                                    $tempPricePerItmVal = rand(1, 20) * 1000;
-                                                                @endphp
-                                                                <div class="ctr-itmTpDetTrsc">
-                                                                    <div class="cItmTpDetTrsc flex items-center gap-2">
-                                                                        <i class="lstIcn w-3 aspect-square bg-gray-300 rounded-lg"></i>
-                                                                        <div class="cCItmTpDetTrsc w-full flex flex-col min-[410px]:flex-row min-[410px]:gap-2 justify-between break-all">
-                                                                            <div class="lblItmDetTrsc">
-                                                                                <div class="lblItm">
-                                                                                    <div class="txLb">
-                                                                                        <strong>Pakaian {{$i+1}}</strong>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="vlItm text-gray-700">
-                                                                                    <div class="txVl line-clamp-1">
-                                                                                        <p> { {{$tempTotalVal}} } &times; Rp. { {{$tempPricePerItmVal}} }</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="tlItmDetTrsc text-gray-700">
-                                                                                <div class="txTl line-clamp-1">
-                                                                                    <p>Rp. { {{$tempPricePerItmVal * $tempTotalVal}} }</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            @endfor
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
