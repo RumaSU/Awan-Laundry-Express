@@ -649,7 +649,7 @@
                                                                         </div>
                                                                         <div class="vlTlItmDetTrsc line-clamp-1">
                                                                             <div class="txVl">
-                                                                                <strong>Rp. @{{26319494236156787652133216591189}}</strong>
+                                                                                <strong>Rp. { {{$TMP_VAL_KILOS * $TMP_VAL_PRCKILOS}} }</strong>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -671,14 +671,14 @@
                                                                             </div>
                                                                             <div class="vlItm text-gray-700">
                                                                                 <div class="txVl line-clamp-1">
-                                                                                    <p>@{{2}}Kg &times; Rp. @{{21512512548831}}</p>
+                                                                                    <p>{ {{$TMP_VAL_KILOS}} }Kg &times; Rp. { {{$TMP_VAL_PRCKILOS}} }</p>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="tlItmDetTrsc text-gray-700">
                                                                             <div class="valTlItmDetTrsc">
                                                                                 <div class="txTl line-clamp-1">
-                                                                                    <p>Rp. @{{651987798944562}}</p>
+                                                                                    <p>Rp. { {{$TMP_VAL_KILOS * $TMP_VAL_PRCKILOS}} }</p>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -693,6 +693,9 @@
                                             <div class="ctr-itmDetTrsc">
                                                 @php
                                                     $tempRandTotalTrsc = rand(1, 10);
+                                                    $lstDetTrscItems = [];
+                                                    
+                                                    
                                                 @endphp
                                                 <div class="cItmDetTrsc">
                                                     <div class="ctr-hTypeDetTrsc">
