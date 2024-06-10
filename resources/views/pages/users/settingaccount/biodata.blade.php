@@ -66,7 +66,7 @@
         <div class="popup" id="popup-jeniskelamin">
             <span class="close" onclick="closePopup('jeniskelamin')">&times;</span>
             <div class="h-popup">
-                <h3>Tambah Jenis Kelamin</h3>
+                <h3>Pilih Jenis Kelamin Kamu</h3>
             </div>
             <div class="ket-popup">
                 <p>Kamu hanya dapat menambahkan data jenis kelamin 1 kali lagi. 
@@ -88,7 +88,7 @@
         <div class="popup" id="popup-tanggal-lahir">
             <span class="close" onclick="closePopup('tanggal-lahir')">&times;</span>
             <div class="h-popup">
-                <h3>Tambah Jenis Kelamin</h3>
+                <h3>Masukkan Tanggal Lahir Anda</h3>
             </div>
             <div class="ket-popup">
                 <p>Kamu hanya dapat mengubah tanggal lahir 1 kali lagi. 

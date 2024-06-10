@@ -9,7 +9,7 @@ use App\Http\Controllers\store\storeOrdersController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
-use App\Http\Controllers\SettingAccountController;
+use App\Http\Controllers\User\SettingAccountController;
 
 /*
 |--------------------------------------------------------------------------

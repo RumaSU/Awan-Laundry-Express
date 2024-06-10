@@ -187,7 +187,7 @@
                 @include('pages.users.settingaccount.ubahpw')
             </div>
             <script>
-               function showSection(section, button) {
+                function showSection(section, button) {
                     // Hide all sections
                     document.querySelector('.main-biodata').classList.remove('active');
                     document.querySelector('.main-alamat').classList.remove('active');
