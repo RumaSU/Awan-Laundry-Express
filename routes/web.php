@@ -10,6 +10,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
 use App\Http\Controllers\User\SettingAccountController;
+use App\Http\Controllers\Store\StoreMapsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +51,5 @@ Route::view('/store/setting', 'pages.stores.pengaturan.index');
 
 Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
 Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
+Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
 
