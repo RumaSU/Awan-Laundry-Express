@@ -9,6 +9,8 @@ use App\Http\Controllers\Store\storeOrdersController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
+
+use App\Http\Controllers\tubesController;
 use App\Http\Controllers\User\SettingAccountController;
 use App\Http\Controllers\Store\StoreMapsController;
 use App\Http\Controllers\About\AboutKebijakanController;
@@ -16,6 +18,7 @@ use App\Http\Controllers\About\AboutSyaratController;
 use App\Http\Controllers\About\AboutBantuanController;
 use App\Http\Controllers\About\AboutFaqController;
 use App\Http\Controllers\About\AboutUsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +34,9 @@ use App\Http\Controllers\About\AboutUsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/tubes', [tubesController::class, 'index']);
+Route::get('/find-route', [tubesController::class, 'findRoute']);
+
 Route::get('/', function () {
     return view('pages.guests.homepage.index');
 });
