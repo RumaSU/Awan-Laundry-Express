@@ -15,13 +15,6 @@
             background-image: url('assets/components/pages/left 05B8FF water.png');
             z-index: 5;
         }
-        .selectDisable {
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
-            user-select: none;
-        }
 
         .cCTransactionItm {
             display: block;
@@ -194,14 +187,14 @@
                         </div>
                     </div>
                     <div class="ctr-nxtBckSpcList text-2xl md:text-4xl">
-                        <button type="button" class="ctr-backSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-[80] left-0 top-1/2 -translate-y-1/2" data-carousel-prev>
+                        <button type="button" class="ctr-backSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-50 left-0 top-1/2 -translate-y-1/2" data-carousel-prev>
                             <div class="cBackSpecial">
                                 <span class="icn-chevLft">
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </span>
                             </div>
                         </button>
-                        <button type="button" class="ctr-nextSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-[80] right-0 top-1/2 -translate-y-1/2" data-carousel-next>
+                        <button type="button" class="ctr-nextSpc cursor-pointer bg-gray-400/80 hover:bg-gray-600/80 text-[#3A3A3A] hover:text-[#f0f0f0] p-3 rounded-2xl aspect-square absolute z-50 right-0 top-1/2 -translate-y-1/2" data-carousel-next>
                             <div class="cNextSpecial">
                                 <span class="icn-chevLft">
                                     <i class="fa-solid fa-chevron-right"></i>
@@ -231,16 +224,16 @@
                                         <div class="ctr-lftTime">
                                             <div class="cLftTime flex items-center gap-4 md:gap-6">
                                                 <div class="icn">
-                                                    <span class="icn-bag text-2xl md:text-3xl">
+                                                    <span class="icn-bag text-2xl md:text-3xl text-[#C00040]">
                                                         <i class="fa-solid fa-bag-shopping"></i>
                                                     </span>
                                                 </div>
                                                 <div class="ctr-timeTrsc">
                                                     <div class="cTimeTrsc">
                                                         <div class="txH text-sm">
-                                                            <strong>Belanja</strong>
+                                                            <strong>Cuci Pakaian</strong>
                                                         </div>
-                                                        <div class="txTimeTras">
+                                                        <div class="txTimeTras text-gray-700">
                                                             <p>@{{25 Mar 2024}}</p>
                                                         </div>
                                                     </div>

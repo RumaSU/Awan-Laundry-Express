@@ -1,0 +1,198 @@
+.store-maps{
+    display: block;
+    padding-top: 2rem;
+}
+.topcontent-maps{
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    margin-bottom: rem;
+}
+.container-maps{
+    width: 50rem;
+    height: 20rem;
+    border-radius: 15px;
+    border: 1px solid rgb(158, 211, 254);
+    background-color: rgb(206, 219, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.middlecontent-maps{
+    display: block;
+}
+.container-pengantaran{
+    display: block;
+    width: 32rem;
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid rgb(226, 226, 226);
+}
+.container-penjemputan{
+    display: block;
+    width: 32rem;
+    border-radius: 16px;
+    padding: 1rem;
+    border: 1px solid rgb(226, 226, 226);
+}
+.header-pengantaran{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-bottom: 3px solid #0493CC;
+    height: 3rem;
+    width: 32rem;
+    margin-bottom: 1rem;
+}
+.button-set-maps{
+    display: flex;
+}
+.field-pengantaran{
+    display: block;
+    margin-top: 0.5rem;
+}
+.main-field-pengantaran{
+    display: flex;
+    margin-top: 0.3rem;
+}
+.field-pesanan{
+    height: 9rem;
+    border-radius: 16px 0 0 16px ;
+    padding: 1rem;
+    border: 1px solid rgb(226, 226, 226);
+}
+.head-pesanan-pengantaran{
+    display: flex;
+    justify-content: space-between;
+}
+.left-hp-pengantaran{
+    display: flex;
+    gap: 1rem;
+}
+.left-hp-pengantaran img{
+    width: 2rem;
+    height: 2rem;
+}
+.ket-left-hp-pengantaran{
+    display: block;
+    gap: 0.5rem;
+}
+.nm-pesanan{
+    font-weight: bold;
+}
+.id-pesanan{
+    font-style: italic;
+    font-size: 0.8rem;
+}
+.right-hp-pengantaran button{
+    width: 8rem;
+    height: 2rem;
+    background-color: #00b7ff;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+.right-hp-penjemputan button{
+    width: 8rem;
+    height: 2rem;
+    background-color: #FF3377;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    margin-left: 2rem;
+}
+.right-hp-pengantaran button:hover{
+    background-color: #0493CC;
+}
+.right-hp-penjemputan button:hover{
+    background-color: #9b1441;
+}
+/*=============================================*/
+.main-pesanan-pengantaran{
+    display: flex;
+}
+.left-m-pengantaran{
+    display: flex;
+}
+.cont-logo{
+    width: 4rem;
+    height: 4rem;
+    background-color: rgb(200, 200, 200);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: blueviolet;
+}
+.middle-m-pengantaran{
+    display: block;
+    margin-left: 1rem;
+}
+.jenis-pesanan{
+    font-weight: bolder;
+    width: 10rem;
+    margin-right: 2rem;
+}
+.alamat-maps{
+    color: #00b7ff;
+}
+
+.total-harga-pengantaran{
+    font-size: 0.9rem;
+}
+.harga-pengantaran{
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.button-swipe button{
+    height: 9rem;
+    width: 5rem;
+    background-color: #FF3377;
+    border-radius: 16px;
+    border-radius: 0 16px 16px 0 ;
+    color: white;
+    font-weight: bold;
+}
+.button-swipe-jemput button{
+    height: 9rem;
+    width: 5rem;
+    background-color: #00b7ff;
+    border-radius: 16px;
+    border-radius: 0 16px 16px 0 ;
+    color: white;
+    font-weight: bold;
+}
+
+.button-set-maps{
+    display: flex;
+    width: 35rem;
+    background-color: white;
+    border-radius: 15px;
+    justify-content: center;
+    height: 50px;
+    margin-top: 20px;
+}
+.pengantaran,
+.penjemputan {
+    border-bottom: 3px solid #bcbcbc;
+    width: 16rem;
+    cursor: pointer;
+}
+
+.pengantaran:hover,
+.penjemputan:hover {
+    border-bottom: 3px solid #00b7ff;
+}
+
+.button-set-maps .active {
+    border-bottom: 3px solid #00b7ff;
+}
+

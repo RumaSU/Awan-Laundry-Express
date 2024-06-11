@@ -1,5 +1,6 @@
 @extends('layouts.main.index')
-@section('head-field')
+
+@section('head-style-field')
 <link rel="stylesheet" href="{{ asset('assets/css/homepage/middle-content.css') }}">
 
 @endsection
@@ -107,7 +108,7 @@
                                         <a href="#item-{{$i+1}}" class="ctr-spcItm absolute w-full h-full px-2 transition-all duration-700 {{ ($i === 0) ? $nowActive : (($i === $intTo - 1) ? $notActive : $toActive) }}" data-carousel-item>
                                             <div class="cSpecialItm h-full">
                                                 <div class="pctSpc h-full">
-                                                    <img src="{{asset('assets/img/dumb/imgtemp ' . $i+1 . '.jpg')}}" alt="" class="h-full w-full rounded-xl object-cover object-center">
+                                                    <img src="{{asset('assets/img/dumb/imgtemp ' . $i+1 . '.jpg')}}" alt="" class="h-full w-full object-cover object-center">
                                                 </div>
                                             </div>
                                         </a>
@@ -139,7 +140,7 @@
             <div class="fst-middle-content w-full h-full flex">
                 <div class="middle-st-left w-1/3 flex justify-center">
                     <div class="diamond-gradient bg-gradient-to-r from-pink-500 to-blue-500 ">
-                        <div class="diamond-gradient-in w-full h-full flex justify-center items-center ">
+                        <div class="diamond-gradient-in w-full h-full flex justify-center items-center">
                             <div class="text-diamond">
                                 <div class="headline-diamond text-white text-2xl font-bold tracking-wide">
                                     Penawaran Spesial

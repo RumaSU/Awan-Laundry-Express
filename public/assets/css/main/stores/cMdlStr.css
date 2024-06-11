@@ -1,0 +1,13 @@
+.cMdlDetOrder::-webkit-scrollbar {
+    width: 5px;
+}
+.cMdlDetOrder::-webkit-scrollbar-track {
+    box-shadow: 0;
+}
+.cMdlDetOrder::-webkit-scrollbar-thumb {
+    background: #FF3377;
+    border-radius: 10px;
+}
+.cMdlDetOrder::-webkit-scrollbar-thumb:hover {
+    background: #ff1E69;
+}

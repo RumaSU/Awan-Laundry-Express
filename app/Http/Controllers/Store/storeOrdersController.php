@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\store;
+namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class myStoreController extends Controller
+class storeOrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.stores.myStores.index');
+        return view('pages.stores.orders.index');
     }
 
     /**

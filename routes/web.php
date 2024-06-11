@@ -3,12 +3,17 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\myAccountController;
 use App\Http\Controllers\User\myPromoController;
-use App\Http\Controllers\store\myStoreController;
+use App\Http\Controllers\User\myTransactionController;
+use App\Http\Controllers\Store\myStoreController;
+use App\Http\Controllers\Store\storeOrdersController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
-use App\Http\Controllers\SettingAccountController;
-use App\Http\Controllers\RouteController;
+
+use App\Http\Controllers\tubesController;
+use App\Http\Controllers\User\SettingAccountController;
+use App\Http\Controllers\Store\StoreMapsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +29,8 @@ use App\Http\Controllers\RouteController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/tubes', [RouteController::class, 'index']);
+Route::get('/tubes', [tubesController::class, 'index']);
+Route::get('/find-route', [tubesController::class, 'findRoute']);
 
 Route::get('/', function () {
     return view('pages.guests.homepage.index');
@@ -42,6 +48,7 @@ Route::get('/user/account', [myAccountController::class, 'index'])->name('user\m
 Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
 Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
 Route::view('/user/coba', 'pages.users.homepage.coba')->name('user\coba');
+Route::get('/user/transaction', [myTransactionController::class, 'index'])->name('user\myTransaction');
 Route::get('/pages/users/settingaccount', [SettingAccountController::class, 'index'])->name('settingaccount.index');
 // Route::view('/user/account', 'pages.users.myAccount.index');
 
@@ -49,3 +56,6 @@ Route::view('/store/notification', 'pages.stores.notifikasi.index');
 Route::view('/store/setting', 'pages.stores.pengaturan.index');
 
 Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
+Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
+Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
+

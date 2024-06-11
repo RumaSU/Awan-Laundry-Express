@@ -32,8 +32,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="clSwLsSre" class="ctr-clckStr flex-1 rounded-b-md xl:rounded-bl-none xl:rounded-r-md cursor-pointer relative transition-colors hover:bg-gray-300 group/icClSwr">
-                        <div id="icClSwr" class="icClStore absolute transition-all left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 xl:rotate-0 xl:group-hover/icClSwr:rotate-90">
+                    <div id="clSwLsSre" class="ctr-clckStr flex-1 rounded-b-md xl:rounded-bl-none xl:rounded-r-md cursor-pointer relative transition-colors hover:bg-gray-300">
+                        <div id="icClSwr" class="icClStore absolute transition-all left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 xl:rotate-0">
                             <span class="icn text-xl">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </span>
@@ -154,6 +154,25 @@
                             </div>
                         </li>
                         <li>
+                            <div class="orders-sb">
+                                <a href="{{route('store\orders')}}"
+                                    class="rounded-lg border block px-4 py-2 group {{ $urlChoosed === 'orders' ? $ifChoosedAHref : $ifNotChoosedAHref }}">
+                                    <div class="c flex items-center gap-4">
+                                        <div
+                                            class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{ $urlChoosed === 'orders' ? $ifChoosedIcn : $ifNotChoosedIcn }}">
+                                            <span class="icnTransac text-2xl">
+                                                <i class="fa-solid fa-bag-shopping"></i>
+                                            </span>
+                                        </div>
+                                        <div
+                                            class="tx text-xl hidden xl:block {{ $urlChoosed === 'orders' ? $ifChoosedTx : $ifNotChoosedTx }}">
+                                            <p>Kelola Pesanan</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
                             <div class="transaction-sb">
                                 <a href=""
                                     class="rounded-lg border block px-4 py-2 group {{ $urlChoosed === 'transaction' ? $ifChoosedAHref : $ifNotChoosedAHref }}">
@@ -167,6 +186,25 @@
                                         <div
                                             class="tx text-xl hidden xl:block {{ $urlChoosed === 'transaction' ? $ifChoosedTx : $ifNotChoosedTx }}">
                                             <p>Daftar Transaksi</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="services-sb">
+                                <a href=""
+                                    class="rounded-lg border block px-4 py-2 group {{ $urlChoosed === 'services' ? $ifChoosedAHref : $ifNotChoosedAHref }}">
+                                    <div class="c flex items-center gap-4">
+                                        <div
+                                            class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{ $urlChoosed === 'services' ? $ifChoosedIcn : $ifNotChoosedIcn }}">
+                                            <span class="icnTransac text-2xl">
+                                                <i class="fa-solid fa-receipt"></i>
+                                            </span>
+                                        </div>
+                                        <div
+                                            class="tx text-xl hidden xl:block {{ $urlChoosed === 'services' ? $ifChoosedTx : $ifNotChoosedTx }}">
+                                            <p>Layanan</p>
                                         </div>
                                     </div>
                                 </a>
@@ -205,25 +243,6 @@
                                         <div
                                             class="tx text-xl hidden xl:block {{ $urlChoosed === 'settings' ? $ifChoosedTx : $ifNotChoosedTx }}">
                                             <p>Pengaturan</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="stores-sb">
-                                <a href=""
-                                    class="rounded-lg border block px-4 py-2 group {{ $urlChoosed === 'stores' ? $ifChoosedAHref : $ifNotChoosedAHref }}">
-                                    <div class="c flex items-center gap-4">
-                                        <div
-                                            class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{ $urlChoosed === 'stores' ? $ifChoosedIcn : $ifNotChoosedIcn }}">
-                                            <span class="icnStores text-2xl">
-                                                <i class="fa-solid fa-store"></i>
-                                            </span>
-                                        </div>
-                                        <div
-                                            class="tx text-xl hidden xl:block {{ $urlChoosed === 'stores' ? $ifChoosedTx : $ifNotChoosedTx }}">
-                                            <p>Toko Saya</p>
                                         </div>
                                     </div>
                                 </a>
