@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
 use App\Http\Controllers\SettingAccountController;
+use App\Http\Controllers\RouteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,8 @@ use App\Http\Controllers\SettingAccountController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get('/tubes', [RouteController::class, 'index']);
+
 Route::get('/', function () {
     return view('pages.guests.homepage.index');
 });
