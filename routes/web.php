@@ -11,6 +11,11 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
 use App\Http\Controllers\User\SettingAccountController;
 use App\Http\Controllers\Store\StoreMapsController;
+use App\Http\Controllers\About\AboutKebijakanController;
+use App\Http\Controllers\About\AboutSyaratController;
+use App\Http\Controllers\About\AboutBantuanController;
+use App\Http\Controllers\About\AboutFaqController;
+use App\Http\Controllers\About\AboutUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,3 +58,10 @@ Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\m
 Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
 Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
 
+
+
+Route::get('/about/kebijakan-privasi', [AboutKebijakanController::class, 'index'])->name('about/privasi');
+Route::get('/about/syarat-ketentuan', [AboutSyaratController::class, 'index'])->name('about/syarat-ketentuan');
+Route::get('/about/pusat-bantuan', [AboutBantuanController::class, 'index'])->name('about/pusat-bantuan');
+Route::get('/about/faq', [AboutFaqController::class, 'index'])->name('about/faq');
+Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');

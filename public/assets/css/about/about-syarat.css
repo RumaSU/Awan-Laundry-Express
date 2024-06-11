@@ -1,0 +1,46 @@
+.main-about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-syarat{
+    width: 80rem;
+    background-color: #E1F3FE;
+    border: 3px solid #0493CC;
+    border-radius: 24px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+}
+.header-syarat{
+    display: flex;
+    justify-content: center;
+}
+.judul-about{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #0493CC;
+}
+.desk-syarat{
+    display: block;
+    width: 70rem;
+}
+.subheader-syarat{
+    display: block;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+.header-sub-syarat{
+    font-weight: bold;
+    color: #D42A63;
+    font-size: 1.5rem;
+}
+.main-header-sub-syarat{
+    margin-left: 2rem;
+}
+.bottom-syarat{
+    display: flex;
+    margin-top: 3rem;
+}
