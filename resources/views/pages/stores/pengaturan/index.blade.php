@@ -135,7 +135,8 @@
                 <form>
                     <div class="keterangan">
                         <label for="keteranganTempat" style="font-size: 15px;">Keterangan Tempat</label>
-                        <textarea id="keteranganTempat" name="keteranganTempat" rows="4" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"></textarea>
+                        <input type="text" id="keteranganTempat" name="keteranganTempat" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"></input>
+                        {{-- <textarea id="keteranganTempat" name="keteranganTempat" rows="4" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"></textarea> --}}
                         {{-- <input type="text" id="tempat-keterangan" name="tempat-keterangan" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"> --}}
                     </div>
                     {{-- <div class="keterangan">
