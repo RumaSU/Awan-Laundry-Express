@@ -34,7 +34,7 @@ $(document).ready(function () {
     
     function resetStListStore() {
         sizeCloseCntListStore = sizeHCnLsStore * 0.95;
-
+        
         $icnShwListStore.find("span").removeClass("rotate-90");
         
         $($contentListStore).addClass("h-0");

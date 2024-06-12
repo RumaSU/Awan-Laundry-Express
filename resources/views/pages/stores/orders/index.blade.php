@@ -2,7 +2,7 @@
 @section('titlePage', 'Toko - Pesanan')
 
 @section('head-link-field')
-    
+
 @endsection
 
 @section('head-style-field')
@@ -14,12 +14,12 @@
             align-items: stretch;
             flex-direction: column;
         }
-        
+
         .txTimeTras {
             font-size: 0.65rem;
             line-height: 0.85rem;
         }
-        
+
         .addColonEndElem {
             position: relative;
         }
@@ -31,14 +31,14 @@
             /* margin-left: 0.15rem; */
             /* color: inherit; */
         }
-        
+
         @media only screen and (min-width: 321px) {
             /* .cCOrdersItm {
                 display: flex;
             } */
             .txTimeTras {
                 font-size: 0.75rem;
-                line-height: 1rem;                
+                line-height: 1rem;
             }
         }
         @media only screen and (min-width: 425px) {
@@ -51,7 +51,7 @@
             }
             .txTimeTras {
                 font-size: 0.75rem;
-                line-height: 1rem;                
+                line-height: 1rem;
             }
         }
     </style>
@@ -120,7 +120,7 @@
                     @php
                         $activeThisStore = "shadow-pink-800 bg-[#FF3377] text-white";
                         $notActiveThisStore = "shadow-black/30 hover:text-white bg-white group-hover/store:bg-[#FF3377] group-hover/store:shadow-pink-800";
-                        
+
                         $activeThisStoreSetting = "text-pink-900 group-hover/settingStore:text-pink-950";
                         $notActiveThisStoreSetting = "text-[#9D9D9D] group-hover/store:text-pink-900 group-hover/store:group-hover/settingStore:text-pink-950";
                     @endphp
@@ -305,7 +305,7 @@
             </div>
         </div>
     </div> --}}
-    
+
     <div class="ctr-orders mt-8">
         <div class="cOrders">
             <div class="ctr-headOrders">
@@ -529,7 +529,7 @@
 @endsection
 
 @section('different-content-store')
-    
+
 @endsection
 
 @section('popup-content-field')
@@ -538,25 +538,57 @@
         $randShpp = rand(90, 170) * 100;
         $getDiscountTransaction = rand(1, 100) / 100;
     @endphp
-    <div class="ctr-shwMdlDetOrder w-full p-2 md:w-3/4 max-w-[1280px] h-[100vh] md:h-[80vh] bg-pink-200 transition-all fixed z-[100] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-black">
+    {{-- <div class="ctr-shwMdlDetOrder w-full p-2 md:w-3/4 max-w-[1280px] h-[100vh] md:h-[80vh] bg-pink-200 transition-all fixed z-[100] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-black"> --}}
+    <div class="ctr-shwMdlDetOrder p-2 h-[100vh] md:h-[80vh] overflow-hidden bg-white md:rounded-2xl md:shadow-lg md:shadow-black/50 transition-all fixed z-[100] hidden w-0 md:w-[0]" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
         <div class="cShwMdlDetOrder p-1 h-full relative">
             <div class="icnClsMdlDetOrder">
-                <div id="icnClsXMdlDetThsOrder" class="icnClsX rounded-lg py-2 px-3 cursor-pointer absolute top-0 right-0 bg-white border border-black">
+                <div id="icnClsXMdlDetThsOrder" class="icnClsX rounded-lg py-2 px-3 cursor-pointer absolute z-[2] top-0 right-0 bg-white border border-black">
                     <span class="icn text-xl">
                         <i class="fa-solid fa-x"></i>
                     </span>
                 </div>
             </div>
+            <div class="headTxMdlDetOrder sticky top-0 bg-white p-2 border-b-2">
+                <div class="txHDtOrder font-bold text-xl md:text-2xl">
+                    <h2>Detail Transaksi</h2>
+                </div>
+            </div>
             <div class="ctr-detThsOrder h-full overflow-hidden">
                 <div class="cDetThsOrder h-full flex gap-2">
+                    @php
+                        // do random what order is kilos or items or both
+                        // looping one of them must have true
+                        do {
+                            $whatOrder = [
+                                'kilos' => (bool) rand(0, 1),
+                                'items' => (bool) rand(0, 1)
+                            ];
+                        } while(($whatOrder['kilos'] == false) && ($whatOrder['items'] == false));
+                        
+                        // Do random quality doing double order
+                        $qualDoubleOrder = mt_rand() / mt_getrandmax();
+                        // Checking prob if double order when kilos is true then doing to items if false
+                        ((($whatOrder['kilos']) && !($whatOrder['items'])) && ($qualDoubleOrder < 0.3)) ? $whatOrder['items'] = true : $whatOrder['items'];
+                        // if ((($whatOrder['kilos']) && !($whatOrder['items'])) && ($qualDoubleOrder < 0.3)) {
+                        //     $whatOrder['items'] = true;
+                        // }
+                        
+                        // Do random quality doing double order
+                        $qualDoubleOrder = mt_rand() / mt_getrandmax();
+                        // Checking prob if double order when items is true then doing to kilos if false
+                        ((($whatOrder['items']) && !($whatOrder['kilos'])) && ($qualDoubleOrder < 0.2)) ? $whatOrder['kilos'] = true : $whatOrder['kilos'];
+                        // if ((($whatOrder['items']) && !($whatOrder['kilos'])) && ($qualDoubleOrder < 0.2)) {
+                        //     $whatOrder['kilos'] = true;
+                        // }
+                    @endphp
                     {{-- <div class="ctr-mdlDetOrder h-full w-3/5 bg-white p-2 border border-black"> --}}
-                    <div class="ctr-mdlDetOrder h-full w-full bg-white p-2 border border-black">
-                        <div class="cMdlDetOrder h-full p-2 overflow-y-scroll border border-black">
-                            <div class="headTxMdlDetOrder">
+                    <div class="ctr-mdlDetOrder h-full w-full bg-white p-2 pb-12">
+                        <div class="cMdlDetOrder h-full p-2 pb-4 overflow-y-scroll">
+                            {{-- <div class="headTxMdlDetOrder sticky top-0 bg-white p-2 border-b-2">
                                 <div class="txHDtOrder font-bold text-xl md:text-2xl">
                                     <h2>Detail Transaksi</h2>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="cLstSecMdlTrscDet px-4">
                                 {{-- Section Transaction Status --}}
                                 <div class="sec-mdlTrscStatus mt-3">
@@ -572,6 +604,13 @@
                                     </div>
                                     <div class="ctr-detMdlTrscSt pl-4 mt-2">
                                         <div class="cDetMdlTrscSt space-y-1 text-sm sm:text-[0.925rem]">
+                                            @php
+                                                $TMP_RAND_INV = Str::uuid();
+                                                $EXPLD_RINV = explode('-', $TMP_RAND_INV);
+                                                $END_EXPLD_RINV = end($EXPLD_RINV);
+                                                $TMP_RINV_CHOOSED = (strlen($END_EXPLD_RINV) > 6) ? substr($END_EXPLD_RINV, 0, 5) : $END_EXPLD_RINV;
+                                                $TMP_TIME_ORD = Carbon\Carbon::now()->format('Ymd');
+                                            @endphp
                                             <div class="itmInvDetTrsc flex flex-col sm:flex-row justify-between">
                                                 <div class="lblInvDetTrsc shrink-0">
                                                     <div class="tx">
@@ -580,7 +619,7 @@
                                                 </div>
                                                 <div class="vInvDetTrsc break-all">
                                                     <div class="tx font-semibold">
-                                                        <p>@{{TRA/20240326/PAL/ade2gai1251}}</p>
+                                                        <p>TRA/{ {{ $TMP_TIME_ORD }} }/PAL/{ {{$TMP_RINV_CHOOSED}} }</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -617,70 +656,42 @@
                                     <div class="ctr-detLstMdlTrsc p-2 sm:p-4 mt-2 rounded-xl border border-black text-sm sm:text-[0.925rem]">
                                         <div class="cDetLstMdlTrsc space-y-6">
                                             {{-- Content Detail Transaksi Kiloan --}}
-                                            <div class="ctr-itmDetTrsc">
-                                                @php
-                                                    $TMP_VAL_KILOS = rand(10, 100) / 10;
-                                                    $TMP_VAL_PRCKILOS = rand(80, 120) * 100;
-                                                    $totalPriceTransaction += $TMP_VAL_KILOS * $TMP_VAL_PRCKILOS;
-                                                @endphp
-                                                <div class="cItmDetTrsc">
-                                                    <div class="ctr-hTypeDetTrsc">
-                                                        <div class="cHTypeDetTrsc flex gap-2">
-                                                            <i class="lstIcn w-4 h-2 bg-gray-300 rounded-lg mt-2"></i>
-                                                            <div class="cCHTpDetTrsc w-full flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                                                <div class="ctr-typeDetTrsc shrink-0">
-                                                                    <div class="cTpDetTrsc leading-[1.35rem]">
-                                                                        <div class="lblTpDetTrsc">
-                                                                            <div class="txLb">
-                                                                                <strong>Kiloan</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="descTpDetTrsc">
-                                                                            <div class="txD">
-                                                                                <strong>Pesanan Kiloan</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="ctr-tlItmDetTrsc sm:w-3/5 break-all">
-                                                                    <div class="cTlItmDetTrsc leading-[1.35rem] sm:text-right">
-                                                                        <div class="lblTlItmDetTrsc">
-                                                                            <div class="txLbl">
-                                                                                <p>Total Harga</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="vlTlItmDetTrsc line-clamp-1">
-                                                                            <div class="txVl">
-                                                                                <strong>Rp. { {{$TMP_VAL_KILOS * $TMP_VAL_PRCKILOS}} }</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ctr-lstTypeDetTrsc mt-2 pl-4">
-                                                        <div class="cLstTpDetTrsc">
-                                                            <div class="ctr-itmTpDetTrsc">
-                                                                <div class="cItmTpDetTrsc flex items-center gap-2">
-                                                                    <i class="lstIcn w-3 aspect-square bg-gray-300 rounded-lg"></i>
-                                                                    <div class="cCItmTpDetTrsc w-full flex flex-col sm:flex-row sm:gap-2 justify-between break-all">
-                                                                        <div class="lblItmDetTrsc break-all">
-                                                                            <div class="lblItm">
+                                            @if ($whatOrder['kilos'])
+                                                <div class="ctr-itmDetTrsc">
+                                                    @php
+                                                        $TMP_VAL_KILOS = rand(10, 100) / 10;
+                                                        $TMP_VAL_PRCKILOS = rand(80, 120) * 100;
+                                                        $totalPriceTransaction += $TMP_VAL_KILOS * $TMP_VAL_PRCKILOS;
+                                                    @endphp
+                                                    <div class="cItmDetTrsc">
+                                                        <div class="ctr-hTypeDetTrsc">
+                                                            <div class="cHTypeDetTrsc flex gap-2">
+                                                                <i class="lstIcn w-4 h-2 bg-gray-300 rounded-lg mt-2"></i>
+                                                                <div class="cCHTpDetTrsc w-full flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                                                    <div class="ctr-typeDetTrsc shrink-0">
+                                                                        <div class="cTpDetTrsc leading-[1.35rem]">
+                                                                            <div class="lblTpDetTrsc">
                                                                                 <div class="txLb">
-                                                                                    <strong></strong>
+                                                                                    <strong>Kiloan</strong>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="vlItm text-gray-700">
-                                                                                <div class="txVl line-clamp-1">
-                                                                                    <p>{ {{$TMP_VAL_KILOS}} }Kg &times; Rp. { {{$TMP_VAL_PRCKILOS}} }</p>
+                                                                            <div class="descTpDetTrsc">
+                                                                                <div class="txD">
+                                                                                    <strong>Pesanan Kiloan</strong>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="tlItmDetTrsc text-gray-700">
-                                                                            <div class="valTlItmDetTrsc">
-                                                                                <div class="txTl line-clamp-1">
-                                                                                    <p>Rp. { {{$TMP_VAL_KILOS * $TMP_VAL_PRCKILOS}} }</p>
+                                                                    </div>
+                                                                    <div class="ctr-tlItmDetTrsc sm:w-3/5 break-all">
+                                                                        <div class="cTlItmDetTrsc leading-[1.35rem] sm:text-right">
+                                                                            <div class="lblTlItmDetTrsc">
+                                                                                <div class="txLbl">
+                                                                                    <p>Total Harga</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="vlTlItmDetTrsc line-clamp-1">
+                                                                                <div class="txVl">
+                                                                                    <strong>Rp. { {{ number_format($TMP_VAL_KILOS * $TMP_VAL_PRCKILOS) }} }</strong>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -688,103 +699,130 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {{-- Content Detail Transaksi Satuan --}}
-                                            <div class="ctr-itmDetTrsc">
-                                                @php
-                                                    $TMP_TL_ORD_ITM = 0;
-                                                    $tempRandTotalTrsc = rand(1, 10);
-                                                    $lstDetTrscItems = [];
-                                                    
-                                                    for ($lLI = 0; $lLI < $tempRandTotalTrsc; $lLI++ ) {
-                                                        $tempTotalVal = rand(1, 20);
-                                                        $tempPricePerItmVal = rand(50, 160) * 100;
-                                                        
-                                                        $TMP_TL_ORD_ITM += $tempTotalVal * $tempPricePerItmVal;
-                                                        
-                                                        array_push($lstDetTrscItems, [
-                                                            'totallOrdItm' => $tempTotalVal,
-                                                            'priceOrdPItm' => $tempPricePerItmVal
-                                                        ]);
-                                                    }
-                                                    
-                                                    $totalPriceTransaction += $TMP_TL_ORD_ITM;
-                                                @endphp
-                                                <div class="cItmDetTrsc">
-                                                    <div class="ctr-hTypeDetTrsc">
-                                                        <div class="cHTypeDetTrsc flex gap-2">
-                                                            <i class="lstIcn w-4 h-2 bg-gray-300 rounded-lg mt-2"></i>
-                                                            <div class="cCHTpDetTrsc w-full flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                                                <div class="ctr-typeDetTrsc shrink-0">
-                                                                    <div class="cTpDetTrsc leading-[1.35rem]">
-                                                                        <div class="lblTpDetTrsc">
-                                                                            <div class="txLb">
-                                                                                <strong>Satuan</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="descTpDetTrsc">
-                                                                            <div class="txD">
-                                                                                <strong>Total Pesanan Satuan</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="vlTpDetTrsc">
-                                                                            <div class="txVl">
-                                                                                <strong> { {{$tempRandTotalTrsc}} } Jenis</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="ctr-tlItmDetTrsc sm:w-3/5 break-all">
-                                                                    <div class="cTlItmDetTrsc leading-[1.35rem] sm:text-right">
-                                                                        <div class="lblTlItmDetTrsc">
-                                                                            <div class="txLbl">
-                                                                                <p>Total Harga</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="vlTlItmDetTrsc line-clamp-1">
-                                                                            <div class="txVl">
-                                                                                <strong>Rp. { {{$TMP_TL_ORD_ITM}} }</strong>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ctr-lstTypeDetTrsc mt-2 pl-4">
-                                                        <div class="cLstTpDetTrsc">
-                                                            @foreach ($lstDetTrscItems as $idx => $valOrdItm)
+                                                        <div class="ctr-lstTypeDetTrsc mt-2 pl-4">
+                                                            <div class="cLstTpDetTrsc">
                                                                 <div class="ctr-itmTpDetTrsc">
                                                                     <div class="cItmTpDetTrsc flex items-center gap-2">
                                                                         <i class="lstIcn w-3 aspect-square bg-gray-300 rounded-lg"></i>
-                                                                        <div class="cCItmTpDetTrsc w-full flex flex-col min-[410px]:flex-row min-[410px]:gap-2 justify-between break-all">
-                                                                            <div class="lblItmDetTrsc">
-                                                                                <div class="lblItm">
-                                                                                    <div class="txLb">
-                                                                                        <strong>Pakaian {{$idx+1}}</strong>
-                                                                                    </div>
-                                                                                </div>
+                                                                        <div class="cCItmTpDetTrsc w-full flex flex-col sm:flex-row sm:gap-2 justify-between break-all">
+                                                                            <div class="lblItmDetTrsc break-all">
                                                                                 <div class="vlItm text-gray-700">
                                                                                     <div class="txVl line-clamp-1">
-                                                                                        <p> { {{$valOrdItm['totallOrdItm']}} } &times; Rp. { {{$valOrdItm['priceOrdPItm']}} }</p>
+                                                                                        <p>{ {{$TMP_VAL_KILOS}} }Kg &times; Rp. { {{ number_format($TMP_VAL_PRCKILOS) }} }</p>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="tlItmDetTrsc text-gray-700">
-                                                                                <div class="txTl line-clamp-1">
-                                                                                    <p>Rp. { {{$valOrdItm['totallOrdItm'] * $valOrdItm['priceOrdPItm']}} }</p>
+                                                                                <div class="valTlItmDetTrsc">
+                                                                                    <div class="txTl line-clamp-1">
+                                                                                        <p>Rp. { {{ number_format($TMP_VAL_KILOS * $TMP_VAL_PRCKILOS) }} }</p>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            @endforeach
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif
+                                            @if ($whatOrder['items'])
+                                                <div class="ctr-itmDetTrsc">
+                                                    @php
+                                                        $TMP_TL_ORD_ITM = 0;
+                                                        $tempRandTotalTrsc = rand(1, 10);
+                                                        $lstDetTrscItems = [];
+                                                        
+                                                        for ($lLI = 0; $lLI < $tempRandTotalTrsc; $lLI++ ) {
+                                                            $tempTotalVal = rand(1, 20);
+                                                            $tempPricePerItmVal = rand(50, 160) * 100;
+                                                            
+                                                            $TMP_TL_ORD_ITM += $tempTotalVal * $tempPricePerItmVal;
+                                                            
+                                                            array_push($lstDetTrscItems, [
+                                                                'totallOrdItm' => $tempTotalVal,
+                                                                'priceOrdPItm' => $tempPricePerItmVal
+                                                            ]);
+                                                        }
+                                                        
+                                                        $totalPriceTransaction += $TMP_TL_ORD_ITM;
+                                                    @endphp
+                                                    <div class="cItmDetTrsc">
+                                                        <div class="ctr-hTypeDetTrsc">
+                                                            <div class="cHTypeDetTrsc flex gap-2">
+                                                                <i class="lstIcn w-4 h-2 bg-gray-300 rounded-lg mt-2"></i>
+                                                                <div class="cCHTpDetTrsc w-full flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                                                    <div class="ctr-typeDetTrsc shrink-0">
+                                                                        <div class="cTpDetTrsc leading-[1.35rem]">
+                                                                            <div class="lblTpDetTrsc">
+                                                                                <div class="txLb">
+                                                                                    <strong>Satuan</strong>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="descTpDetTrsc">
+                                                                                <div class="txD">
+                                                                                    <strong>Total Pesanan Satuan</strong>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="vlTpDetTrsc">
+                                                                                <div class="txVl">
+                                                                                    <strong> { {{ $tempRandTotalTrsc }} } Jenis</strong>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="ctr-tlItmDetTrsc sm:w-3/5 break-all">
+                                                                        <div class="cTlItmDetTrsc leading-[1.35rem] sm:text-right">
+                                                                            <div class="lblTlItmDetTrsc">
+                                                                                <div class="txLbl">
+                                                                                    <p>Total Harga</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="vlTlItmDetTrsc line-clamp-1">
+                                                                                <div class="txVl">
+                                                                                    <strong>Rp. { {{ number_format($TMP_TL_ORD_ITM) }} }</strong>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="ctr-lstTypeDetTrsc mt-2 pl-4">
+                                                            <div class="cLstTpDetTrsc max-sm:space-y-2 sm:space-y-1">
+                                                                @foreach ($lstDetTrscItems as $idx => $valOrdItm)
+                                                                    <div class="ctr-itmTpDetTrsc max-sm:border-b-2 max-sm:border-gray-200">
+                                                                        <div class="cItmTpDetTrsc flex items-center gap-2">
+                                                                            <i class="lstIcn w-3 aspect-square bg-gray-300 rounded-lg"></i>
+                                                                            <div class="cCItmTpDetTrsc w-full flex flex-col min-[410px]:flex-row min-[410px]:gap-2 justify-between break-all">
+                                                                                <div class="lblItmDetTrsc">
+                                                                                    <div class="lblItm">
+                                                                                        <div class="txLb">
+                                                                                            <strong>Pakaian {{$idx+1}}</strong>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="vlItm text-gray-700">
+                                                                                        <div class="txVl line-clamp-1">
+                                                                                            <p> { {{$valOrdItm['totallOrdItm']}} } &times; Rp. { {{ number_format($valOrdItm['priceOrdPItm']) }} }</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="tlItmDetTrsc text-gray-700">
+                                                                                    <div class="txTl line-clamp-1">
+                                                                                        <p>Rp. { {{ number_format($valOrdItm['totallOrdItm'] * $valOrdItm['priceOrdPItm']) }} }</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                            {{-- Content Detail Transaksi Satuan --}}
                                         </div>
                                     </div>
                                 </div>
@@ -869,28 +907,15 @@
                                             <strong>Rincian Pembayaran</strong>
                                         </div>
                                     </div>
-                                    <div class="ctr-detLstMdlTrscPaymn pl-8 pr-4 mt-2">
-                                        <div class="cDetLstMdlTrscPaymn space-y-4">
+                                    <div class="ctr-detLstMdlTrscPaymn sm:pl-8 sm:pr-4 mt-2">
+                                        <div class="cDetLstMdlTrscPaymn space-y-4 text-sm sm:text-[0.925rem]">
                                             @php
                                                 $randMtMax = mt_getrandmax();
                                                 $randMtMaxLength = Str::length($randMtMax);
-                                                // $roundRFloat = round($randFloat, 2);
                                             @endphp
-                                            {{-- <div>
-                                                {{mt_getrandmax()}}
-                                            </div>
-                                            <div>
-                                                {{$randMt}}
-                                            </div>
-                                            <div>
-                                                {{$randFloat}}
-                                            </div>
-                                            <div>
-                                                {{$roundRFloat}}
-                                            </div> --}}
                                             <div class="ctr-itmDetTrscPaymn">
-                                                <div class="cItmDetTrscPaymn flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                                                    <div class="lblMethodDetTrascPaymn  shrink-0">
+                                                <div class="cItmDetTrscPaymn flex flex-col sm:flex-row sm:items-center justify-between sm:gap-2">
+                                                    <div class="lblMethodDetTrascPaymn shrink-0">
                                                         <div class="txLb">
                                                             <p>Metode Pembayaran</p>
                                                         </div>
@@ -905,9 +930,9 @@
                                             <div class="ctr-itmDetTrscPaymn">
                                                 <div class="cItmDetTrscPaymn">
                                                     <div class="ctr-lstTlPrcDetTrscPaymn">
-                                                        <div class="cLstTlPrcDTrsP">
+                                                        <div class="cLstTlPrcDTrsP space-y-2">
                                                             <div class="ctr-itmTlPrcsDTrsP">
-                                                                <div class="cItmTlPrcsDTrsP flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                                                <div class="cItmTlPrcsDTrsP flex flex-col min-[410px]:flex-row min-[410px]:gap-2 justify-between break-all">
                                                                     <div class="lblPrcDTrsP shrink-0">
                                                                         <div class="txLb">
                                                                             <p>Total Harga (@{{2}} Layanan)</p>
@@ -915,13 +940,13 @@
                                                                     </div>
                                                                     <div class="valPrcDTrsP sm:w-3/5 break-all">
                                                                         <div class="valMthd leading-[1.35rem] sm:text-right">
-                                                                            <p>Rp. { {{$totalPriceTransaction}} }</p>
+                                                                            <p>Rp. { {{ number_format($totalPriceTransaction) }} }</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="ctr-itmTlPrcsDTrsP">
-                                                                <div class="cItmTlPrcsDTrsP flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                                                <div class="cItmTlPrcsDTrsP flex flex-col min-[410px]:flex-row min-[410px]:gap-2 justify-between break-all">
                                                                     <div class="lblPrcDTrsP shrink-0">
                                                                         <div class="txLb">
                                                                             <p>Total Ongkos Kirim</p>
@@ -929,25 +954,64 @@
                                                                     </div>
                                                                     <div class="valPrcDTrsP sm:w-3/5 break-all">
                                                                         <div class="valMthd leading-[1.35rem] sm:text-right">
-                                                                            <p>Rp. { {{$randShpp}} }</p>
+                                                                            <p>Rp. { {{ number_format($randShpp) }} }</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="ctr-itmTlPrcsDTrsP">
-                                                                <div class="cItmTlPrcsDTrsP flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                                                <div class="cItmTlPrcsDTrsP flex flex-col min-[410px]:flex-row min-[410px]:gap-2 justify-between break-all">
                                                                     <div class="lblPrcDTrsP shrink-0">
                                                                         <div class="txLb">
-                                                                            <p>Diskon ({ {{$getDiscountTransaction * 100}} }&percnt;)</p>
+                                                                            <p>Diskon ({ {{ $getDiscountTransaction * 100 }} }&percnt;)</p>
                                                                         </div>
                                                                     </div>
                                                                     <div class="valPrcDTrsP sm:w-3/5 break-all">
                                                                         <div class="valMthd leading-[1.35rem] sm:text-right">
-                                                                            <p>- Rp. { {{$totalPriceTransaction * $getDiscountTransaction}} }</p>
+                                                                            <p>- Rp. { {{ number_format(($totalPriceTransaction + $randShpp) * $getDiscountTransaction) }} }</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ctr-detTotlTransaction mt-8 pr-4">
+                                        <div class="cDetTotlTransaction flex flex-col sm:flex-row sm:items-center justify-between gap-2 md:text-lg">
+                                            <div class="lblPrcDTrsP shrink-0">
+                                                <div class="txLb">
+                                                    <strong>Total Pembayaran</strong>
+                                                </div>
+                                            </div>
+                                            <div class="valPrcDTrsP sm:w-3/5 break-all max-sm:rounded-xl max-sm:border max-sm:border-black max-sm:p-4">
+                                                <div class="valMthd leading-[1.35rem] sm:text-right">
+                                                    <strong>Rp. { {{ number_format(($totalPriceTransaction + $randShpp) - (($totalPriceTransaction + $randShpp) * $getDiscountTransaction)) }} }</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{-- Section reject accept --}}
+                                <div class="sec-acRjThsOrder my-3">
+                                    <div class="ctr-acRjThsOrder">
+                                        <div class="cAcRjThsOrder text-center max-[568px]:space-y-2 min-[568px]:flex min-[568px]:flex-row-reverse min-[568px]:gap-2">
+                                            <div class="ctr-accThsOrder">
+                                                <div class="cAccThsOrder">
+                                                    <div class="btn-clkAccOrd cursor-pointer text-white px-8 py-2 rounded-lg bg-[#FF3377] transition-all duration-[400ms] hover:opacity-80">
+                                                        <div class="txL">
+                                                            <strong>Terima</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ctr-rjcThsOrder">
+                                                <div class="cRjcThsOrder">
+                                                    <div class="btn-clkRjcOrd cursor-pointer text-white px-8 py-2 rounded-lg bg-[#C00040] transition-all duration-[400ms] hover:opacity-80">
+                                                        <div class="txL">
+                                                            <strong>Tolak</strong>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -960,7 +1024,7 @@
                     </div>
                     <div class="ctr-mdlWhsDetOrder hidden border border-black">
                         <div class="cMdlWhsDetOrder border border-black">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -971,4 +1035,5 @@
 
 @section('script-field')
     <script src="{{asset('assets/js/pages/stores/orders/trs.js')}}"></script>
+    <script src="{{asset('assets/js/pages/stores/orders/mdOrd.js')}}"></script>
 @endsection
