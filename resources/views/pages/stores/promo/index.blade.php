@@ -296,13 +296,13 @@
         </div>
     </div> --}}
     
-    <div class="ctr-orders mt-8">
-        <div class="cOrders">
-            <div class="ctr-headOrders">
-                <div class="cHeadOrders">
-                    <div class="titleOrders ml-[3%] md:ml-[7%]">
+    <div class="ctr-promo mt-8">
+        <div class="cPromo">
+            <div class="ctr-headPromo">
+                <div class="cHeadPromo">
+                    <div class="titlePromo ml-[3%] md:ml-[7%]">
                         <div class="tx text-xl font-bold">
-                            <h2>Daftar Pesanan Laundry</h2>
+                            <h2>Daftar Promo</h2>
                         </div>
                     </div>
                     <div class="ctr-listFilterPromo mt-4 ml-[2%]">
@@ -510,37 +510,25 @@
                         @php
                             $randThis = rand(1, 3);
                         @endphp
-                        <div class="ctr-promoItm relative {{($randThis === 1) ? 'mb-6 md:mb-4' : (($randThis > 2) ? 'mb-10 md:mb-10' : (($randThis > 1) ? 'mb-8 md:mb-6' : ''))}}">
-                            <div class="ctr-cPromoItm border-2 border-gray-400 rounded-xl shadow-md shadow-gray-400 bg-white static z-[3]">
+                        <div class="ctr-promoItm relative mb-6 md:mb-4">
+                            <div class="ctr-cPromoItm border-2 border-gray-400 rounded-xl shadow-md shadow-gray-400 bg-white cursor-pointer">
                                 <div class="cPromoItm py-4 px-6">
                                     <div class="ctr-headPromoItm">
-                                        <div class="cHeadPromoItm flex items-center justify-between">
-                                            <div class="ctr-lftTime relative selectDisable">
-                                                <div class="cLftTime flex items-center px-4 py-2 gap-2 md:gap-4 rounded-lg font-bold text-sm text-gray-800 bg-gray-300 relative before:absolute before:w-[12%] before:aspect-square before:bg-white before:top-1/2 before:-translate-y-1/2 before:-left-[7%] before:rounded-[100%]">
-                                                    <div class="totalPromo w-14">
-                                                        <div class="tx line-clamp-1">
-                                                            <p>
-                                                                @{{3}}
-                                                                @{{3}}
-                                                                @{{3}}
-                                                            </p>
-                                                        </div>
-                                                        {{-- <span class="icn-bag text-2xl md:text-3xl">
-                                                            <i class="fa-solid fa-bag-shopping"></i>
-                                                        </span> --}}
-                                                    </div>
+                                        <div class="cHeadPromoItm flex items-center justify-between selectDisable">
+                                            <div class="ctr-lftEdit relative hover:brightness-90">
+                                                <div class="cLftEdit px-4 md:px-8 py-2 text-xs md:text-sm text-gray-800 bg-[#D9D9D9] rounded-lg ">
                                                     <div class="tx">
-                                                        <p>Kupon</p>
+                                                        <strong>Edit</strong>
                                                     </div>
                                                 </div>
                                             </div>
-                                            {{-- <div class="ctr-rghtStatus">
-                                                <div class="cStatusTrsc px-4 md:px-8 py-2 rounded-xl  border border-black">
-                                                    <div class="txSt text-xs md:text-sm font-semibold">
-                                                        <strong>@{{Selesai}}</strong>
+                                            <div class="ctr-rghtStatus">
+                                                <div class="cStatusPromo px-4 md:px-8 py-2 rounded-xl bg-[#D9D9D9] text-gray-800 ">
+                                                    <div class="txSt text-xs md:text-sm">
+                                                        <strong>@{{Aktif}}</strong>
                                                     </div>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="ctr-cTrscItm mt-4">
@@ -652,9 +640,8 @@
                                                             <div class="txHCC text-sm">
                                                                 <p>Kisaran Transaksi</p>
                                                             </div>
-                                                            <div class="txCC text-xs md:text-sm xl:text-base">
-                                                                <p>Rp. @{{10,000}} - @{{15,000}}</p>
-                                                                <p>{{$randThis}}</p>
+                                                            <div class="txCC text-xs md:text-[0.938rem]">
+                                                                <p>Rp. 10,000 - 15,000</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -670,7 +657,7 @@
                                                     </div>
                                                 </div> --}}
                                             </div>
-                                            <div class="ctr-rghtShwDetPromo flex-shrink-0">
+                                            {{-- <div class="ctr-rghtShwDetPromo flex-shrink-0">
                                                 <div class="cShwDetPromo">
                                                     <a href="" class="shwThs block px-4 md:px-8 lg:px-12 py-2 border border-black rounded-xl">
                                                         <div class="tx text-sm text-center sm:text-left font-semibold">
@@ -678,18 +665,10 @@
                                                         </div>
                                                     </a>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="ctr-accs">
-                                @php
-                                    $accsPrmItm = ($randThis > 2) ? 3 : (($randThis > 1) ? 2 : 0);
-                                @endphp
-                                @for ($j = 0; $j < $accsPrmItm; $j++)
-                                    <div class="accsPrmItm absolute w-full border-2 border-gray-400 rounded-xl shadow-md shadow-gray-400 bg-white -z-[{{$j+1}}] -bottom-{{3*$j;}}"></div>
-                                @endfor
                             </div>
                         </div>
                     @endfor
@@ -710,7 +689,7 @@
         $getDiscountTransaction = rand(1, 100) / 100;
     @endphp
     {{-- <div class="ctr-shwMdlDetOrder w-full p-2 md:w-3/4 max-w-[1280px] h-[100vh] md:h-[80vh] bg-pink-200 transition-all fixed z-[100] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-black"> --}}
-    <div class="ctr-shwMdlDetOrder p-2 h-[100vh] md:h-[80vh] overflow-hidden bg-white md:rounded-2xl md:shadow-lg md:shadow-black/50 transition-all fixed z-[100] hidden w-0 md:w-[0]" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
+    <div class="ctr-shwMdlDetOrder p-2 h-[100vh] md:h-[80vh] overflow-hidden bg-white md:rounded-2xl md:shadow-lg md:shadow-black/50 transition-all fixed z-[100] w-full md:w-[640px]" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
         <div class="cShwMdlDetOrder p-1 h-full relative">
             <div class="icnClsMdlDetOrder">
                 <div id="icnClsXMdlDetThsOrder" class="icnClsX rounded-lg py-2 px-3 cursor-pointer absolute z-[2] top-0 right-0 bg-white border border-black">
