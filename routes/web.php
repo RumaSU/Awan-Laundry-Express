@@ -6,6 +6,7 @@ use App\Http\Controllers\User\myPromoController;
 use App\Http\Controllers\User\myTransactionController;
 use App\Http\Controllers\Store\myStoreController;
 use App\Http\Controllers\Store\storeOrdersController;
+use App\Http\Controllers\Store\storePromoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
@@ -62,6 +63,7 @@ Route::view('/store/setting', 'pages.stores.pengaturan.index');
 
 Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
 Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
+Route::get('/store/promo', [storePromoController::class, 'index'])->name('store\promo');
 Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
 
 

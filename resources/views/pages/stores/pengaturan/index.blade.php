@@ -88,96 +88,6 @@
             </div>
         </div>
     </div>
-
-    <div id="namaTokoModal" class="EditToko" style="display: none;">
-        <div class="toko-content">
-            <span class="close">&times;</span>
-            <div class="ctr-toko">
-                <h2><b>Ubah Nama Toko</b></h2>
-                <p>Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan nama sudah benar</p>
-                <label for="namaToko" style="font-size: 15px;"><b>Nama Toko</b></label>
-                <input type="text" id="namaToko" name="namaToko" placeholder="Nama Toko">
-                <p>Nama dapat dilihat oleh pelanggan</p>
-                <button type="submit">Simpan</button>
-            </div>
-        </div>
-    </div>
-    <div id="emailTokoModal" class="EditToko" style="display: none;">
-        <div class="toko-content">
-            <span class="close">&times;</span>
-            <div class="ctr-toko">
-                <h2><b>Ubah Email Toko</b></h2>
-                <p>Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan email sudah benar</p>
-                <label for="emailToko" style="font-size: 15px;"><b>Email Toko</b></label>
-                <input type="text" id="emailToko" name="emailToko" placeholder="Email Toko">
-                <button type="submit">Simpan</button>
-            </div>
-        </div>
-    </div>
-    <div id="noHpTokoModal" class="EditToko" style="display: none;">
-        <div class="toko-content">
-            <span class="close">&times;</span>
-            <div class="ctr-toko">
-                <h2><b>Ubah Nomor HP Toko</b></h2>
-                <p>Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan nomor HP sudah benar</p>
-                <label for="noHpToko" style="font-size: 15px;"><b>Nomor HP</b></label>
-                <input type="text" id="noHpToko" name="noHpToko" placeholder="Nomor HP Toko">
-                <button type="submit">Simpan</button>
-            </div>
-        </div>
-    </div>
-    <div id="alamatTokoModal" class="EditToko" style="display: none;">
-        <div class="toko-content">
-            <span class="close">&times;</span>
-            <div class="ctr-toko">
-                <h2><b>Ubah Alamat Toko</b></h2>
-                <p>Kamu hanya dapat mengubah alamat 1 kali lagi. Pastikan alamat sudah benar.</p>
-                <form>
-                    <div class="keterangan">
-                        <label for="keteranganTempat" style="font-size: 15px;">Keterangan Tempat</label>
-                        <textarea id="keteranganTempat" name="keteranganTempat" rows="4" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"></textarea>
-                        {{-- <input type="text" id="tempat-keterangan" name="tempat-keterangan" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"> --}}
-                    </div>
-                    {{-- <div class="keterangan">
-                        <label for="rt" style="font-size: 15px;">RT</label>
-                        <input type="text" id="rt-toko" name="rt">
-                    </div>
-                    <div class="keterangan">
-                        <label for="rw" style="font-size: 15px;">RW</label>
-                        <input type="text" id="rw-toko" name="rw">
-                    </div> --}}
-                    <div class="keterangan rt-rw-container">
-                        <div class="rt-container">
-                            <label for="rt" style="font-size: 15px;">RT</label>
-                            <input type="text" id="rt" name="rt">
-                        </div>
-                        <div class="rw-container">
-                            <label for="rw" style="font-size: 15px;">RW</label>
-                            <input type="text" id="rw" name="rw">
-                        </div>
-                    </div>
-                    <div class="keterangan">
-                        <label for="desa" style="font-size: 15px;">Desa / Kelurahan</label>
-                        <input type="text" id="desa-toko" name="desa" placeholder="Nama Desa atau Kelurahan">
-                    </div>
-                    <div class="keterangan">
-                        <label for="kecamatan" style="font-size: 15px;">Kecamatan</label>
-                        <input type="text" id="kecamatan-toko" name="kecamatan" placeholder="Nama Kecamatan">
-                    </div>
-                    <div class="keterangan">
-                        <label for="kabupaten" style="font-size: 15px;">Kabupaten / Kota</label>
-                        <input type="text" id="kabupaten-toko" name="kabupaten" placeholder="Nama Kabupaten atau Kota">
-                    </div>
-                    <div class="keterangan">
-                        <label for="lokasi" style="font-size: 15px;">Lokasi gmap</label>
-                        <a href="#" class="map-link" id="">Tentukan lokasi</a>
-                    </div>
-                    <button type="submit">Simpan</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
 @endsection
 
 @section('script-field')
@@ -283,7 +193,95 @@
         });
     });
 </script> --}}
+@endsection
 
-
-
+@section('popup-content-field')
+    <div id="namaTokoModal" class="EditToko z-[100]" style="display: none;">
+        <div class="toko-content">
+            <span class="close">&times;</span>
+            <div class="ctr-toko">
+                <h2><b>Ubah Nama Toko</b></h2>
+                <p>Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan nama sudah benar</p>
+                <label for="namaToko" style="font-size: 15px;"><b>Nama Toko</b></label>
+                <input type="text" id="namaToko" name="namaToko" placeholder="Nama Toko">
+                <p>Nama dapat dilihat oleh pelanggan</p>
+                <button type="submit">Simpan</button>
+            </div>
+        </div>
+    </div>
+    <div id="emailTokoModal" class="EditToko z-[100]" style="display: none;">
+        <div class="toko-content">
+            <span class="close">&times;</span>
+            <div class="ctr-toko">
+                <h2><b>Ubah Email Toko</b></h2>
+                <p>Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan email sudah benar</p>
+                <label for="emailToko" style="font-size: 15px;"><b>Email Toko</b></label>
+                <input type="text" id="emailToko" name="emailToko" placeholder="Email Toko">
+                <button type="submit">Simpan</button>
+            </div>
+        </div>
+    </div>
+    <div id="noHpTokoModal" class="EditToko z-[100]" style="display: none;">
+        <div class="toko-content">
+            <span class="close">&times;</span>
+            <div class="ctr-toko">
+                <h2><b>Ubah Nomor HP Toko</b></h2>
+                <p>Kamu hanya dapat mengubah nama 1 kali lagi. Pastikan nomor HP sudah benar</p>
+                <label for="noHpToko" style="font-size: 15px;"><b>Nomor HP</b></label>
+                <input type="text" id="noHpToko" name="noHpToko" placeholder="Nomor HP Toko">
+                <button type="submit">Simpan</button>
+            </div>
+        </div>
+    </div>
+    <div id="alamatTokoModal" class="EditToko z-[100]" style="display: none;">
+        <div class="toko-content">
+            <span class="close">&times;</span>
+            <div class="ctr-toko">
+                <h2><b>Ubah Alamat Toko</b></h2>
+                <p>Kamu hanya dapat mengubah alamat 1 kali lagi. Pastikan alamat sudah benar.</p>
+                <form>
+                    <div class="keterangan">
+                        <label for="keteranganTempat" style="font-size: 15px;">Keterangan Tempat</label>
+                        <textarea id="keteranganTempat" name="keteranganTempat" rows="4" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"></textarea>
+                        {{-- <input type="text" id="tempat-keterangan" name="tempat-keterangan" placeholder="Diisi keterangan tempat dan nama jalan alamatmu"> --}}
+                    </div>
+                    {{-- <div class="keterangan">
+                        <label for="rt" style="font-size: 15px;">RT</label>
+                        <input type="text" id="rt-toko" name="rt">
+                    </div>
+                    <div class="keterangan">
+                        <label for="rw" style="font-size: 15px;">RW</label>
+                        <input type="text" id="rw-toko" name="rw">
+                    </div> --}}
+                    <div class="keterangan rt-rw-container">
+                        <div class="rt-container">
+                            <label for="rt" style="font-size: 15px;">RT</label>
+                            <input type="text" id="rt" name="rt">
+                        </div>
+                        <div class="rw-container">
+                            <label for="rw" style="font-size: 15px;">RW</label>
+                            <input type="text" id="rw" name="rw">
+                        </div>
+                    </div>
+                    <div class="keterangan">
+                        <label for="desa" style="font-size: 15px;">Desa / Kelurahan</label>
+                        <input type="text" id="desa-toko" name="desa" placeholder="Nama Desa atau Kelurahan">
+                    </div>
+                    <div class="keterangan">
+                        <label for="kecamatan" style="font-size: 15px;">Kecamatan</label>
+                        <input type="text" id="kecamatan-toko" name="kecamatan" placeholder="Nama Kecamatan">
+                    </div>
+                    <div class="keterangan">
+                        <label for="kabupaten" style="font-size: 15px;">Kabupaten / Kota</label>
+                        <input type="text" id="kabupaten-toko" name="kabupaten" placeholder="Nama Kabupaten atau Kota">
+                    </div>
+                    <div class="keterangan">
+                        <label for="lokasi" style="font-size: 15px;">Lokasi gmap</label>
+                        <a href="#" class="map-link" id="">Tentukan lokasi</a>
+                    </div>
+                    <button type="submit">Simpan</button>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection

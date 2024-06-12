@@ -15,14 +15,6 @@
             background-image: url('assets/components/pages/left 05B8FF water.png');
             z-index: 5;
         }
-        .selectDisable {
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -o-user-select: none;
-            user-select: none;
-        }
-
         .btnFilterItmActive {
             background-color: #FF3377;
             color: white;
@@ -40,7 +32,7 @@
         .cCPromoItm {
             display: block;
         }
-        .cCPromoItm .imagePromo {
+        .cCPromoItm .imagePromo {`
             aspect-ratio: 16 / 9;
         }
         .txTimeTras {
