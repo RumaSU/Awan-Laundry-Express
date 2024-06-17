@@ -32,7 +32,9 @@
             </div>
         </div>
         <div class="button-swipe-jemput">
-            <button>Lihat Detail</button>
+            <button>Lihat Detail
+                <div class="vertikal-button"></div>
+            </button>
         </div>
     </div>
     @endfor

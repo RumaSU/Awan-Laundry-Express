@@ -46,7 +46,9 @@
             </div>
         </div>
         <div class="button-swipe">
-            <button>Lihat Detail</button>
+            <button>Lihat Detail
+                <div class="vertikal-button"></div>
+            </button>
         </div>
     </div>
     @endfor

@@ -240,12 +240,6 @@
         <div class="search-bar">
             <input type="text" placeholder="Cari Promo">
         </div>
-        {{-- <div class="category-bar">
-            <a href="#" class="category-button active">Semua</a>
-            <a href="#" class="category-button">Kiloan</a>
-            <a href="#" class="category-button">Satuan</a>
-            <a href="#" class="category-button">Ongkir</a>
-        </div> --}}
         <div class="ctr-promo mb-4">
             <div class="cPromo flex justify-center">
                 <div class="ctr-headPromo">
@@ -490,7 +484,177 @@
 
 
         </div>
-        <div class="transaction-card">
+        {{-- <div class="transaction-card"> --}}
+            {{-- <div class="transaction-info">
+                <div class="transaction-icon"></div>
+                <div class="transaction-details">
+                    <p class="transaction-type"><b>Belanja</b></p>
+                    <p class="transaction-date">25 Mar 2024</p>
+                    <p class="transaction-description"><b>Pemesanan jasa Kiloan dan Satuan</b></p>
+                    <p class="transaction-items">2 Jenis (Kiloan dan Satuan)</p>
+                    <p class="transaction-total">Total Belanja</p>
+                    <p class="transaction-amount"><b>Rp. 218958192571</b></p>
+                </div>
+            </div>
+            <div class="transaction-actions">
+                <button class="complete-button">Selesai</button>
+                <button class="details-button">Lihat Detail</button>
+            </div> --}}
+            <div class="ctr-listOrders mt-4 px-4 w-[80%] mx-auto">
+                <div class="cListOrders space-y-2">
+                    @php
+                        $listOrder = rand(0, 8);
+                    @endphp
+                    @if ($listOrder > 0)
+                        @for ($i = 0; $i < $listOrder; $i++)
+                            @php
+                                $uuidThis = Str::uuid();
+                            @endphp
+
+                            <div class="ctr-OrdersItm border-2 border-gray-400 py-4 px-6 rounded-xl shadow-md shadow-gray-400" data-orderId="{{$uuidThis}}">
+                                <div class="cOrdersItm">
+                                    <div class="ctr-headTrscTimeStatusItm">
+                                        <div class="cHeadTrscTimeStatusItm flex justify-between gap-2">
+                                            <div class="ctr-lftTime shrink-0">
+                                                <div class="cLftTime flex items-center gap-4 md:gap-6">
+                                                    <div class="icn">
+                                                        <span class="icn-bag text-2xl md:text-3xl text-[#C00040]">
+                                                            <i class="fa-solid fa-bag-shopping"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="ctr-timeTrsc">
+                                                        <div class="cTimeTrsc">
+                                                            <div class="txH text-sm">
+                                                                <strong>Cuci Pakaian</strong>
+                                                            </div>
+                                                            <div class="txTimeTras font-light text-gray-700">
+                                                                <p>@{{25 Mar 2024}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ctr-rghtStatus selectDisable" data-orderId="{{$uuidThis}}">
+                                                <div class="cStatusTrsc flex items-center gap-2 text-xs md:text-sm">
+                                                    @php
+                                                        $stAccRejc = rand(0, 1);
+                                                    @endphp
+                                                    @if ($stAccRejc)
+                                                        <div class="cSRejectTrsc cursor-pointer text-white px-4 md:px-8 py-2 rounded-lg bg-[#C00040] transition-all duration-[400ms] hover:opacity-80">
+                                                            <div class="txSt">
+                                                                <strong>Tolak</strong>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cSAccptTrsc cursor-pointer text-white px-4 md:px-8 py-2 rounded-lg bg-[#FF3377] transition-all duration-[400ms] hover:opacity-80">
+                                                            <div class="txSt">
+                                                                <strong>Terima</strong>
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <div class="cSDoneTrsc px-4 md:px-8 py-2 rounded-xl border border-black">
+                                                            <div class="txSt text-xs md:text-sm font-semibold">
+                                                                <strong>@{{Selesai}}</strong>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ctr-cTrscItm mt-4">
+                                        <div class="cCOrdersItm space-y-2">
+                                            <div class="ctr-userOrder">
+                                                <div class="cUserOrder flex items-center gap-2 selectDisable">
+                                                    <div class="cImgUsr shrink-0">
+                                                        <div class="imgUsr w-8 md:w-10 aspect-square rounded-[100%] overflow-hidden">
+                                                            <img src="{{asset('assets/img/dumb/imgtemp 1.jpg')}}" alt="" class="w-full h-full object-cover object-center">
+                                                        </div>
+                                                    </div>
+                                                    <div class="cNameUsr break-all">
+                                                        <div class="txNm line-clamp-1 text-xs md:text-sm">
+                                                            <p>Nama Toko</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ctr-userDetOrder w-full">
+                                                <div class="cDetOrders select-none">
+                                                    <div class="headDetOrders break-all">
+                                                        <div class="txHDet text-sm md:text-base xl:text-lg font-semibold line-clamp-2" style="line-height: 1.15rem;">
+                                                            <h2>Pemesanan jasa @{{Kiloan dan Satuan}}Pemesanan jasa @{{Kiloan dan Satuan}}Pemesanan jasa @{{Kiloan dan Satuan}}Pemesanan jasa @{{Kiloan dan Satuan}}</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ctr-fooTrscItm mt-4 md:mt-2">
+                                        <div class="cFooTrscItm">
+                                            <div class="ctr-lftTPrice flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
+                                                <div class="cTPrice md:-space-y-1 text-sm">
+                                                    <div class="headTPrice">
+                                                        <div class="tx">
+                                                            <p>Total Belanja</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cPrice">
+                                                        <div class="tx text-sm md:text-lg font-bold">
+                                                            <p>Rp. @{{21821817257125}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="ctr-rghtShwDetTrsc">
+                                                    <div class="cShwDetTrsc cursor-pointer">
+                                                        <button class="shwThsDetTrsc block px-4 md:px-6 lg:px-10 py-1.5 border border-black rounded-xl">
+                                                            <div class="tx text-sm text-center sm:text-left font-semibold">
+                                                                <p>Lihat Detail</p>
+                                                            </div>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endfor
+                    @else
+                        <div class="ctr-OrdersItm border-2 border-gray-400 py-4 px-6 rounded-xl shadow-md shadow-gray-400">
+                            <div class="cOrdersItm flex flex-col items-center justify-center gap-6">
+                                <div class="ctr-imgNoOrder relative">
+                                    <div class="cImgNoOrder flex items-center justify-center h-36 bg-gray-200 rounded-full aspect-square">
+                                        <div class="imgNoOrder">
+                                            <div class="icnBagWsClths">
+                                                <span class="icnBag text-8xl text-black/40">
+                                                    <i class="fa-solid fa-bag-shopping"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cXImgNoOrder flex items-center justify-center absolute -right-[4%] -bottom-[4%] translate-x-[4%] translate-y-[4%] rounded-[100%] p-2 bg-white">
+                                        <div class="xNoOrder">
+                                            <div class="icnXClths">
+                                                <span class="icnX text-[2.5rem] leading-4 text-black/40">
+                                                    <i class="fa-solid fa-circle-minus"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ctr-txNoOrder">
+                                    <div class="cTxNoOrder">
+                                        <div class="txNoOrder flex items-center gap-1 text-black/60">
+                                            No Order <div class="text-[#C00040]">Today</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+        {{-- <div class="transaction-card">
             <div class="transaction-info">
                 <div class="transaction-icon"></div>
                 <div class="transaction-details">
@@ -506,25 +670,8 @@
                 <button class="complete-button">Selesai</button>
                 <button class="details-button">Lihat Detail</button>
             </div>
-        </div>
-        <div class="transaction-card">
-            <div class="transaction-info">
-                <div class="transaction-icon"></div>
-                <div class="transaction-details">
-                    <p class="transaction-type"><b>Belanja</b></p>
-                    <p class="transaction-date">25 Mar 2024</p>
-                    <p class="transaction-description"><b>Pemesanan jasa Kiloan dan Satuan</b></p>
-                    <p class="transaction-items">2 Jenis (Kiloan dan Satuan)</p>
-                    <p class="transaction-total">Total Belanja</p>
-                    <p class="transaction-amount"><b>Rp. 218958192571</b></p>
-                </div>
-            </div>
-            <div class="transaction-actions">
-                <button class="complete-button">Selesai</button>
-                <button class="details-button">Lihat Detail</button>
-            </div>
-        </div>
-    </div>
+        </div> --}}
+    {{-- </div> --}}
 
     {{-- <div class="wrapper mt-10" style="max-width: 95%; margin: 0 auto;">
         <img src="{{ asset('assets/components/icon/payment-wrapper.png') }}" alt="">
@@ -605,169 +752,6 @@
 
 
 @section('script-field')
-{{-- pertama --}}
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var filterButton = document.querySelector('.filter-button-promo');
-        var dropdownContent = document.querySelector('.dropdown-content-promo');
-        var arrow = document.querySelector('.arrow-promo');
-
-        filterButton.addEventListener('click', function() {
-            if (dropdownContent.style.display === "none" || dropdownContent.style.display === "") {
-                dropdownContent.style.display = "block";
-                arrow.innerHTML = "&#x25BC;"; // Panah ke bawah
-            } else {
-                dropdownContent.style.display = "none";
-                arrow.innerHTML = "&#x25B6;"; // Panah ke samping
-            }
-        });
-
-        window.addEventListener('click', function(event) {
-            if (!filterButton.contains(event.target) && !dropdownContent.contains(event.target)) {
-                dropdownContent.style.display = "none";
-                arrow.innerHTML = "&#x25B6;"; // Panah ke samping
-            }
-        });
-    });
-</script> --}}
-
-{{-- kedua --}}
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var filterButtonsTransaksi = document.querySelectorAll('.filter-button-transaksi-pertama');
-        var dropdownsTransaksi = document.querySelectorAll('.dropdown-content-transaksi-pertama');
-        var arrowsTransaksi = document.querySelectorAll('.arrow-transaksi-pertama');
-
-        filterButtonsTransaksi.forEach(function(button, index) {
-            button.addEventListener('click', function() {
-                dropdownsTransaksi[index].style.display = (dropdownsTransaksi[index].style.display === "none" || dropdownsTransaksi[index].style.display === "") ? "block" : "none";
-                arrowsTransaksi[index].innerHTML = (dropdownsTransaksi[index].style.display === "none" || dropdownsTransaksi[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
-            });
-        });
-
-        window.addEventListener('click', function(event) {
-            filterButtonsTransaksi.forEach(function(button, index) {
-                if (!button.contains(event.target) && !dropdownsTransaksi[index].contains(event.target)) {
-                    dropdownsTransaksi[index].style.display = "none";
-                    arrowsTransaksi[index].innerHTML = "&#x25B6;";
-                }
-            });
-        });
-
-        var filterButtonPromo = document.querySelector('.filter-button-promo');
-        var dropdownContentPromo = document.querySelector('.dropdown-content-promo');
-        var arrowPromo = document.querySelector('.arrow-promo');
-
-        filterButtonPromo.addEventListener('click', function() {
-            if (dropdownContentPromo.style.display === "none" || dropdownContentPromo.style.display === "") {
-                dropdownContentPromo.style.display = "block";
-                arrowPromo.innerHTML = "&#x25BC;"; // Panah ke bawah
-            } else {
-                dropdownContentPromo.style.display = "none";
-                arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
-            }
-        });
-
-        window.addEventListener('click', function(event) {
-            if (!filterButtonPromo.contains(event.target) && !dropdownContentPromo.contains(event.target)) {
-                dropdownContentPromo.style.display = "none";
-                arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
-            }
-        });
-    });
-</script> --}}
-
-{{-- ketiga --}}
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Logic for dropdown pertama
-    var filterButtonsTransaksiPertama = document.querySelectorAll('.filter-button-transaksi-pertama');
-    var dropdownsTransaksiPertama = document.querySelectorAll('.dropdown-content-transaksi-pertama');
-    var arrowsTransaksiPertama = document.querySelectorAll('.arrow-transaksi-pertama');
-
-    filterButtonsTransaksiPertama.forEach(function(button, index) {
-        button.addEventListener('click', function() {
-            dropdownsTransaksiPertama[index].style.display = (dropdownsTransaksiPertama[index].style.display === "none" || dropdownsTransaksiPertama[index].style.display === "") ? "block" : "none";
-            arrowsTransaksiPertama[index].innerHTML = (dropdownsTransaksiPertama[index].style.display === "none" || dropdownsTransaksiPertama[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
-        });
-    });
-
-    window.addEventListener('click', function(event) {
-        filterButtonsTransaksiPertama.forEach(function(button, index) {
-            if (!button.contains(event.target) && !dropdownsTransaksiPertama[index].contains(event.target)) {
-                dropdownsTransaksiPertama[index].style.display = "none";
-                arrowsTransaksiPertama[index].innerHTML = "&#x25B6;";
-            }
-        });
-    });
-
-    // Logic for dropdown kedua (Semua Layanan)
-    var filterButtonsTransaksiDua = document.querySelectorAll('.filter-button-transaksi-dua');
-    var dropdownsTransaksiDua = document.querySelectorAll('.dropdown-content-transaksi-dua');
-    var arrowsTransaksiDua = document.querySelectorAll('.arrow-transaksi-dua');
-
-    filterButtonsTransaksiDua.forEach(function(button, index) {
-        button.addEventListener('click', function() {
-            dropdownsTransaksiDua[index].style.display = (dropdownsTransaksiDua[index].style.display === "none" || dropdownsTransaksiDua[index].style.display === "") ? "block" : "none";
-            arrowsTransaksiDua[index].innerHTML = (dropdownsTransaksiDua[index].style.display === "none" || dropdownsTransaksiDua[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
-        });
-    });
-
-    window.addEventListener('click', function(event) {
-        filterButtonsTransaksiDua.forEach(function(button, index) {
-            if (!button.contains(event.target) && !dropdownsTransaksiDua[index].contains(event.target)) {
-                dropdownsTransaksiDua[index].style.display = "none";
-                arrowsTransaksiDua[index].innerHTML = "&#x25B6;";
-            }
-        });
-    });
-
-    // Logic for dropdown ketiga (Semua Tanggal)
-    var filterButtonsTransaksiTiga = document.querySelectorAll('.filter-button-transaksi-tiga');
-    var dropdownsTransaksiTiga = document.querySelectorAll('.dropdown-content-transaksi-tiga');
-    var arrowsTransaksiTiga = document.querySelectorAll('.arrow-transaksi-tiga');
-
-    filterButtonsTransaksiTiga.forEach(function(button, index) {
-        button.addEventListener('click', function() {
-            dropdownsTransaksiTiga[index].style.display = (dropdownsTransaksiTiga[index].style.display === "none" || dropdownsTransaksiTiga[index].style.display === "") ? "block" : "none";
-            arrowsTransaksiTiga[index].innerHTML = (dropdownsTransaksiTiga[index].style.display === "none" || dropdownsTransaksiTiga[index].style.display === "") ? "&#x25B6;" : "&#x25BC;";
-        });
-    });
-
-    window.addEventListener('click', function(event) {
-        filterButtonsTransaksiTiga.forEach(function(button, index) {
-            if (!button.contains(event.target) && !dropdownsTransaksiTiga[index].contains(event.target)) {
-                dropdownsTransaksiTiga[index].style.display = "none";
-                arrowsTransaksiTiga[index].innerHTML = "&#x25B6;";
-            }
-        });
-    });
-
-    // Logic for dropdown promo
-    var filterButtonPromo = document.querySelector('.filter-button-promo');
-    var dropdownContentPromo = document.querySelector('.dropdown-content-promo');
-    var arrowPromo = document.querySelector('.arrow-promo');
-
-    filterButtonPromo.addEventListener('click', function() {
-        if (dropdownContentPromo.style.display === "none" || dropdownContentPromo.style.display === "") {
-            dropdownContentPromo.style.display = "block";
-            arrowPromo.innerHTML = "&#x25BC;"; // Panah ke bawah
-        } else {
-            dropdownContentPromo.style.display = "none";
-            arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
-        }
-    });
-
-    window.addEventListener('click', function(event) {
-        if (!filterButtonPromo.contains(event.target) && !dropdownContentPromo.contains(event.target)) {
-            dropdownContentPromo.style.display = "none";
-            arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
-        }
-    });
-});
-
-</script> --}}
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
     // Logic for dropdown pertama

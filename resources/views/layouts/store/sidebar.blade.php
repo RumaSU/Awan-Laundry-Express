@@ -212,7 +212,7 @@
                         </li>
                         <li>
                             <div class="promo-sb">
-                                <a href="{{ route('user\myPromo') }}"
+                                <a href="{{ route('store\promo') }}"
                                     class="rounded-lg border block px-4 py-2 group {{ $urlChoosed === 'promo' ? $ifChoosedAHref : $ifNotChoosedAHref }}">
                                     <div class="c flex items-center gap-4">
                                         <div

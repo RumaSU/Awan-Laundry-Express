@@ -152,23 +152,53 @@
     font-size: 0.9rem;
 }
 
-.button-swipe button{
+.button-swipe{
     height: 9rem;
     width: 5rem;
-    background-color: #FF3377;
+    background: linear-gradient(to left, #d51957, #FF3377);
     border-radius: 16px;
     border-radius: 0 16px 16px 0 ;
     color: white;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-swipe button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.vertikal-button{
+    background-color: white;
+    height: 3rem;
+    width: 0.4rem;
+    margin-right: 0.4rem;
+    border-radius: 8px;
+}
+.button-swipe-jemput{
+    height: 9rem;
+    width: 6rem;
+    background: linear-gradient(to left, #208eba, #00b7ff);
+    border-radius: 16px;
+    border-radius: 0 16px 16px 0 ;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .button-swipe-jemput button{
-    height: 9rem;
-    width: 5rem;
-    background-color: #00b7ff;
-    border-radius: 16px;
-    border-radius: 0 16px 16px 0 ;
-    color: white;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button-swipe-jemput .vertikal-button{
+    background-color: white;
+    height: 3rem;
+    width: 0.4rem;
+    margin-right: 0.4rem;
+    border-radius: 8px;
 }
 
 .button-set-maps{

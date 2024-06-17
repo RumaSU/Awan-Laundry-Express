@@ -1,5 +1,5 @@
 @extends('layouts.store.index')
-@section('titlePage', 'Toko - Pesanan')
+@section('titlePage', 'Toko - Promo')
 
 @section('head-link-field')
 
@@ -30,16 +30,6 @@
             top: 0;
             /* margin-left: 0.15rem; */
             /* color: inherit; */
-        }
-
-        @media only screen and (min-width: 321px) {
-            /* .cCOrdersItm {
-                display: flex;
-            } */
-            .txTimeTras {
-                font-size: 0.75rem;
-                line-height: 1rem;
-            }
         }
         @media only screen and (min-width: 425px) {
             /* .cCOrdersItm {
@@ -305,64 +295,54 @@
             </div>
         </div>
     </div> --}}
-
-    <div class="ctr-orders mt-8">
-        <div class="cOrders">
-            <div class="ctr-headOrders">
-                <div class="cHeadOrders">
-                    <div class="titleOrders ml-[3%] md:ml-[7%]">
+    
+    <div class="ctr-promo mt-8">
+        <div class="cPromo">
+            <div class="ctr-headPromo">
+                <div class="cHeadPromo">
+                    <div class="titlePromo ml-[3%] md:ml-[7%]">
                         <div class="tx text-xl font-bold">
-                            <h2>Daftar Pesanan Laundry</h2>
+                            <h2>Daftar Promo</h2>
                         </div>
                     </div>
-                    <div class="ctr-listFilterOrders mt-4 ml-[2%]">
-                        <div class="cListFilterOrders selectDisable flex flex-wrap md:flex-nowrap items-center gap-2 font-bold">
+                    <div class="ctr-listFilterPromo mt-4 ml-[2%]">
+                        <div class="cListFilterPromo selectDisable flex flex-wrap md:flex-nowrap items-center gap-2 font-bold">
                             <div class="ctr-filterItm shrink-0">
                                 <div class="cFilterItm">
-                                    <input type="radio" name="filterOrders" id="filterItmNewOrders" class="peer/NewOrders hidden sr-only" checked>
-                                    <label for="filterItmNewOrders" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/NewOrders:bg-[#FF3377] peer-checked/NewOrders:text-white peer-checked/NewOrders:border-pink-900">
-                                        <div class="cFNewOrders">
-                                            <div class="tx">Pesanan Baru</div>
+                                    <input type="radio" name="filterPromo" id="filterItmNewPromo" class="peer/NewPromo hidden sr-only" checked>
+                                    <label for="filterItmNewPromo" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/NewPromo:bg-[#FF3377] peer-checked/NewPromo:text-white peer-checked/NewPromo:border-pink-900">
+                                        <div class="cFNewPromo">
+                                            <div class="tx">Semua</div>
                                         </div>
                                     </label>
                                 </div>
                             </div>
                             <div class="ctr-filterItm shrink-0">
                                 <div class="cFilterItm">
-                                    <input type="radio" name="filterOrders" id="filterItmDoneOrders" class="peer/DoneOrders hidden sr-only">
-                                    <label for="filterItmDoneOrders" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/DoneOrders:bg-[#FF3377] peer-checked/DoneOrders:text-white peer-checked/DoneOrders:border-pink-900">
-                                        <div class="cFDoneOrders">
-                                            <div class="tx">Selesai</div>
+                                    <input type="radio" name="filterPromo" id="filterItmDonePromo" class="peer/DonePromo hidden sr-only">
+                                    <label for="filterItmDonePromo" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/DonePromo:bg-[#FF3377] peer-checked/DonePromo:text-white peer-checked/DonePromo:border-pink-900">
+                                        <div class="cFDonePromo">
+                                            <div class="tx">Kiloan</div>
                                         </div>
                                     </label>
                                 </div>
                             </div>
                             <div class="ctr-filterItm shrink-0">
                                 <div class="cFilterItm">
-                                    <input type="radio" name="filterOrders" id="filterItmPieceOrders" class="peer/PieceOrders hidden sr-only">
-                                    <label for="filterItmPieceOrders" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/PieceOrders:bg-[#FF3377] peer-checked/PieceOrders:text-white peer-checked/PieceOrders:border-pink-900">
-                                        <div class="cFPieceOrders">
-                                            <div class="tx">Diproses</div>
+                                    <input type="radio" name="filterPromo" id="filterItmPiecePromo" class="peer/PiecePromo hidden sr-only">
+                                    <label for="filterItmPiecePromo" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/PiecePromo:bg-[#FF3377] peer-checked/PiecePromo:text-white peer-checked/PiecePromo:border-pink-900">
+                                        <div class="cFPiecePromo">
+                                            <div class="tx">Satuan</div>
                                         </div>
                                     </label>
                                 </div>
                             </div>
                             <div class="ctr-filterItm shrink-0">
                                 <div class="cFilterItm">
-                                    <input type="radio" name="filterOrders" id="filterItmShippingOrders" class="peer/ShippingOrders hidden sr-only">
-                                    <label for="filterItmShippingOrders" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/ShippingOrders:bg-[#FF3377] peer-checked/ShippingOrders:text-white peer-checked/ShippingOrders:border-pink-900">
-                                        <div class="cFShippingOrders">
-                                            <div class="tx">Dikirim</div>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="ctr-filterItm shrink-0">
-                                <div class="cFilterItm">
-                                    <input type="radio" name="filterOrders" id="filterItmRejectedOrders" class="peer/RejectedOrders hidden sr-only">
-                                    <label for="filterItmRejectedOrders" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/RejectedOrders:bg-[#FF3377] peer-checked/RejectedOrders:text-white peer-checked/RejectedOrders:border-pink-900">
-                                        <div class="cFRejectedOrders">
-                                            <div class="tx">Ditolak</div>
+                                    <input type="radio" name="filterPromo" id="filterItmShippingPromo" class="peer/ShippingPromo hidden sr-only">
+                                    <label for="filterItmShippingPromo" class="block cursor-pointer border px-3 md:px-5 xl:px-7 py-2 rounded-full transition-all duration-300 border-gray-400 hover:bg-[#FF3377] hover:text-white hover:border-pink-900 peer-checked/ShippingPromo:bg-[#FF3377] peer-checked/ShippingPromo:text-white peer-checked/ShippingPromo:border-pink-900">
+                                        <div class="cFShippingPromo">
+                                            <div class="tx">Ongkir</div>
                                         </div>
                                     </label>
                                 </div>
@@ -371,7 +351,7 @@
                     </div>
                 </div>
             </div>
-            <div class="ctr-listOrders mt-4 px-4">
+            {{-- <div class="ctr-listOrders mt-4 px-4">
                 <div class="cListOrders space-y-2">
                     @php
                         $listOrder = rand(0, 8);
@@ -523,6 +503,176 @@
                         </div>
                     @endif
                 </div>
+            </div> --}}
+            <div class="ctr-listPromo mt-4 px-4">
+                <div class="cListPromo">
+                    @for ($i = 0; $i < 3; $i++)
+                        @php
+                            $randThis = rand(1, 3);
+                        @endphp
+                        <div class="ctr-promoItm relative mb-6 md:mb-4">
+                            <div class="ctr-cPromoItm border-2 border-gray-400 rounded-xl shadow-md shadow-gray-400 bg-white cursor-pointer">
+                                <div class="cPromoItm py-4 px-6">
+                                    <div class="ctr-headPromoItm">
+                                        <div class="cHeadPromoItm flex items-center justify-between selectDisable">
+                                            <div class="ctr-lftEdit relative hover:brightness-90">
+                                                <div class="cLftEdit px-4 md:px-8 py-2 text-xs md:text-sm text-gray-800 bg-[#D9D9D9] rounded-lg ">
+                                                    <div class="tx">
+                                                        <strong>Edit</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ctr-rghtStatus">
+                                                <div class="cStatusPromo px-4 md:px-8 py-2 rounded-xl bg-[#D9D9D9] text-gray-800 ">
+                                                    <div class="txSt text-xs md:text-sm">
+                                                        <strong>@{{Aktif}}</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ctr-cTrscItm mt-4">
+                                        <div class="cCPromoItm gap-6 min-[465px]:flex">
+                                            <div class="ctr-lftImg flex-shrink-0">
+                                                <div class="cLftImage">
+                                                    <div class="imagePromo aspect-video min-[465px]:aspect-square min-[465px]:w-24 rounded-xl overflow-hidden">
+                                                        <img src="{{asset('assets/img/dumb/imgtemp 1.jpg')}}" alt="" class="w-full h-full object-cover object-center">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ctr-rghtDetPromo w-full">
+                                                <div class="cDetPromo select-none">
+                                                    <div class="headDetPromo">
+                                                        <div class="txHDet md:text-xl font-bold">
+                                                            <h2>Pesanan Hemat Hingga Rp. @{{15,000}}</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ctr-listThisPromo mt-2">
+                                                        <div class="cListThisPromo flex flex-wrap items-center gap-2">
+                                                            <div class="cThisPromoItm border px-3 md:px-5 xl:px-7 py-1 text-xs md:text-sm font-bold rounded-full bg-gray-300">
+                                                                <div class="cThisPrm">
+                                                                    <div class="tx">Kiloan</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cThisPromoItm border px-3 md:px-5 xl:px-7 py-1 text-xs md:text-sm font-bold rounded-full bg-gray-300">
+                                                                <div class="cThisPrm">
+                                                                    <div class="tx">Satuan</div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="cThisPromoItm border px-3 md:px-5 xl:px-7 py-1 text-xs md:text-sm font-bold rounded-full bg-gray-300">
+                                                                <div class="cThisPrm">
+                                                                    <div class="tx">Ongkir</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ctr-listDetPromo mt-2">
+                                                        <div class="cListDetPromo sm:-space-y-1 text-xs sm:text-sm">
+                                                            <div class="itm-detPromo flex items-center justify-between">
+                                                                <div class="txLbDtPrm">
+                                                                    <div class="tx">
+                                                                        <p>Kiloan</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="prcOrDscDtPrm line-clamp-1">
+                                                                    <div class="tx">
+                                                                        <p>~ Rp. @{{3,999}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="itm-detPromo flex items-center justify-between">
+                                                                <div class="txLbDtPrm">
+                                                                    <div class="tx">
+                                                                        <p>Satuan (4)</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="prcOrDscDtPrm line-clamp-1">
+                                                                    <div class="tx">
+                                                                        <p>~ Rp. @{{3,999}} - @{{20,999}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="itm-detPromo flex items-center justify-between">
+                                                                <div class="txLbDtPrm">
+                                                                    <div class="tx">
+                                                                        <p>Ongkir</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="prcOrDscDtPrm line-clamp-1">
+                                                                    <div class="tx">
+                                                                        <p>~ Rp. @{{20}}%</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ctr-fooPromoItm mt-4 md:mt-1 py-4 px-6 bg-gray-300 rounded-b-xl">
+                                    <div class="cFooPromoItm">
+                                        <div class="ctr-lftNewCoupon flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-0">
+                                            <div class="cNewCoupon flex flex-col md:flex-row md:items-center justify-between w-full md:-space-y-1 text-sm text-gray-700">
+                                                <div class="ctr-timeleftCoupon">
+                                                    <div class="cTimeleftCoupon flex items-center gap-4">
+                                                        <div class="lftIcnTimeleft">
+                                                            <span class="icn text-xl md:text-2xl xl:text-3xl">
+                                                                <i class="fa-regular fa-clock"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="txCTimeleft text-xs md:text-sm xl:text-base">
+                                                            <div class="tx">
+                                                                <p>hingga {{date("d F Y");}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="ctr-conditionCoupun">
+                                                    <div class="cConditionCoupon flex items-center gap-4">
+                                                        <div class="lftIcnCondition">
+                                                            <span class="icn text-xl md:text-2xl xl:text-3xl">
+                                                                <i class="fa-solid fa-money-bill-wave"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="txCCondition">
+                                                            <div class="txHCC text-sm">
+                                                                <p>Kisaran Transaksi</p>
+                                                            </div>
+                                                            <div class="txCC text-xs md:text-[0.938rem]">
+                                                                <p>Rp. 10,000 - 15,000</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{-- <div class="headNewCoupon">
+                                                    <div class="tx">
+                                                        <p>Total Belanja</p>
+                                                    </div>
+                                                </div>
+                                                <div class="cPrice">
+                                                    <div class="tx font-bold">
+                                                        <p>Rp. @{{21821817257125}}</p>
+                                                    </div>
+                                                </div> --}}
+                                            </div>
+                                            {{-- <div class="ctr-rghtShwDetPromo flex-shrink-0">
+                                                <div class="cShwDetPromo">
+                                                    <a href="" class="shwThs block px-4 md:px-8 lg:px-12 py-2 border border-black rounded-xl">
+                                                        <div class="tx text-sm text-center sm:text-left font-semibold">
+                                                            <p>Lihat Detail</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div> --}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                </div>
             </div>
         </div>
     </div>
@@ -539,7 +689,7 @@
         $getDiscountTransaction = rand(1, 100) / 100;
     @endphp
     {{-- <div class="ctr-shwMdlDetOrder w-full p-2 md:w-3/4 max-w-[1280px] h-[100vh] md:h-[80vh] bg-pink-200 transition-all fixed z-[100] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border border-black"> --}}
-    <div class="ctr-shwMdlDetOrder p-2 h-[100vh] md:h-[80vh] overflow-hidden bg-white md:rounded-2xl md:shadow-lg md:shadow-black/50 transition-all fixed z-[100] hidden w-0 md:w-[0]" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
+    <div class="ctr-shwMdlDetOrder p-2 h-[100vh] md:h-[80vh] overflow-hidden bg-white md:rounded-2xl md:shadow-lg md:shadow-black/50 transition-all fixed z-[100] w-full md:w-[640px]" style="left: 50%; top: 50%; transform: translate(-50%, -50%);">
         <div class="cShwMdlDetOrder p-1 h-full relative">
             <div class="icnClsMdlDetOrder">
                 <div id="icnClsXMdlDetThsOrder" class="icnClsX rounded-lg py-2 px-3 cursor-pointer absolute z-[2] top-0 right-0 bg-white border border-black">

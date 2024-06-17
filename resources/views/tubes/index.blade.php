@@ -114,9 +114,9 @@
             src = setRowColumn();
             dest = setRowColumn();
             
-            valrwClSource.innerHTML = (src['row'] + 1) + ' ---- ' + (src['col'] + 1);
+            valrwClSource.innerHTML = (SOURCEST['row'] + 1) + ' ---- ' + (SOURCEST['col'] + 1);
             
-            createGrid();
+            createGrid(SOURCEST);
             $('#btn-findRoute').click(function (e) {
                 e.preventDefault();
                 aStarSearch(GRID, SOURCEST, dest);
@@ -135,7 +135,7 @@
             }
         }
         
-        function createGrid() {
+        function createGrid(src) {
             const gridContainer = document.getElementById('grid');
             gridContainer.innerHTML = '';
             for (let i = 0; i < ROW; i++) {

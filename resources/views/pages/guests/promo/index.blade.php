@@ -27,16 +27,19 @@
         <p>Dapatkan penawaran istimewa untuk setiap pemesanan laundry Anda.</p>
         <p>Jangan lewatkan kesempatan untuk merasakan kualitas terbaik dengan harga terjangkau.</p>
         <br>
-        <div class="filter-bar">
-            <div class="filter">
-                <button class="filter-button">Filter Berdasarkan Periode</button>
-                <div class="dropdown-content">
+        <div class="filter-bar-promo" style="justify-content: center; align-items: center;">
+            <div class="filter-promo" style=" margin-right: 10px;">
+                <button class="filter-button-promo" style="padding: 10px 60px;">
+                    Filter Berdasarkan Periode
+                    <span class="arrow-promo">&#x25B6;</span>
+                </button>
+                <div class="dropdown-content-promo">
                     <a href="#">Periode 1</a>
                     <a href="#">Periode 2</a>
                     <a href="#">Periode 3</a>
                 </div>
             </div>
-            <div class="apply-reset-buttons">
+            <div class="apply-reset-buttons" style=" display: flex;">
                 <button class="apply-button">Terapkan</button>
                 <button class="reset-button">Reset Filter</button>
             </div>
@@ -44,12 +47,6 @@
         <div class="search-bar">
             <input type="text" placeholder="Cari Promo">
         </div>
-        {{-- <div class="category-bar">
-            <a href="#" class="category-button active">Rekomendasi</a>
-            <a href="#" class="category-button">Kiloan</a>
-            <a href="#" class="category-button">Satuan</a>
-            <a href="#" class="category-button">Ongkir</a>
-        </div> --}}
         <div class="ctr-promo mb-4">
             <div class="cPromo flex justify-center">
                 <div class="ctr-headPromo">
@@ -221,5 +218,28 @@
 @endsection
 
 @section('script-field')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var filterButtonPromo = document.querySelector('.filter-button-promo');
+        var dropdownContentPromo = document.querySelector('.dropdown-content-promo');
+        var arrowPromo = document.querySelector('.arrow-promo');
 
+        filterButtonPromo.addEventListener('click', function() {
+            if (dropdownContentPromo.style.display === "none" || dropdownContentPromo.style.display === "") {
+                dropdownContentPromo.style.display = "block";
+                arrowPromo.innerHTML = "&#x25BC;"; // Panah ke bawah
+            } else {
+                dropdownContentPromo.style.display = "none";
+                arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+            }
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!filterButtonPromo.contains(event.target) && !dropdownContentPromo.contains(event.target)) {
+                dropdownContentPromo.style.display = "none";
+                arrowPromo.innerHTML = "&#x25B6;"; // Panah ke samping
+            }
+        });
+    });
+</script>
 @endsection

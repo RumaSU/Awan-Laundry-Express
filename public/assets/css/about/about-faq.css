@@ -1,0 +1,74 @@
+.main-about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-faq{
+    width: 80rem;
+    height: 90rem;
+    background-color: #E1F3FE;
+    border: 3px solid #0493CC;
+    border-radius: 24px;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    display: block;
+}
+.header-faq{
+    display: flex;
+    justify-content: center;
+}
+.judul-about{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #0493CC;
+}
+.desk-faq{
+    display: block;
+    width: 70rem;
+    height: 17rem;
+}
+
+.container-chat-client{
+    display: flex;
+}
+.img-chat-client{
+    width: 3rem;
+    height: 3rem;
+}
+.main-faq-client{
+    display: flex;
+    width: 50rem;
+    height: 4rem;
+    background-color: #FCEBF1;
+    border: 3px solid #FF3377;
+    border-radius: 16px;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+.container-chat-admin{
+    display: flex;
+    float: right;
+}
+.img-chat-admin{
+    width: 3rem;
+    height: 3rem;
+}
+.main-faq-admin{
+    display: flex;
+    width: 50rem;
+    height: 7rem;
+    background-color: #FCFBFD;
+    border-radius: 16px;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.bottom-faq{
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    text-align: center;
+    width: 70rem;
+}
