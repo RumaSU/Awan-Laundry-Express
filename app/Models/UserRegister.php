@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 
 class UserRegister extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, HasApiTokens, Notifiable, CanResetPassword;
     protected $table = 'newusers';
     protected $primaryKey = 'idUser';
     // protected $fillable = ['name', 'telp', 'email', 'password'];

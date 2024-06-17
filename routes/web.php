@@ -10,6 +10,15 @@ use App\Http\Controllers\Store\storePromoController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\PasswordReset;
+use App\Models\User;
+use App\Models\UserRegister;
+use Illuminate\Support\Str;
+use App\Http\Controllers\ResetPasswordController;
+
 
 use App\Http\Controllers\tubesController;
 use App\Http\Controllers\User\SettingAccountController;
@@ -47,7 +56,23 @@ Route::get('/login', [LoginController::class, 'loginIndex'])->name('loginIndex')
 Route::post('/login', [LoginController::class, 'loginPost'])->name('loginPost');
 Route::get('/register', [RegisterController::class, 'registerIndex'])->name('registerIndex');
 Route::post('/register', [RegisterController::class, 'registerPost'])->name('registerPost');
-Route::get('/forgot_password', [ForgotPWController::class, 'forgotindex'])->name('forgot_password');
+Route::get('/forgotPassword', [ForgotPWController::class, 'forgotindex'])->name('forgot_password');
+Route::view('/forgotToken', 'login.passwordToken');
+// Route::post('/forgotPassword', function (Request $request) {
+//     return 'bisa kirim';
+// })->middleware('guest')->name('password.email');
+
+Route::post('/forgotPassword', [ForgotPWController::class, 'sendResetLinkEmail'])
+    ->middleware('guest')
+    ->name('password.email');
+
+Route::get('/resetPassword/{token}', [ResetPasswordController::class, 'showResetForm'])
+    ->middleware('guest')
+    ->name('password.reset');
+
+Route::post('/resetPassword', [ResetPasswordController::class, 'reset'])
+    ->middleware('guest')
+    ->name('password.update');
 
 Route::view('/user/homepage', 'pages.users.homepage.index');
 Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');

@@ -22,12 +22,27 @@
         </div>
 		<div class="batas"></div>
         <div class="lupaPW">
-            <form action="">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+            @if (session()->has('status'))
+            <div class="alert alert-success">
+                {{ session()->get('status') }}
+            </div>
+            @endif
+            <form action="{{ route('password.email') }}" method="POST">
+                @csrf
 				<h3>Lupa password?</h3>
 				<p class="deskripsi">Masukkan email Anda dan kami akan<br>
 					mengirimkan tautan untuk kembali ke akun Anda</p>
-                <label for="">Email</label>
-                <input type="text" placeholder="example@gmail.com" style="background: #EDFAFF;">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="example@gmail.com" style="background: #EDFAFF;">
 				<button class="lanjutkan">Lanjutkan</button>
 				<div class="bawah">
 					<p>Belum memiliki akun?
