@@ -613,20 +613,25 @@
             
             // console.log(DESTINATION_LEFT.length);
             
+            // INI fiksnya nantni ada yang disini
+            let NEXT_DESTINATION = [];
+            
             while (DESTINATION_LEFT.length > 0) {
                 // console.log(DESTINATION_LEFT.length);
-                let NEXT_DESTINATION = {
+                NEXT_DESTINATION.push({
                     path: [].concat(structuredClone(DESTINATION_LEFT)),
                     sourcest: structuredClone(DESTINATION_ROUTE[DESTINATION_ROUTE.length - 1])
-                };
+                });
+                console.log(structuredClone(NEXT_DESTINATION));
                 
                 // console.log('Next Destination: ', structuredClone(NEXT_DESTINATION));
-                
+                let firstVal = NEXT_DESTINATION.length - 1;
+                await resetValNew(NEXT_DESTINATION[firstVal]);
                 await clearProcessPath();
                 await clearPath();
-                await findRoute(NEXT_DESTINATION);
-                await SelectionSortOrder(NEXT_DESTINATION.path);
-                await countWeightRoute(NEXT_DESTINATION);
+                await findRoute(NEXT_DESTINATION[firstVal]);
+                await SelectionSortOrder(NEXT_DESTINATION[firstVal].path);
+                await countWeightRoute(NEXT_DESTINATION[firstVal]);
                 
                 // await clearProcessPath();
                 // await clearPath();
@@ -644,7 +649,7 @@
                 //     // return !NEXT_DESTINATION.path.some(itemNext => itemLeft.row === itemNext.row && itemLeft.col === itemNext.col);
                 //     // !NEXT_DESTINATION.path.some(itemNext => itemLeft.row === itemNext.row && itemLeft.col === itemNext.col);
                 // });
-                let tmpVal = NEXT_DESTINATION.path[0];
+                let tmpVal = NEXT_DESTINATION[firstVal].path[0];
                 let indexToRemove = DESTINATION_LEFT.findIndex(item => item.col === tmpVal.col && item.row === tmpVal.row);
                 if (indexToRemove !== -1) {
                     DESTINATION_LEFT.splice(indexToRemove, 1);
@@ -658,7 +663,7 @@
                 //     }
                 // }
                 // console.log(DESTINATION_LEFT.length);
-                await DESTINATION_ROUTE.push(structuredClone(NEXT_DESTINATION.path[0]));
+                await DESTINATION_ROUTE.push(structuredClone(NEXT_DESTINATION[firstVal].path[0]));
                 
                 
                 
@@ -693,13 +698,21 @@
                 // DESTINATION_LEFT.shift();
             }
             
+            
+            
             await clearProcessPath();
             await clearPath();
             
-            console.log(DESTINATION_ROUTE);
+            console.log(structuredClone(DESTINATION_ROUTE));
             for(const destRt of DESTINATION_ROUTE) {
                 await highlightPath(destRt.routepath);
             }
+            
+            
+            
+            
+            
+            
             
             // for (const path of COMPARE_DESTINATION) {
             //     await clearProcessPath();
@@ -821,6 +834,7 @@
             delete ths_nw_order.sourcest.routepath;
             ths_nw_order.sourcest.weight = 0;
             ths_nw_order.weightroute = 0;
+            if (ths_nw_order.sourcestOriginal)ths_nw_order.sourcestOriginal.weight = 0; 
         }
     </script>
 </body>
