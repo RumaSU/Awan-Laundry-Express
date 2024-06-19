@@ -723,37 +723,40 @@
             //     // console.log(structuredClone(valDest));
             // }
             
-            
+            // console.log(structuredClone(NEW_RT_ORDER.sourcest));
+            // console.log(structuredClone(TMP_TL_ORDER[0]));
             
             // let COMPARE_DESTINATION = [];
-            // for (let i = 0; i < DESTINATION_LEFT.length; i++) {
+            // for (let i = 0; i < TMP_TL_ORDER.length; i++) {
             //     let tempRoute =  [];
-            //     for (let j = 0; j < DESTINATION_LEFT.length; j++) {
+            //     for (let j = 0; j < TMP_TL_ORDER.length; j++) {
             //         if (i !== j) {
-            //             await tempRoute.push(structuredClone(DESTINATION_LEFT[j]));
+            //             await tempRoute.push(structuredClone(TMP_TL_ORDER[j]));
             //         }
             //     }
                 
-            //     // await tempRoute.push(structuredClone(NEW_RT_ORDER.sourcest));
+            //     await tempRoute.push(structuredClone(NEW_RT_ORDER.sourcest));
             //     await COMPARE_DESTINATION.push({
             //         path: [].concat(structuredClone(tempRoute)),
-            //         sourcest: structuredClone(DESTINATION_LEFT[i])
+            //         sourcest: structuredClone(TMP_TL_ORDER[i])
             //     });
             // }
             
             
             // for (const valDest of COMPARE_DESTINATION) {
+            //     resetValNew(valDest);
             //     await clearProcessPath();
             //     await clearPath();
             //     await findRoute(valDest);
             //     await SelectionSortOrder(valDest.path);
             //     await countWeightRoute(valDest);
+            //     console.log(structuredClone(valDest));
             //     // console.log(structuredClone(valDest));
             // }
             
             // await clearProcessPath();
             // await clearPath();
-            // console.log(COMPARE_DESTINATION);
+            console.log(COMPARE_DESTINATION);
             // selectionSortCompare(COMPARE_DESTINATION);
             
             // let nextDestination = structuredClone(COMPARE_DESTINATION[0].path[0]);
