@@ -7,6 +7,7 @@ use App\Http\Controllers\User\myTransactionController;
 use App\Http\Controllers\Store\myStoreController;
 use App\Http\Controllers\Store\storeOrdersController;
 use App\Http\Controllers\Store\storePromoController;
+use App\Http\Controllers\Store\storeServicesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
@@ -45,6 +46,7 @@ use App\Http\Controllers\About\AboutUsController;
 //     return view('welcome');
 // });
 Route::get('/tubes', [tubesController::class, 'index']);
+Route::get('/tubes2', [tubesController::class, 'index2']);
 Route::get('/find-route', [tubesController::class, 'findRoute']);
 
 Route::get('/', function () {
@@ -89,6 +91,7 @@ Route::view('/store/setting', 'pages.stores.settingAccount.index');
 Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
 Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
 Route::get('/store/promo', [storePromoController::class, 'index'])->name('store\promo');
+Route::get('/store/services', [storeServicesController::class, 'index'])->name('store\services');
 Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
 
 

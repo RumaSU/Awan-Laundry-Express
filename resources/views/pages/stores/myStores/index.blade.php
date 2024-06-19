@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="ctCCLsSTSnThs" class="ctr-listStore w-full p-2 sm:mt-2 bg-white shadow-lg shadow-black/60 sm:rounded-lg whitespace-nowrap fixed top-0 left-0 z-[60] sm:absolute sm:top-full md:left-auto h-[100vh] sm:h-auto" style="display: none;">
+                <div id="ctCCLsSTSnThs" class="ctr-listStore w-full p-2 sm:mt-2 bg-white shadow-lg shadow-black/60 sm:rounded-lg whitespace-nowrap fixed top-0 left-0 z-[100] sm:absolute sm:top-full md:left-auto h-[100vh] sm:h-auto" style="display: none;">
                     <div class="ctr-headListStore p-2 sm:hidden">
                         <div class="cHLStore flex items-center justify-between">
                             <div class="cThX">

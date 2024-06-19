@@ -10,6 +10,10 @@ class tubesController extends Controller
     {
         return view('tubes.index');
     }
+    public function index2()
+    {
+        return view('tubes.index2');
+    }
 
     public function findRoute(Request $request)
     {

@@ -43,11 +43,11 @@
 
     <script src="{{asset('assets/js/main/navMobile.js')}}"></script>
     @yield('popup-content-field')
-    @yield('script-field')
     @if (count($isThisStore) > 3)
         @if ($isThisStore[3] === 'store')
             <script src="{{asset('assets/js/pages/stores/sidebar/s.js')}}"></script>
         @endif
     @endif
+    @yield('script-field')
 </body>
 </html>

@@ -20,26 +20,20 @@ $(document).ready(function () {
     });
     $ICN_CLSDET_PROMO.click((e) => {
         $DAT_MDLDET_PROMO.removeAttr('data-promoMdlId');
-        // CLS_SCMDL_ORDER = SIZE_CMDL_ORDER * 0.08;
-        // console.log(CLS_SCMDL_ORDER);
         HideModalDetOrder();
     });
     
     
     function showModalDetOrder() {
         $CNT_MDLDET_PROMO.removeClass('hidden');
-        setTimeout(() => {
-            $CNT_MDLDET_PROMO.removeClass(HIDE_MDLDET_PROMO);
-            $CNT_MDLDET_PROMO.addClass(ACTV_MDLDET_PROMO);
-        }, 50);
+        $CNT_MDLDET_PROMO.removeClass(HIDE_MDLDET_PROMO);
+        $CNT_MDLDET_PROMO.addClass(ACTV_MDLDET_PROMO);
         statusMdlOrd = true;
     }
     function HideModalDetOrder() {
         $CNT_MDLDET_PROMO.removeClass(ACTV_MDLDET_PROMO);
         $CNT_MDLDET_PROMO.addClass(HIDE_MDLDET_PROMO);
         statusMdlOrd = false;
-        setTimeout((e) => {
-            $CNT_MDLDET_PROMO.addClass('hidden');
-        }, 200);
+        $CNT_MDLDET_PROMO.addClass('hidden');
     }
 });
