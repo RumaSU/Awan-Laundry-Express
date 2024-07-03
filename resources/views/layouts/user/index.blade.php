@@ -1,6 +1,18 @@
 @extends('layouts.main.index')
 
 @section('main-content')
+    @auth
+        <div class="">
+            {{ Auth::user() }}
+        </div>
+        {{-- <div class="">
+            {{ Auth::user()->UserDetail }}
+        </div>
+        <div class="">
+            {{ Auth::user()->UserAddress }}
+        </div> --}}
+        {{-- {{ Auth::user()->UserDetail() }} --}}
+    @endauth
     <div class="ctr lg:flex justify-center">
         <div class="ctr-rtUser min-h-[100vh] 2xl:min-h-0 flex gap-2 md:gap-6 xl:gap-8 p-2  my-[2%] relative">
             <div class="ctr-sdbr flex-shrink-0 bg-white py-4 relative hidden md:block">

@@ -139,7 +139,7 @@
                         </ul>
                         <div class="logOut-mobile mt-8">
                             <div class="logout-icn text-[#747474]">
-                                <a href="" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
+                                <a href="{{ route('user\logout') }}" class="flex items-center gap-4 py-1.5 px-2 rounded-md hover:shadow-sm hover:shadow-gray-400">
                                     <span class="icnTransac text-xl text-center w-8">
                                         <i class="fa-solid fa-right-from-bracket"></i>
                                     </span>

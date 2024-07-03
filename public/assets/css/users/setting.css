@@ -1,12 +1,12 @@
-.setheader{
+/* .setheader{
     display: block;
 }
 
 .tittle-set{
     font-size: 18px;
     font-weight: bolder;
-}
-.button-set{
+} */
+/* .button-set{
     display: flex;
     width: 50rem;
     background-color: white;
@@ -15,7 +15,6 @@
     justify-content: center;
     height: 50px;
     margin-top: 20px;
-
 }
 .button-set button {
     transition: background-color 0.3s, background-position 0.9s;
@@ -64,107 +63,11 @@
 .button-set button:hover{
     background-color: #FF3377;
     color: white;
-}
-
-
-.set-main{
-    display: block;
-}
-.main-biodata, .main-alamat, .main-ubahpw {
-    display: none;
-}
-.active {
-    display: flex;
-}
-.main-biodata{
-    padding: 20px;
-    gap: 5%;
-}
-.bd-profil{
-    display: block;
-    width: 15rem;
-    padding: 20px;
-    gap: 10px;
-}
-.foto-profil{
-    height: 70%;
-    background-color: rgb(175, 175, 175);
-    border-radius: 12px;
-}
-.pilih-profil{
-    display: flex;
-    margin-top: 10px;
-}
-.pilih-profil button{
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid rgb(145, 145, 145);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: black;
-    height: 50px;
-    width: 100%;
-}
-.pilih-profil button:hover{
-    background-color: #FF3377;
-    color: white;
-}
-.warning-profil{
-    font-size: 14px;
-    color: rgb(78, 78, 78);
-    font-style: italic;
-}
-.bd-edit{
-    display: block;
-    width: 70%;
-    padding: 40px;
-    border: 1px solid rgb(31, 31, 31);
-    border-radius: 16px;
-    gap: 70px;
-}
-.table-bd{
-    display: block;
-    gap: 40px;
-}
-.judul-bio{
-    font-size: 18px;
-    font-weight: bolder;
-}
-.biodatadiri{
-    font-size: 14px;
-    margin-left: 20px;
-}
-.kolom1{
-    width: 150px;
-    height: 40px;
-}
-.kolom2{
-    width: 200px;
-}
-.edit{
-    color: rgb(2, 204, 255);
-}
-
-.table-kontak{
-    display: block;
-    gap: 40px;
-    margin-top: 40px;
-}
-.judul-kontak{
-    font-size: 18px;
-    font-weight: bolder;
-}
-.kontak{
-    font-size: 14px;
-    margin-left: 20px;
-}
+} */
 
 
 
-.popup {
+/* .popup {
     display: none;
     position: fixed;
     left: 50%;
@@ -176,22 +79,21 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 25rem;
     z-index: 1000;
-
 }
 .h-popup h3{
     font-weight: bolder;
-}
+} */
 .ket-popup p{
     font-size: 14px;
     color: rgb(69, 69, 69);
     margin-bottom: 0.5rem;
 }
 
-.input-popup{
+/* .input-popup{
     display: flex;
     flex-direction: column;
-}
-.input-popup input{
+} */
+/* .input-popup input{
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
@@ -218,10 +120,10 @@
     height: 2rem;
     font-size: 12px;
     margin-bottom: 2rem;
-}
-.popup-radio {
+} */
+/* .popup-radio {
     display: flex;
-    justify-content: center; /* To add space between the radio buttons */
+    justify-content: center;
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -233,14 +135,14 @@
 }
 
 .popup-radio div label {
-    margin-left: 0.5em; /* Optional: Add space between the radio button and its label */
+    margin-left: 0.5em;
 }
 .popup-radio .female{
     margin-left: 1rem;
-}
+} */
 
 
-.popup button{
+/* .popup button{
     background-color: #FF3377;
     border-radius: 5px;
     color: white;
@@ -251,21 +153,21 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-}
+} */
 
-.popup.active {
+/* .popup.active {
     display: block;
+} */
+
+.closePopupContent {
+    position: absolute;
+    top: 5%;
+    right: 5%;
 }
 
-.close {
-    cursor: pointer;
-    float: right;
-    font-size: 20px;
-}
-
-.content-slide.main-alamat{
+/* .content-slide.main-alamat{
     background-color: yellow;
 }
 .content-slide.main-ubahpw{
     background-color: aqua;
-}
+} */

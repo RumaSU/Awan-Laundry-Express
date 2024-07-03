@@ -22,15 +22,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
 
-    protected $table = 'newusers';
+    protected $table = 'Users';
     protected $primaryKey ='idUser';
-    protected $fillable = [
-        'name',
-        'email',
-        'telp',
-        'password',
+    protected $fillable=[
+        "user_id", 
+        "email", 
+        "password"
     ];
-
+    protected $guarded = ['idUser'];
+    protected $guard = 'web';
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -47,6 +47,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        'idUser' => 'string',
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];

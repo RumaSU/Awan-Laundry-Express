@@ -24,7 +24,7 @@
                     </div>
                     <div class="nameUser">
                         <div class="tx line-clamp-2">
-                            <p>Nama User</p>
+                            <p>{{ Auth::user()->UserDetail->name }}</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                         </li>
                         <li>
                             <div class="settings-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'settings') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{ route('user\settings') }}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'settings') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
                                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'settings') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnSettings text-2xl">
@@ -136,7 +136,7 @@
     <div class="logout-sb mt-8 px-4">
         <div class="cLogout">
             <div class="logout-sb">
-                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'logout') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                <a href="{{ route('user\logout') }}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'logout') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                     <div class="c flex items-center gap-4">
                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'logout') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                             <span class="icnLogout text-2xl">

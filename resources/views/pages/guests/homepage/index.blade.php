@@ -49,11 +49,11 @@
                     </div>
                 </div>
                 <div class="h-1/5 flex items-center">
-                    <button class="w-36 h-9 rounded-full bg-[#FF3377] text-white font-bold">
+                    <a href="{{ route('loginIndex') }}" class="block cursor-pointer px-16 py-2 rounded-full bg-[#FF3377] text-white font-bold">
                         Login
-                    </button>
+                    </a>
                 </div>
-                <div class="hidden xl:flex h-1/5 items-center">
+                <div class="xl:flex h-1/5 items-center">
                     <ul class="flex items-center gap-6 text-[#777676] text-lg">
                         <li>
                             <div class="flex items-center justify-center w-10 h-10 bg-white border border-[#D9D9D9] rounded-xl">
@@ -75,7 +75,7 @@
             </div>
         </section>
         
-        <section class="mt-5 flex w-full  h-[350px] bg-gradient-to-b from-[#05B8FF] to-transparent">
+        <section class="mt-5 flex w-full  h-[350px] bg-gradient-to-b from-[#05B8FF] to-transparent relative">
             <div class="w-1/2 flex flex-col justify-center">
                 <div class="w-4/5 ml-36 -mt-32">
                     <p class="text-2xl font-bold text-white">
@@ -86,14 +86,14 @@
                     </p>
                 </div>
             </div>
-            <div class="w-[100%] h-72 flex items-center justify-end mt-[-150px] mr-[20px]">
+            <div class="h-72 flex items-center justify-end absolute right-3 -top-1/2 -translate-x-3  translate-y-[15%]">
                 <div class="cSpecialFUser">
                     <div class="headSpecial text-xl ml-[10%]">
                         <div class="tx text-[#FF3377] italic font-black" style="text-shadow: 0 4px 2px rgba(0, 0, 0, 0.2)">
                             <h2>Promo Spesial Untukmu</h2>
                         </div>
                     </div>
-                    <div class="ctr-specialList mt-1 bg-white shadow-md mx-auto w-80 h-56 border-[3px]  p-2 rounded-xl" data-carousel="slide">
+                    <div class="ctr-specialList mt-1 bg-white shadow-md mx-auto w-96 h-56 border-[3px]  p-2 rounded-xl" data-carousel="slide">
                         <div class="cSpecialList h-full relative">
                             <div class="ctr-cSpecialList h-full overflow-hidden box-border">
                                 <div class="cLstSpecial flex items-center h-full relative">
@@ -133,6 +133,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
             </div>
         </section>
         
@@ -375,6 +376,10 @@
             </div>
         </section>        
     </main>
+@endsection
+
+@section('popup-content-field')
+    
 @endsection
 
 @section('script-field')
