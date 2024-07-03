@@ -27,7 +27,7 @@
                             </div>
                             <div class="nameStore w-[9.25rem] hidden xl:block">
                                 <div class="tx line-clamp-2">
-                                    <p>@{{ Awan Laundry Express }}</p>
+                                    <p>{{ $dataStoreActive->name }}</p>
                                 </div>
                             </div>
                         </div>
@@ -61,11 +61,7 @@
                                     <div class="rghtNameStore md:w-60 xl:w-72 whitespace-normal">
                                         <div class="tx text-sm md:text-lg font-light line-clamp-2">
                                             <p>
-                                                @{{ Awan Laundry Express }}
-                                                @{{ Awan Laundry Express }}
-                                                @{{ Awan Laundry Express }}
-                                                @{{ Awan Laundry Express }}
-                                                @{{ Awan Laundry Express }}
+                                                {{ $dataStoreActive->name }}
                                             </p>
                                         </div>
                                     </div>
@@ -81,34 +77,36 @@
                                 </a>
                             </div>
                         </div>
-                        @for ($i = 0; $i < 10; $i++)
-                            <div class="ctr-storeItm block cursor-pointer group/store">
-                                <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$notActiveThisStore}}">
-                                    <div class="cCStoreItm flex items-center gap-2">
-                                        <div class="lftImgStore">
-                                            <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-sm shadow-black/30 rounded-md">
-                                                <img src="{{ asset('assets/components/icon/layer.png') }}" alt=""
-                                                    class="object-cover object-center">
+                        @if (isset($dataStore))
+                            @foreach ($dataStore as $store)
+                                <div class="ctr-storeItm block cursor-pointer group/store">
+                                    <div class="cStoreItm flex justify-between items-center p-2 gap-1.5 rounded-lg shadow-md transition-all {{$notActiveThisStore}}">
+                                        <div class="cCStoreItm flex items-center gap-2">
+                                            <div class="lftImgStore">
+                                                <div class="cImgStr w-14 p-1.5 aspect-square bg-white shadow-sm shadow-black/30 rounded-md">
+                                                    <img src="{{ asset('assets/components/icon/layer.png') }}" alt=""
+                                                        class="object-cover object-center">
+                                                </div>
+                                            </div>
+                                            <div class="rghtNameStore md:w-60 xl:w-72 whitespace-normal">
+                                                <div class="tx text-sm md:text-lg font-light line-clamp-2">
+                                                    <p>{{ $store->name }}</p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="rghtNameStore md:w-60 xl:w-72 whitespace-normal">
-                                            <div class="tx text-sm md:text-lg font-light line-clamp-2">
-                                                <p>Laundry {{$i + 1}}</p>
+                                        <a href="" class="toSettTStore block relative group/settingStore">
+                                            <div class="stngTStore">
+                                                <div class="icn">
+                                                    <span class="icnSettings {{$notActiveThisStoreSetting}} text-lg md:text-xl lg:text-2xl transition-all">
+                                                        <i class="fa-solid fa-gear"></i>
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                    <a href="" class="toSettTStore block relative group/settingStore">
-                                        <div class="stngTStore">
-                                            <div class="icn">
-                                                <span class="icnSettings {{$notActiveThisStoreSetting}} text-lg md:text-xl lg:text-2xl transition-all">
-                                                    <i class="fa-solid fa-gear"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
                                 </div>
-                            </div>
-                        @endfor
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -136,7 +134,7 @@
                         </li>
                         <li>
                             <div class="notification-sb">
-                                <a href=""
+                                <a href="{{ route('store\notification') }}"
                                     class="rounded-lg border block px-4 py-2 group {{ $urlChoosed === 'notification' ? $ifChoosedAHref : $ifNotChoosedAHref }}">
                                     <div class="c flex items-center gap-4">
                                         <div
@@ -244,7 +242,7 @@
                         </li>
                         <li>
                             <div class="settings-sb">
-                                <a href=""
+                                <a href="{{ route('store\settings') }}"
                                     class="rounded-lg border block px-4 py-2 group {{ $urlChoosed === 'settings' ? $ifChoosedAHref : $ifNotChoosedAHref }}">
                                     <div class="c flex items-center gap-4">
                                         <div

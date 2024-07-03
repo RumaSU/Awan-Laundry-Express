@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Models\Store\StorePermitt;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -61,6 +62,6 @@ class User extends Authenticatable implements AuthenticatableContract
         return $this->belongsToMany(User_Address::class, 'users', 'idUser', 'idUser', 'idUser', 'idUser', 'users')->select('user_address.*');
     }
     public function UserStore() {
-        // return $this->belongsTo('');
+        return $this->belongsToMany(StorePermitt::class, 'users', 'idUser', 'idUser', 'idUser', 'idUser', 'users')->select('store_permitt.*');
     }
 }

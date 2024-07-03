@@ -3,7 +3,7 @@
         <div class="left-home">
             <div class="ctr-hm">
                 <div class="home-icn">
-                    <a href="" class="p-3 rounded-md bg-[#FF3377] shadow-md">
+                    <a href="{{ route('home') }}" class="p-3 rounded-md bg-[#FF3377] shadow-md">
                         <i class="fa-solid fa-house text-xl text-white"></i>
                     </a>
                 </div>
@@ -29,14 +29,14 @@
                         </li>
                         <li class="cart-desktop">
                             <div class="cart-icn">
-                                <a href="" class="border border-[#D9D9D9] p-3 rounded-md bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
+                                <a href="{{ route('user\myTransaction') }}" class="border border-[#D9D9D9] p-3 rounded-md bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
                                     <i class="fa-solid fa-cart-shopping"></i>
                                 </a>
                             </div>
                         </li>
                         <li class="transaction-desktop">
                             <div class="transac-icn">
-                                <a href="" class="border border-[#D9D9D9] p-3 rounded-md bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
+                                <a href="{{ route('user\myTransaction') }}" class="border border-[#D9D9D9] p-3 rounded-md bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
                                     <i class="fa-solid fa-receipt"></i>
                                 </a>
                             </div>
@@ -45,11 +45,19 @@
                 </div>
                 <div class="myAccount-desktop flex items-center gap-2 text-xl xl:text-2xl">
                     <div class="navAccountStore">
-                        <a href="{{route('store\myStore')}}" class="block border border-[#D9D9D9] rounded-md xl:rounded-[100%] p-3 w-auto aspect-square bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
-                            <div class="store-icn relative">
-                                <i class="fa-solid fa-store"></i>
+                        @if (Auth::user()->UserStore()->exists())
+                            <a href="{{route('store\myStore')}}" class="block border border-[#D9D9D9] rounded-md xl:rounded-[100%] p-3 w-auto aspect-square bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
+                                <div class="store-icn relative">
+                                    <i class="fa-solid fa-store"></i>
+                                </div>
+                            </a>
+                        @else
+                            <div class="clc-crteStore">
+                                <span id="clckShwCrteStore" class="block cursor-pointer border border-[#D9D9D9] rounded-md xl:rounded-[100%] p-3 w-auto aspect-square bg-white hover:bg-[#FF3377] hover:shadow-md hover:shadow-gray-400 hover:text-white hover:border-[#FF3377] transition-all">
+                                    <i class="fa-solid fa-store"></i>
+                                </span>
                             </div>
-                        </a>
+                        @endif
                     </div>
                     <div class="navAccountUser">
                         <div class="usr-icnDesktop hidden xl:block">

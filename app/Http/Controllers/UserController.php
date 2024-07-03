@@ -12,9 +12,9 @@ use Ramsey\Uuid\Uuid;
 use App\Models\User\User;
 use App\Models\User\User_Detail;
 use App\Models\User\User_Address;
-// use App\Models\UserRegister;
-use App\Models\Alamat;
-use App\Models\Produk;
+use App\Models\Store\Store;
+use App\Models\Store\StoreAddress;
+use App\Models\Store\StorePermitt;
 
 class UserController extends Controller
 {
@@ -154,5 +154,48 @@ class UserController extends Controller
         session()->regenerateToken();
 
         return redirect('/');
+    }
+    
+    
+    /**
+     * Create Store
+     */
+
+    public function createStore(Request $request) {
+        $idUser = Auth::user()->idUser;
+        $emailStore = Auth::user()->email;
+        $nameStore = Auth::user()->UserDetail->name . ' Laundry';
+        $idStore = '';
+        
+        $isIdUnique = false;
+        while(!$isIdUnique) {
+            $idStore = Uuid::uuid6();
+            if (!(Store::where('idStore', '=', $idStore)->first())) {
+                $isIdUnique = true;
+            }
+        }
+        
+        $createStore = Store::create([
+            'idStore' => $idStore,
+            'name' => $nameStore,
+            'email' => $emailStore
+        ]);
+        
+        if ($createStore) {
+            $storePermitt = StorePermitt::create([
+                'idUser' => $idUser,
+                'idStore' => $idStore,
+                'permitt_access' => 'Owner',
+                'active' => true,
+            ]);
+            
+            if ($storePermitt) {
+                return redirect()->route('store\myStore');
+            }
+            
+            $createStore->delete();
+        }
+        
+        return redirect()->back()->with('errorCreate', 'Error when create store');
     }
 }

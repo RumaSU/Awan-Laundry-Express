@@ -65,7 +65,7 @@ Route::get('/', function() {
     } else {
         return view('pages.guests.homepage.index');
     }
-});
+})->name('home');
 
 Route::middleware('guest')->group(function() {
     // Route::get('/', function () {
@@ -117,14 +117,18 @@ Route::middleware('auth')->group(function() {
     
     // Route::view('/user/account', 'pages.users.myAccount.index');
     
-    Route::view('/store/notification', 'pages.stores.notifikasi.index');
-    Route::view('/store/setting', 'pages.stores.settingAccount.index');
+    Route::middleware('access.store')->group(function() {
+        Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
+        Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
+        Route::get('/store/promo', [storePromoController::class, 'index'])->name('store\promo');
+        Route::get('/store/services', [storeServicesController::class, 'index'])->name('store\services');
+        Route::post('/store/services/kilos', [storeServicesController::class, 'saveServiceKilos'])->name('store\services\kilos');
+        Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
+        Route::view('/store/notification', 'pages.stores.notifikasi.index')->name('store\notification');
+        Route::view('/store/settings', 'pages.stores.settingAccount.index')->name('store\settings');
+    });
     
-    Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
-    Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
-    Route::get('/store/promo', [storePromoController::class, 'index'])->name('store\promo');
-    Route::get('/store/services', [storeServicesController::class, 'index'])->name('store\services');
-    Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
+    Route::post('/user/createStore', [UserController::class, 'createStore'])->name('user\createStore');
     
     Route::get('/logout', [UserController::class, 'logout'])->name('user\logout');
 });
