@@ -2,6 +2,7 @@
 @section('titlePage', 'Akun saya')
 
 @section('head-link-field')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('assets/css/users/setting.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/users/set-alamat.css') }}">
 @endsection
@@ -60,14 +61,13 @@
                                 <div class="nameUser">
                                     <div class="txNmU text-sm md:text-lg font-light line-clamp-1">
                                         <p>
-                                            @{{Nama User}}
-                                            @{{Nama User}}
+                                            {{ Auth::user()->UserDetail->name }}
                                         </p>
                                     </div>
                                 </div>
                                 <div class="emailUser">
                                     <div class="txEmU text-xs md:text-sm line-clamp-1">
-                                        <p>@{{emailuser@gmail.com}}</p>
+                                        <p>{{ Auth::user()->email }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -165,19 +165,49 @@
             </div>
         </div>
     </div>
-    <div class="setheader">
+    <div class="setheader block">
         <div class="set-nav">
-            <div class="tittle-set">
+            <div class="tittle-set text-lg font-bold">
                 <p>Pengaturan Akun</p>
             </div>
-            <div class="button-set">
+            <div class="ctr-listSetting mt-5">
+                <div class="cListSetting flex items-center bg-white font-semibold">
+                    <a class="settingAccountTo flex items-center justify-center w-64 py-1 transition-all border border-[rgb(233,233,233)] rounded-l-full hover:bg-[#FF3377] hover:text-white bg-[#FF3377] text-white" data-urlSetting="{{ route('user\settings\profile') }}">
+                        <div class="cHrefProfile">
+                            <div class="tx">
+                                <p>Profile</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="settingAccountTo flex items-center justify-center w-64 py-1 transition-all border border-[rgb(233,233,233)] hover:bg-[#FF3377] hover:text-white bg-white text-black" data-urlSetting="{{ route('user\settings\address') }}">
+                        <div class="cHrefProfile">
+                            <div class="tx">
+                                <p>Alamat</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="settingAccountTo flex items-center justify-center w-64 py-1 transition-all border border-[rgb(233,233,233)] rounded-r-full hover:bg-[#FF3377] hover:text-white bg-white text-black" data-urlSetting="{{ route('user\settings\password') }}">
+                        <div class="cHrefProfile">
+                            <div class="tx">
+                                <p>Ubah Password</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {{-- <div class="button-set">
                 <button class="biodata" onclick="showSection('biodata', this)">Biodata Diri</button>
                 <button class="alamat" onclick="showSection('alamat', this)">Alamat</button>
                 <button class="ubahpw" onclick="showSection('ubahpw', this)">Ubah Password</button>
+            </div> --}}
+        </div>
+        <div class="ctr-mainSetting flex mt-8">
+            <div class="cMainSetting w-full">
+                @include('pages.users.settingaccount.profile')
             </div>
         </div>
-        <div class="set-main">
-            <div class="main-biodata active">
+        {{-- <div class="set-main">
+            <div class="main-biodata">
                 @include('pages.users.settingaccount.biodata')
             </div>
             <div class="main-alamat">
@@ -186,36 +216,98 @@
             <div class="main-ubahpw">
                 @include('pages.users.settingaccount.ubahpw')
             </div>
-            <script>
-                function showSection(section, button) {
-                    // Hide all sections
-                    document.querySelector('.main-biodata').classList.remove('active');
-                    document.querySelector('.main-alamat').classList.remove('active');
-                    document.querySelector('.main-ubahpw').classList.remove('active');
-
-                    // Show the selected section
-                    document.querySelector('.main-' + section).classList.add('active');
-
-                    // Remove active class from all buttons
-                    var buttons = document.querySelectorAll('.button-set button');
-                    buttons.forEach(function(btn) {
-                        btn.classList.remove('active');
-                    });
-
-                    // Add active class to the clicked button
-                    button.classList.add('active');
-                }
-
-                // Show the first section by default
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.querySelector('.button-set button.biodata').click();
-                });
-            </script>
-        </div>
+        </div> --}}
     </div>
+    {{-- <div class="errIt"><span class="errIcn"><i class="fas fa-circle"></i></span><div class="tx"></div></div> --}}
     
 @endsection
 
+@section('popup-content-field')
+
+@endsection
+
 @section('script-field')
-    {{-- <script src="{{asset('assets/js/pages/users/myAccount/autoSwipeSpecial.js')}}"></script> --}}
+    <script src="{{ asset('assets/js/pages/users/settings/elm.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/users/settings/profile/elmP.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/users/settings/profile/cDt.js') }}"></script>
+    
+    <script src="{{ asset('assets/js/pages/users/settings/address/elmP.js') }}"></script>
+    <script src="{{ asset('assets/js/pages/users/settings/address/cDt.js') }}"></script>
+    {{-- <script>
+        function getCsrfToken() {
+            return document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        }
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.sbmChangeDataUser').click((e) => {
+            const $ELEMN_THS = $(e.target.closest('.formField'));
+            const $ELEMN_PAR = $($ELEMN_THS.closest('.popoup'));
+            
+            console.log($ELEMN_PAR);
+            $ELEMN_PAR.addClass('animate-pulse');
+            const URL = $ELEMN_THS.attr('data-formUrl');
+            
+            let $IS_CHECKBOX = $ELEMN_THS.find('input[type="radio"]');
+            
+            let dataAjax = {};
+            
+            if ($IS_CHECKBOX.length > 0) {
+                let $CHECKED_INP = $IS_CHECKBOX.filter(':checked');
+                let NMERAD = $($CHECKED_INP[$CHECKED_INP.length-1]).attr('name');
+                let VALRAD = $($CHECKED_INP[$CHECKED_INP.length-1]).val();
+                
+                dataAjax = Object.assign({}, dataAjax, { [NMERAD]: VALRAD });
+            } else {
+                let $INP_ELMN = $ELEMN_THS.find('input');
+                $INP_ELMN.each(function (index, element) {
+                    let NAME = $(element).attr('name');
+                    let VAL = $(element).val();
+                    dataAjax = Object.assign({}, dataAjax, { [NAME]: VAL });
+                });
+            }
+            
+            // console.log(dataAjax);
+            $.ajax({
+                type: "POST",
+                url: URL,
+                data: dataAjax,
+                beforeSend: function() {
+                    
+                },
+                success: function (response) {
+                    console.log(response);
+                    // alert('Sukses' + response.message);
+                },
+                complete: function() {
+                    // alert('Complete');
+                    $ELEMN_PAR.removeClass('active');
+                    $ELEMN_PAR.removeClass('animate-pulse');
+                },
+                error: function(xhr) {
+                    let response = xhr.responseJSON;
+                    if (response.status === 'error') {
+                        // Reset pesan error
+                        $ELEMN_THS.find('.errorMessages').html('');
+                        
+                        if (response.errors) {
+                            // Tampilkan pesan error validasi
+                            for (let field in response.errors) {
+                                response.errors[field].forEach(function(error) {
+                                    // $ELEMN_THS.find('.errorMessages').append('<p class="error">' + error + '</p>');
+                                    $ELEMN_THS.find('.errorMessages').append('<div class="errIt flex gap-2"><span class="errIcn"><i class="fas fa-circle"></i></span><div class="tx"> ' + error + ' </div></div>');
+                                });
+                            }
+                        } else if (response.message) {
+                            // Tampilkan pesan error umum
+                            // $ELEMN_THS.find('.errorMessages').append('<p class="error">' + response.message + '</p>');
+                            $ELEMN_THS.find('.errorMessages').append('<div class="errIt flex gap-2"><span class="errIcn"><i class="fas fa-circle"></i></span><div class="tx"> ' + response.message + ' </div></div>');
+                        }
+                    }
+                }
+            });
+        });
+    </script> --}}
 @endsection

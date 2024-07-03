@@ -4,15 +4,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\myAccountController;
 use App\Http\Controllers\User\myPromoController;
 use App\Http\Controllers\User\myTransactionController;
+use App\Http\Controllers\User\Settings;
 use App\Http\Controllers\Store\myStoreController;
 use App\Http\Controllers\Store\storeOrdersController;
 use App\Http\Controllers\Store\storePromoController;
 use App\Http\Controllers\Store\storeServicesController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\Events\PasswordReset;
 use App\Models\User;
@@ -45,19 +48,35 @@ use App\Http\Controllers\About\AboutUsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::fallback(function () {
+    // Mengarahkan ke halaman homepage
+    return redirect('/');
+});
+
 Route::get('/tubes', [tubesController::class, 'index']);
 Route::get('/tubes2', [tubesController::class, 'index2']);
 Route::get('/find-route', [tubesController::class, 'findRoute']);
 
-Route::get('/', function () {
-    return view('pages.guests.homepage.index');
-});
 Route::view('/page/promo', 'pages.guests.promo.index');
 
-Route::get('/login', [LoginController::class, 'loginIndex'])->name('loginIndex');
-Route::post('/login', [LoginController::class, 'loginPost'])->name('loginPost');
-Route::get('/register', [RegisterController::class, 'registerIndex'])->name('registerIndex');
-Route::post('/register', [RegisterController::class, 'registerPost'])->name('registerPost');
+Route::get('/', function() {
+    if (Auth::check()) {
+        return view('pages.users.homepage.index');
+    } else {
+        return view('pages.guests.homepage.index');
+    }
+});
+
+Route::middleware('guest')->group(function() {
+    // Route::get('/', function () {
+    //     return view('pages.guests.homepage.index');
+    // });
+    // Route::view('/', 'pages.guests.homepage.index');
+    Route::get('/login', [UserController::class, 'loginView'])->name('loginIndex');
+    Route::post('/login', [UserController::class, 'login'])->name('loginPost');
+    Route::get('/register', [UserController::class, 'registerView'])->name('registerIndex');
+    Route::post('/register', [UserController::class, 'register'])->name('registerPost');
+});
 Route::get('/forgotPassword', [ForgotPWController::class, 'forgotindex'])->name('forgot_password');
 Route::view('/forgotToken', 'login.passwordToken');
 // Route::post('/forgotPassword', function (Request $request) {
@@ -76,23 +95,39 @@ Route::post('/resetPassword', [ResetPasswordController::class, 'reset'])
     ->middleware('guest')
     ->name('password.update');
 
-Route::view('/user/homepage', 'pages.users.homepage.index');
-Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
-Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
-Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
-Route::view('/user/coba', 'pages.users.homepage.coba')->name('user\coba');
-Route::get('/user/transaction', [myTransactionController::class, 'index'])->name('user\myTransaction');
-Route::get('/pages/users/settingaccount', [SettingAccountController::class, 'index'])->name('settingaccount.index');
-// Route::view('/user/account', 'pages.users.myAccount.index');
 
-Route::view('/store/notification', 'pages.stores.notifikasi.index');
-Route::view('/store/setting', 'pages.stores.settingAccount.index');
-
-Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
-Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
-Route::get('/store/promo', [storePromoController::class, 'index'])->name('store\promo');
-Route::get('/store/services', [storeServicesController::class, 'index'])->name('store\services');
-Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
+Route::middleware('auth')->group(function() {
+    // Route::view('/', 'pages.users.homepage.index');
+    Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
+    Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
+    Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
+    Route::view('/user/coba', 'pages.users.homepage.coba')->name('user\coba');
+    Route::get('/user/transaction', [myTransactionController::class, 'index'])->name('user\myTransaction');
+    Route::get('/user/settings', [SettingAccountController::class, 'index'])->name('user\settings');
+    Route::get('/user/settings/profile', [Settings\ProfileAccountController::class, 'index'])->name('user\settings\profile');
+    Route::post('/user/settings/profile/name', [Settings\ProfileAccountController::class, 'changeName'])->name('user\settings\profile\name');
+    Route::post('/user/settings/profile/gender', [Settings\ProfileAccountController::class, 'changeGender'])->name('user\settings\profile\gender');
+    Route::post('/user/settings/profile/birth', [Settings\ProfileAccountController::class, 'changeBirth'])->name('user\settings\profile\birth');
+    Route::post('/user/settings/profile/email', [Settings\ProfileAccountController::class, ''])->name('user\settings\profile\email');
+    Route::post('/user/settings/profile/telp', [Settings\ProfileAccountController::class, 'changeTelp'])->name('user\settings\profile\telp');
+    Route::get('/user/settings/address', [Settings\AddressAccountController::class, 'index'])->name('user\settings\address');
+    Route::post('/user/settings/address/save', [Settings\AddressAccountController::class, 'saveAddress'])->name('user\settings\address\save');
+    Route::get('/user/settings/password', [Settings\PasswordAccountController::class, 'index'])->name('user\settings\password');
+    
+    
+    // Route::view('/user/account', 'pages.users.myAccount.index');
+    
+    Route::view('/store/notification', 'pages.stores.notifikasi.index');
+    Route::view('/store/setting', 'pages.stores.settingAccount.index');
+    
+    Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
+    Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
+    Route::get('/store/promo', [storePromoController::class, 'index'])->name('store\promo');
+    Route::get('/store/services', [storeServicesController::class, 'index'])->name('store\services');
+    Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
+    
+    Route::get('/logout', [UserController::class, 'logout'])->name('user\logout');
+});
 
 
 

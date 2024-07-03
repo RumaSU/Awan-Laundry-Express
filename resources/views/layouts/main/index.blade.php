@@ -16,6 +16,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
     <link rel="icon" href="{{asset('assets/components/logoApp/Logo Awan Laundry.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('assets/bootstrap-icons/bootstrap-icons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/main/m.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/s.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/stores/cLStr.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/stores/cMdlStr.css')}}">
@@ -32,9 +33,11 @@
     <header>
         @include('layouts.main.header')
     </header>
-    <nav class="py-2 md:py-4 lg:py-6 bg-[#FFDCE8] sticky top-0 z-[80]">
-        @include('layouts.main.nav')
-    </nav>
+    @auth
+        <nav class="py-2 md:py-4 lg:py-6 bg-[#FFDCE8] sticky top-0 z-[80]">
+            @include('layouts.main.nav')
+        </nav>
+    @endauth
     @yield('main-content')
     <footer class="py-6 bg-[#FF3377]">
         @include('layouts.main.footer')

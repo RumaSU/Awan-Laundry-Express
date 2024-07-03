@@ -1,4 +1,4 @@
-.header-alamat{
+/* .header-alamat{
     margin-top: 2rem;
 }
 .button-alamat{
@@ -18,17 +18,17 @@
 
 .button-alamat:hover{
     background-color: #D42A63;
-}
-.rtrw{
+} */
+/* .rtrw{
     display: flex;
     width: 50%;
     gap: 1rem;
 }
 .input-popup label{
     font-weight: bolder;
-}
+} */
 
-
+/* 
 .field-alamat{
     background-color: #E1F3FE;
     border: 2px solid #0493CC;
@@ -51,4 +51,4 @@
 }
 .field-alamat button{
     color: #0493CC;
-}
+} */
