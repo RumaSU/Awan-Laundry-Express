@@ -50,11 +50,9 @@ $('.cMainSetting').on('click', '.sbmChangeDataUser', (e) => {
         },
         success: function (response) {
             $ELEMN_THS.find('.successMessages').append('<div class="errIt flex gap-2"><span class="errIcn"><i class="fas fa-circle"></i></span><div class="tx"> ' + response.message + ' </div></div>');
-            $('.cMainSetting').addClass('animate-pulse');
             $.get(URL_REFRESH, function(html) {
                 $('.cMainSetting').html(html);
                 setMaxDateBirth();
-                $('.cMainSetting').removeClass('animate-pulse');
             });
         },
         complete: function() {
@@ -80,7 +78,6 @@ $('.cMainSetting').on('click', '.sbmChangeDataUser', (e) => {
                     $ELEMN_THS.find('.errorMessages').append('<div class="errIt flex gap-2"><span class="errIcn"><i class="fas fa-circle"></i></span><div class="tx"> ' + response.message + ' </div></div>');
                 }
             }
-            $ELEMN_CNTN.removeClass('animate-pulse');
         }
     });
 });
