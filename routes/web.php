@@ -5,10 +5,7 @@ use App\Http\Controllers\User\myAccountController;
 use App\Http\Controllers\User\myPromoController;
 use App\Http\Controllers\User\myTransactionController;
 use App\Http\Controllers\User\Settings;
-use App\Http\Controllers\Store\myStoreController;
-use App\Http\Controllers\Store\storeOrdersController;
-use App\Http\Controllers\Store\storePromoController;
-use App\Http\Controllers\Store\storeServicesController;
+use App\Http\Controllers\Store;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -26,7 +23,6 @@ use App\Http\Controllers\ResetPasswordController;
 
 use App\Http\Controllers\tubesController;
 use App\Http\Controllers\User\SettingAccountController;
-use App\Http\Controllers\Store\StoreMapsController;
 use App\Http\Controllers\About\AboutKebijakanController;
 use App\Http\Controllers\About\AboutSyaratController;
 use App\Http\Controllers\About\AboutBantuanController;
@@ -118,14 +114,17 @@ Route::middleware('auth')->group(function() {
     // Route::view('/user/account', 'pages.users.myAccount.index');
     
     Route::middleware('access.store')->group(function() {
-        Route::get('/store/mystore', [myStoreController::class, 'index'])->name('store\myStore');
-        Route::get('/store/orders', [storeOrdersController::class, 'index'])->name('store\orders');
-        Route::get('/store/promo', [storePromoController::class, 'index'])->name('store\promo');
-        Route::get('/store/services', [storeServicesController::class, 'index'])->name('store\services');
-        Route::post('/store/services/kilos', [storeServicesController::class, 'saveServiceKilos'])->name('store\services\kilos');
-        Route::get('/store/maps', [storeMapsController::class, 'index'])->name('store/maps');
-        Route::view('/store/notification', 'pages.stores.notifikasi.index')->name('store\notification');
-        Route::view('/store/settings', 'pages.stores.settingAccount.index')->name('store\settings');
+        Route::get('/store/mystore', [Store\myStoreController::class, 'index'])->name('store\myStore');
+        Route::get('/store/orders', [Store\storeOrdersController::class, 'index'])->name('store\orders');
+        Route::get('/store/promo', [Store\storePromoController::class, 'index'])->name('store\promo');
+        
+        Route::get('/store/services', [Store\storeServicesController::class, 'index'])->name('store\services');
+        Route::post('/store/services/kilos', [Store\storeServicesController::class, 'saveServiceKilos'])->name('store\services\kilos');
+        Route::post('/store/services/units', [Store\storeServicesController::class, 'saveServiceUnits'])->name('store\services\units');
+        
+        Route::get('/store/maps', [Store\storeMapsController::class, 'index'])->name('store/maps');
+        Route::get('/store/notification', [Store\storeNotificationController::class, 'index'])->name('store\notification');
+        Route::get('/store/settings', [Store\storeSettingsController::class, 'index'])->name('store\settings');
     });
     
     Route::post('/user/createStore', [UserController::class, 'createStore'])->name('user\createStore');

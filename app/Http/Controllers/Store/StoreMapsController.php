@@ -16,6 +16,18 @@ class StoreMapsController extends Controller
 {
     public function index()
     {
-        return view('pages.stores.maps.index');
+        $idUser = Auth::user()->idUser;
+        $dataStoreActive = StorePermitt::where('store_permitt.idUser', '=', $idUser)
+            ->where('store_permitt.active', '=', true)
+            ->join('stores', 'stores.idStore', '=', 'store_permitt.idStore')
+            ->select('stores.*')
+            ->first();
+            
+        $dataStore = StorePermitt::where('store_permitt.idUser', '=', $idUser)
+            ->where('store_permitt.active', '=', false)
+            ->join('stores', 'stores.idStore', '=', 'store_permitt.idStore')
+            ->select('stores.*')
+            ->get();
+        return view('pages.stores.maps.index', compact('dataStoreActive', 'dataStore'));
     }
 }

@@ -92,4 +92,73 @@ class storeServicesController extends Controller
         
         return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
     }
+    
+    public function saveServiceUnits(Request $request) {
+        $idUser = Auth::user()->idUser;
+        $idStoreActive = StorePermitt::where('idUser', '=', $idUser)->where('active', '=', true)->select('idStore')->first()->idStore;
+        
+        $dataReq = $request->all();
+        $rulesReq = [
+            'listUnitService' => 'required|array',
+        ];
+        $messagesReq = [
+            'listUnitService.required' => 'List unit\'s service must be required.',
+            'listUnitService.array' => 'List unit service must be an array.',
+        ];
+        $validator = Validator::make($dataReq, $rulesReq, $messagesReq);
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+        
+        $eMessage = [];
+        $listUnitService = $request->listUnitService;
+        $uuidUnitActive = Services\Units::where('idStore', '=', $idStoreActive)->select('idUnit')->get()->idUnit;
+        if ($uuidUnitActive->isNotEmpty()) {
+            $newUuidUnit = [];
+            foreach ($listUnitService as $unit) {
+                if (isset($unit['uuidUnit'])) {
+                    $newUuidUnit[] = $unit['uuidUnit'];
+                }
+            }
+            
+            foreach ($uuidUnitActive as $k => $uuidUnit) {
+                if (!(in_array($uuidUnit, $newUuidUnit))) {
+                    Services\Units::where('idUnit', '=', $uuidUnit)->delete();
+                }
+            }
+        }
+        
+        foreach ($listUnitService as $k => $unitS) {
+            $statusUnit = $unitS['statusUnit'];
+            $nameUnit = $unitS['nameUnit'];
+            $priceUnit = $unitS['priceUnit'];
+            
+            if (isset($unitS['uuidUnit'])) {
+                $uuidUnit = $unitS['uuidUnit'];
+                if (Services\Units::where('idUnit','=', $uuidUnit)->exists()) {
+                    Services\Units::where('idUnit','=', $uuidUnit)->update([
+                        'unit_name' => $nameUnit,
+                        'price' => $priceUnit,
+                        'active' => $statusUnit,
+                    ]);
+                }
+            } else {
+                $isIdUnique = false;
+                $uuidNewUnit = '';
+                while ($isIdUnique) {
+                    $uuidNewUnit = Uuid::uuid6();
+                    if (!(Services\Units::where('idUnit','=', $uuidNewUnit)->exists())) {
+                        $isIdUnique = true;
+                    }
+                }
+                Services\Units::create([
+                    'idUnit' => $uuidNewUnit,
+                    'idStore' => $idStoreActive,
+                    'unit_name' => $nameUnit,
+                    'price' => $priceUnit,
+                    'active' => $statusUnit,
+                ]);
+            }
+        }
+    }
 }

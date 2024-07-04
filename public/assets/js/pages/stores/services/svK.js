@@ -4,8 +4,9 @@ $.ajaxSetup({
     }
 });
 
-$('.btn-sveServc').click((e) => {
+$('.btn-sveServcKilos').click((e) => {
     e.preventDefault();
+    const $ELMN_BUTTON = $(e.target.closest('button'));
     const $ELEMN_THS = $(e.target.closest('.formFieldSveServc'));
     const PAR_ELMN = $ELEMN_THS.closest('.ctr-cTrscItm');
     const URL = $ELEMN_THS.attr('data-saveServcUrl');
@@ -35,6 +36,7 @@ $('.btn-sveServc').click((e) => {
         },
         complete: function() {
             PAR_ELMN.removeClass('animate-pulse');
+            $ELMN_BUTTON.hide();
             if (responseData.activeServc) {
                 $ELEMN_STATUS.find('.cStatusServc').addClass('bg-[#FF3377] text-white font-bold');
                 $ELEMN_STATUS.find('.cStatusServc').removeClass('bg-[#D9D9D9] text-gray-800');
@@ -48,7 +50,8 @@ $('.btn-sveServc').click((e) => {
             }
             setTimeout(() => {
                 $ELEMN_THS.find('.successMessages').html('');
-            }, 3000);
+                $ELMN_BUTTON.show();
+            }, 650);
         },
         error: function(xhr) {
             let response = xhr.responseJSON;
