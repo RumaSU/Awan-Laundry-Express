@@ -1,6 +1,10 @@
 @extends('layouts.store.index')
 @section('titlePage', 'Toko - Layanan')
 
+@section('head-meta-field')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+
 @section('head-link-field')
 
 @endsection
@@ -27,6 +31,10 @@
             </div>
             <div class="ctr-listServcStore mt-4 px-4">
                 <div class="cListServcStore">
+                    @php
+                        $activeServc = 'bg-[#FF3377] text-white font-bold';
+                        $notActiveServc = 'bg-[#D9D9D9] text-gray-800';
+                    @endphp
                     <div class="ctr-servcItm  relative mb-6 md:mb-4">
                         <div class="ctr-cServcItm border-2 border-gray-400 rounded-xl shadow-md shadow-gray-400 bg-white overflow-hidden">
                             <div class="cServcItm py-4 px-6">
@@ -47,9 +55,9 @@
                                             </div>
                                         </div>
                                         <div class="ctr-rghtStatus">
-                                            <div class="cStatusServc px-4 md:px-8 py-2 rounded-xl bg-[#D9D9D9] text-gray-800 ">
+                                            <div class="cStatusServc px-4 md:px-8 py-2 rounded-xl {{ ($serviceKilos->active) ? $activeServc : $notActiveServc}}">
                                                 <div class="txSt text-xs md:text-sm">
-                                                    <strong>@{{Aktif}}</strong>
+                                                    <strong>{{ ($serviceKilos->active) ? 'Aktif' : 'Nonaktif' }}</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -71,61 +79,57 @@
                                                         <h2>Kiloan</h2>
                                                     </div>
                                                 </div>
-                                                <div class="cDatValThsServc flex items-center flex-wrap gap-1 text-sm sm:text-base">
-                                                    {{-- <div class="txDVlTServc">
-                                                        <p>Per 1 kg : {{ (rand(50, 100) * 100) }}</p>
-                                                    </div> --}}
-                                                    <div class="lblDatThsServc">
-                                                        <div class="tx">
-                                                            <p>Per kg :</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="valDatThsServc font-semibold text-[#FF3377]">
-                                                        {{-- <div class="txOtptDtThsServc">
+                                                <form class="formFieldSveServc" data-saveServcUrl="{{ route('store\services\kilos') }}">
+                                                    <div class="cDatValThsServc flex items-center flex-wrap gap-1 text-sm sm:text-base">
+                                                        <div class="lblDatThsServc">
                                                             <div class="tx">
-                                                                <p>Rp. {{ number_format(rand(50, 100)*100) }}</p>
+                                                                <p>Per kg :</p>
                                                             </div>
-                                                        </div> --}}
-                                                        <div class="inpFldDtValThsServc flex items-center gap-2">
-                                                            <div class="lblInpThsServc">
-                                                                <label for="">
-                                                                    <p>Rp. </p>
-                                                                </label>
-                                                            </div>
-                                                            <div class="inpFld block">
-                                                                <input type="text" name="" id="" class="priceInpThsServc block px-1.5 py-1 rounded-md text-sm border-transparent focus:border-solid focus:border-gray-600 outline-none" spellcheck="false">
+                                                        </div>
+                                                        <div class="valDatThsServc font-semibold text-[#FF3377]">
+                                                            <div class="inpFldDtValThsServc flex items-center gap-2">
+                                                                <div class="lblInpThsServc">
+                                                                    <label for="inpServiceStorePriceKilos">
+                                                                        <p>Rp. </p>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="inpFld block">
+                                                                    <input type="text" name="inpServiceStorePriceKilos" id="inpServiceStorePriceKilos" class="priceInpThsServc block px-1.5 py-1 rounded-md text-sm border-transparent focus:border-solid focus:border-gray-600 outline-none" spellcheck="false" value="{{ number_format(isset($serviceKilos->price) ? $serviceKilos->price : 0) }}">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="actvteNdSaveThsServc flex items-center justify-between">
-                                                    <div class="actvteThsServc">
-                                                        <label for="actvThsKilosServc" class="block w-fit mt-2">
-                                                            <div class="ctr-thsServcActv">
-                                                                <div class="cThsServcActv block w-16 h-6 rounded-full cursor-pointer border border-black relative bg-white has-[:checked]:bg-[#ff92b6] has-[:checked]:border-pink-700 *:transition-all">
-                                                                    <input type="checkbox" name="" id="actvThsKilosServc" class="peer sr-only">
-                                                                    <div class="rndBall h-6 aspect-square rounded-[100%] bg-white border border-black relative -top-[5%] left-0 -translate-x-0 peer-checked:left-[101%] peer-checked:-translate-x-[101%] peer-checked:bg-[#FF3377] peer-checked:border-pink-950"></div>
-                                                                </div>
-                                                            </div>
-                                                        </label>
-                                                    </div>
-                                                    <div class="saveThsServc mt-2">
-                                                        <button class="btn-sveServc border border-black px-4 py-2 rounded-lg">
-                                                            <div class="cBtnSve flex items-center gap-2">
-                                                                <div class="icnSve">
-                                                                    <span class="icn">
-                                                                        <i class="far fa-floppy-disk"></i>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="lbelSave">
-                                                                    <div class="tx">
-                                                                        <p>Simpan</p>
+                                                    <div class="successMessages text-sm text-green-700 my-3 space-y-2"></div>
+                                                    <div class="errorMessages text-sm text-red-600 my-3 space-y-2"></div>
+                                                    <div class="actvteNdSaveThsServc flex items-center justify-between">
+                                                        <div class="actvteThsServc">
+                                                            <label for="actvThsKilosServc" class="block w-fit mt-2">
+                                                                <div class="ctr-thsServcActv">
+                                                                    <div class="cThsServcActv block w-16 h-6 rounded-full cursor-pointer border border-black relative bg-white has-[:checked]:bg-[#ff92b6] has-[:checked]:border-pink-700 *:transition-all">
+                                                                        <input type="checkbox" name="actvThsKilosServc" id="actvThsKilosServc" class="peer sr-only" {{ ($serviceKilos->active) ? 'checked' : '' }}>
+                                                                        <div class="rndBall h-6 aspect-square rounded-[100%] bg-white border border-black relative -top-[5%] left-0 -translate-x-0 peer-checked:left-[101%] peer-checked:-translate-x-[101%] peer-checked:bg-[#FF3377] peer-checked:border-pink-950"></div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </button>
+                                                            </label>
+                                                        </div>
+                                                        <div class="saveThsServc mt-2">
+                                                            <button type="button" class="btn-sveServc border border-black px-4 py-2 rounded-lg">
+                                                                <div class="cBtnSve flex items-center gap-2">
+                                                                    <div class="icnSve">
+                                                                        <span class="icn">
+                                                                            <i class="far fa-floppy-disk"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="lbelSave">
+                                                                        <div class="tx">
+                                                                            <p>Simpan</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -345,20 +349,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="cDatValThsServc flex items-center flex-wrap gap-1 text-sm sm:text-base">
-                                                    {{-- <div class="txDVlTServc">
-                                                        <p>Per 1 kg : {{ (rand(50, 100) * 100) }}</p>
-                                                    </div> --}}
                                                     <div class="lblDatThsServc">
                                                         <div class="tx">
                                                             <p>Per meter :</p>
                                                         </div>
                                                     </div>
                                                     <div class="valDatThsServc font-semibold text-[#FF3377]">
-                                                        {{-- <div class="txOtptDtThsServc">
-                                                            <div class="tx">
-                                                                <p>Rp. {{ number_format(rand(50, 100)*100) }}</p>
-                                                            </div>
-                                                        </div> --}}
                                                         <div class="inpFldDtValThsServc flex items-center gap-2">
                                                             <div class="lblInpThsServc">
                                                                 <label for="">
@@ -561,6 +557,8 @@
     <script src="{{asset('assets/js/pages/stores/orders/mdOrd.js')}}"></script>
     <script src="{{ asset('assets/js/pages/stores/promo/mdCrtPromo.js') }}"></script>
     <script src="{{ asset('assets/js/pages/stores/services/addServc.js') }}"></script>
+
+    <script src="{{ asset('assets/js/pages/stores/services/svK.js') }}"></script>
     {{-- <script>
         document.getElementById('DtUntlMdlCrtePrmo').addEventListener('click', function() {
             document.getElementById('DtUntlMdlCrtePrmo').focus();

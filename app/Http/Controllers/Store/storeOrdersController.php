@@ -3,7 +3,14 @@
 namespace App\Http\Controllers\Store;
 
 use App\Http\Controllers\Controller;
+use App\Models\Store\Store;
+use App\Models\Store\StoreAddress;
+use App\Models\Store\StorePermitt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 
 class storeOrdersController extends Controller
 {
@@ -12,7 +19,19 @@ class storeOrdersController extends Controller
      */
     public function index()
     {
-        return view('pages.stores.orders.index');
+        $idUser = Auth::user()->idUser;
+        $dataStoreActive = StorePermitt::where('store_permitt.idUser', '=', $idUser)
+            ->where('store_permitt.active', '=', true)
+            ->join('stores', 'stores.idStore', '=', 'store_permitt.idStore')
+            ->select('stores.*')
+            ->first();
+            
+        $dataStore = StorePermitt::where('store_permitt.idUser', '=', $idUser)
+            ->where('store_permitt.active', '=', false)
+            ->join('stores', 'stores.idStore', '=', 'store_permitt.idStore')
+            ->select('stores.*')
+            ->get();
+        return view('pages.stores.orders.index', compact('dataStoreActive', 'dataStore'));
     }
 
     /**

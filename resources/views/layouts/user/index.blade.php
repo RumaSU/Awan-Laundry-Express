@@ -11,6 +11,9 @@
         <div class="">
             {{ Auth::user()->UserAddress }}
         </div> --}}
+        <div class="">
+            {{ Auth::user()->UserStore()->exists() }}
+        </div>
         {{-- {{ Auth::user()->UserDetail() }} --}}
     @endauth
     <div class="ctr lg:flex justify-center">

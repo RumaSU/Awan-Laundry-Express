@@ -12,16 +12,16 @@ $('.cMainSetting').on('click', '.btnEditUserAddress', (e) => {
     const elmnItmAdds = $(e.target.closest('.itmAddressUser'));
     
     dataAddressId = elmnItmAdds.attr('data-addressId');
-    dataAddressSelected = elmnItmAdds.attr('data-addressSelected')
-    console.log(dataAddressId);
+    dataAddressSelected = elmnItmAdds.attr('data-addressSelected');
     dataInput = {};
     
-    let inpPopup = $('.popupContent').find('input');
     let itemEdit = elmnItmAdds.find('[class^="dataAddsDetail"]');
+    let inpPopup = $('.popupContent').find('input');
+    inpPopup.filter('[type="radio"]').prop('checked', false);
+    inpPopup.filter('[type="checkbox"]').prop('checked', false);
     inpPopup.each((idx, elmn) => {
         const inpElmn = $(elmn);
         const dataItem = $(itemEdit[idx]).attr('data-detailAddress');
-        console.log(dataItem);
         
         if (inpElmn.attr('type') === 'radio') {
             return false;
@@ -30,8 +30,11 @@ $('.cMainSetting').on('click', '.btnEditUserAddress', (e) => {
             inpElmn.val(dataItem);
         }
     });
-
-    console.log(dataAddressSelected);
+    
+    if (dataAddressSelected == 1) {
+        let addsSelect = inpPopup.filter('[type="checkbox"]');
+        addsSelect.prop('checked', true);
+    }
     
     $('.popupContent').removeClass('hidden');
 });
@@ -48,14 +51,13 @@ $('.cMainSetting').on('click', '.sbmAddressDataUser', (e) => {
     const $ELEMN_CNTN = $ELEMN_THS.closest('.cPopupContent');
     const $ELEMN_PAR = $ELEMN_CNTN.closest('.popupContent');
     const URL_REFRESH = $ELEMN_PAR.attr('data-URLSettingFrom');
-    console.log(URL_REFRESH);
     
     $ELEMN_CNTN.addClass('animate-pulse');
     const URL = $ELEMN_THS.attr('data-formUrl');
     
     let dataAjax = {};
     if (dataAddressId) {
-        dataAjax = Object.assign({}, dataAjax, { idDataAddress: VALRAD });
+        dataAjax = Object.assign({}, dataAjax, { idDataAddress: dataAddressId });
     }
     
     let $INP_ELMN = $ELEMN_THS.find('input');
@@ -71,8 +73,6 @@ $('.cMainSetting').on('click', '.sbmAddressDataUser', (e) => {
         }
     });
     
-    
-    console.log(dataAjax);
     $.ajax({
         type: "POST",
         url: URL,
@@ -81,10 +81,10 @@ $('.cMainSetting').on('click', '.sbmAddressDataUser', (e) => {
             $ELEMN_THS.find('input').removeClass('border-red-600 text-red-700');
             $ELEMN_THS.find('.successMessages').html('');
             $ELEMN_THS.find('.errorMessages').html('');
+            $('.cMainSetting').addClass('animate-pulse');
         },
         success: function (response) {
             $ELEMN_THS.find('.successMessages').append('<div class="errIt flex gap-2"><span class="errIcn"><i class="fas fa-circle"></i></span><div class="tx"> ' + response.message + ' </div></div>');
-            $('.cMainSetting').addClass('animate-pulse');
             $.get(URL_REFRESH, function(html) {
                 $('.cMainSetting').html(html);
                 setMaxDateBirth();
