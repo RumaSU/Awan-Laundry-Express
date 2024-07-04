@@ -114,6 +114,7 @@ $('.cMainSetting').on('click', '.sbmAddressDataUser', (e) => {
                     $ELEMN_THS.find('.errorMessages').append('<div class="errIt flex gap-2"><span class="errIcn"><i class="fas fa-circle"></i></span><div class="tx"> ' + response.message + ' </div></div>');
                 }
             }
+            $ELEMN_CNTN.removeClass('animate-pulse');
         }
     });
 });
