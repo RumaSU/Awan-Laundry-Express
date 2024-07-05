@@ -1,4 +1,5 @@
 @extends('layouts.main.index')
+@section('titlePage', 'Awan Laundry Express')
 
 @section('head-style-field')
 <link rel="stylesheet" href="{{ asset('assets/css/homepage/middle-content.css') }}">

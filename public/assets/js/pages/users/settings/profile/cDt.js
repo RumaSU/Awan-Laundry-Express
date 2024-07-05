@@ -58,6 +58,7 @@ $('.cMainSetting').on('click', '.sbmChangeDataUser', (e) => {
         },
         complete: function() {
             $ELEMN_CNTN.removeClass('animate-pulse');
+            $('.cMainSetting').removeClass('animate-pulse');
         },
         error: function(xhr) {
             $('.cMainSetting').removeClass('animate-pulse');
