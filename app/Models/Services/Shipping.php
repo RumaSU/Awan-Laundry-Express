@@ -13,6 +13,7 @@ class Shipping extends Model
         "idShipping",
         "idStore",
         "price",
+        "active",
     ];
     protected $hidden = [
         'idStore',

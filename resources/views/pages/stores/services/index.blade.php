@@ -314,9 +314,9 @@
                                             </div>
                                         </div>
                                         <div class="ctr-rghtStatus">
-                                            <div class="cStatusServc px-4 md:px-8 py-2 rounded-xl bg-[#D9D9D9] text-gray-800 ">
+                                            <div class="cStatusServc px-4 md:px-8 py-2 rounded-xl bg-[#D9D9D9] text-gray-800 {{ isset($serviceShipping->active) ? (($serviceShipping->active) ? $activeServc : $notActiveServc) : $notActiveServc}}">
                                                 <div class="txSt text-xs md:text-sm">
-                                                    <strong>@{{Aktif}}</strong>
+                                                    <strong>{{ isset($serviceShipping->active) ? (($serviceShipping->active) ? 'Aktif' : 'Nonaktif') : 'Nonaktif' }}</strong>
                                                 </div>
                                             </div>
                                         </div>
@@ -338,53 +338,57 @@
                                                         <h2>Ongkir</h2>
                                                     </div>
                                                 </div>
-                                                <div class="cDatValThsServc flex items-center flex-wrap gap-1 text-sm sm:text-base">
-                                                    <div class="lblDatThsServc">
-                                                        <div class="tx">
-                                                            <p>Per KM :</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="valDatThsServc font-semibold text-[#FF3377]">
-                                                        <div class="inpFldDtValThsServc flex items-center gap-2">
-                                                            <div class="lblInpThsServc">
-                                                                <label for="inpServiceStorePriceShipping">
-                                                                    <p>Rp. </p>
-                                                                </label>
-                                                            </div>
-                                                            <div class="inpFld block">
-                                                                <input type="text" name="inpServiceStorePriceShipping" id="inpServiceStorePriceShipping" class="priceInpThsServc block px-1.5 py-1 rounded-md text-sm border-transparent focus:border-solid focus:border-gray-600 outline-none" spellcheck="false" value="0">
+                                                <form class="formFieldSveServc" data-saveServcUrl="{{ route('store\services\shipping') }}">
+                                                    <div class="cDatValThsServc flex items-center flex-wrap gap-1 text-sm sm:text-base">
+                                                        <div class="lblDatThsServc">
+                                                            <div class="tx">
+                                                                <p>Per KM :</p>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div>
-                                                <div class="actvteNdSaveThsServc flex items-center justify-between">
-                                                    <div class="actvteThsServc">
-                                                        <label for="actvThsShippingServc" class="block w-fit mt-2">
-                                                            <div class="ctr-thsServcActv">
-                                                                <div class="cThsServcActv block w-16 h-6 rounded-full cursor-pointer border border-black relative bg-white has-[:checked]:bg-[#ff92b6] has-[:checked]:border-pink-700 *:transition-all">
-                                                                    <input type="checkbox" name="" id="actvThsShippingServc" class="peer sr-only">
-                                                                    <div class="rndBall h-6 aspect-square rounded-[100%] bg-white border border-black relative -top-[5%] left-0 -translate-x-0 peer-checked:left-[101%] peer-checked:-translate-x-[101%] peer-checked:bg-[#FF3377] peer-checked:border-pink-950"></div>
+                                                        <div class="valDatThsServc font-semibold text-[#FF3377]">
+                                                            <div class="inpFldDtValThsServc flex items-center gap-2">
+                                                                <div class="lblInpThsServc">
+                                                                    <label for="inpServiceStorePriceShipping">
+                                                                        <p>Rp. </p>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="inpFld block">
+                                                                    <input type="text" name="inpServiceStorePriceShipping" id="inpServiceStorePriceShipping" class="priceInpThsServc block px-1.5 py-1 rounded-md text-sm border-transparent focus:border-solid focus:border-gray-600 outline-none" spellcheck="false" value="{{ number_format(isset($serviceShipping->price) ? $serviceShipping->price : 0) }}">
                                                                 </div>
                                                             </div>
-                                                        </label>
+                                                        </div>
                                                     </div>
-                                                    <div class="saveThsServc mt-2">
-                                                        <button class="btn-sveServc border border-black px-4 py-2 rounded-lg">
-                                                            <div class="cBtnSve flex items-center gap-2">
-                                                                <div class="icnSve">
-                                                                    <span class="icn">
-                                                                        <i class="far fa-floppy-disk"></i>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="lbelSave">
-                                                                    <div class="tx">
-                                                                        <p>Simpan</p>
+                                                    <div class="successMessages text-sm text-green-700 my-3 space-y-2"></div>
+                                                    <div class="errorMessages text-sm text-red-600 my-3 space-y-2"></div>
+                                                    <div class="actvteNdSaveThsServc flex items-center justify-between">
+                                                        <div class="actvteThsServc">
+                                                            <label for="actvThsShippingServc" class="block w-fit mt-2">
+                                                                <div class="ctr-thsServcActv">
+                                                                    <div class="cThsServcActv block w-16 h-6 rounded-full cursor-pointer border border-black relative bg-white has-[:checked]:bg-[#ff92b6] has-[:checked]:border-pink-700 *:transition-all">
+                                                                        <input type="checkbox" name="actvThsShippingServc" id="actvThsShippingServc" class="peer sr-only" {{ isset($serviceShipping->active) ? (($serviceShipping->active) ? 'checked' : '') : '' }}>
+                                                                        <div class="rndBall h-6 aspect-square rounded-[100%] bg-white border border-black relative -top-[5%] left-0 -translate-x-0 peer-checked:left-[101%] peer-checked:-translate-x-[101%] peer-checked:bg-[#FF3377] peer-checked:border-pink-950"></div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </button>
+                                                            </label>
+                                                        </div>
+                                                        <div class="saveThsServc mt-2">
+                                                            <button type="button" class="btn-sveServcShipping border border-black px-4 py-2 rounded-lg">
+                                                                <div class="cBtnSve flex items-center gap-2">
+                                                                    <div class="icnSve">
+                                                                        <span class="icn">
+                                                                            <i class="far fa-floppy-disk"></i>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="lbelSave">
+                                                                        <div class="tx">
+                                                                            <p>Simpan</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -425,14 +429,7 @@
 @endsection
 
 @section('popup-content-field')
-    {{-- @php
-        $totalPriceTransaction = 0;
-        $randShpp = rand(90, 170) * 100;
-        $getDiscountTransaction = rand(1, 100) / 100;
-    @endphp
-    @include('pages.stores.promo.shwMdlDetPromo')
-    @include('pages.stores.promo.shwMdlCrtPromo') --}}
-    {{-- @include('pages.stores.services.shwMdlServc') --}}
+    
 @endsection
 
 @section('script-field')
@@ -442,10 +439,5 @@
     <script src="{{ asset('assets/js/pages/stores/services/svK.js') }}"></script>
     <script src="{{ asset('assets/js/pages/stores/services/svU.js') }}"></script>
     <script src="{{ asset('assets/js/pages/stores/services/svM.js') }}"></script>
-    {{-- <script>
-        document.getElementById('DtUntlMdlCrtePrmo').addEventListener('click', function() {
-            document.getElementById('DtUntlMdlCrtePrmo').focus();
-            document.getElementById('DtUntlMdlCrtePrmo').click();
-        });
-    </script> --}}
+    <script src="{{ asset('assets/js/pages/stores/services/svS.js') }}"></script>
 @endsection

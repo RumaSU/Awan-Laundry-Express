@@ -278,4 +278,56 @@ class storeServicesController extends Controller
         
         return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
     }
+    
+    public function saveServiceShipping(Request $request) {
+        $idUser = Auth::user()->idUser;
+        $idStoreActive = StorePermitt::where('idUser', '=', $idUser)->where('active', '=', true)->select('idStore')->first()->idStore;
+        
+        $dataReq = $request->all();
+        $rulesReq = [
+            'inpServiceStorePriceShipping' => 'required|string|max:255',
+            'actvThsShippingServc' => 'sometimes|boolean',
+        ];
+        $messagesReq = [
+            'inpServiceStorePriceShipping.required' => 'Price\'s required.',
+            'inpServiceStorePriceShipping.max' => 'Max 255 Character.',
+            'actvThsShippingServc.accepted' => 'The service must be set as active or not.',
+        ];
+        $validator = Validator::make($dataReq, $rulesReq, $messagesReq);
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+        
+        $priceService = (float)preg_replace('/[^0-9.]/', '', $request->inpServiceStorePriceShipping);
+        
+        $kilosRecord = Services\Shipping::where('idStore', '=', $idStoreActive)->first();
+        $kilosSave = null;
+        
+        if($kilosRecord) {
+            $prevPrice = $kilosRecord->price;
+            $prevActive = $kilosRecord->active;
+            if ($prevPrice == $priceService && $prevActive == $request->actvThsShippingServc) {
+                return response()->json(['status' => 'success', 'message' => 'Nothing have to change.']);
+            }
+            
+            $kilosSave = Services\Shipping::where('idStore', '=', $idStoreActive)->update([
+                'price' => $priceService,
+                'active' => $request->actvThsShippingServc,
+            ]);
+        } else {
+            $uuidService = Uuid::uuid6();
+            $kilosSave = Services\Shipping::create([
+                'idShipping' => $uuidService,
+                'idStore' => $idStoreActive,
+                'price' => $priceService,
+                'active' => $request->actvThsShippingServc,
+            ]);
+        }
+        
+        if ($kilosSave) {
+            return response()->json(['status' => 'success', 'message' => 'Price saved successfully.', 'activeServc' => $request->actvThsShippingServc ? true : false]);
+        }
+        
+        return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+    }
 }
