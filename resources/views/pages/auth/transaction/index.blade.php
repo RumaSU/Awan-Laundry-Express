@@ -38,7 +38,13 @@
     </nav>
     
     <main class="min-h-screen">
-        
+        <div class="ctr-createTransaction">
+            <div class="cCreateTransaction">
+                <form action="{{ route('transaction') }}" class="formFieldCrtTransac">
+                    
+                </form>
+            </div>
+        </div>
     </main>
     
     <footer class="py-6 bg-[#FF3377]">
