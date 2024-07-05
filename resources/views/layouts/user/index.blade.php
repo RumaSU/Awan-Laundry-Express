@@ -2,18 +2,18 @@
 
 @section('main-content')
     @auth
-        <div class="">
+        {{-- <div class="">
             {{ Auth::user() }}
-        </div>
+        </div> --}}
         {{-- <div class="">
             {{ Auth::user()->UserDetail }}
         </div>
         <div class="">
             {{ Auth::user()->UserAddress }}
         </div> --}}
-        <div class="">
+        {{-- <div class="">
             {{ Auth::user()->UserStore()->exists() }}
-        </div>
+        </div> --}}
         {{-- {{ Auth::user()->UserDetail() }} --}}
     @endauth
     <div class="ctr lg:flex justify-center">

@@ -10,17 +10,18 @@ class Units extends Model
     use HasFactory;
     protected $table="service_units";
     protected $fillable=[
-        "idUnits",
+        "idUnit",
         "idStore",
         "unit_name",
         "price",
+        "active",
     ];
     protected $hidden = [
         'idStore',
     ];
     protected $guarded = ['idStore'];
     protected $casts = [
-        'idUnits' => 'string',
+        'idUnit' => 'string',
         'idStore' => 'string',
     ];
 }

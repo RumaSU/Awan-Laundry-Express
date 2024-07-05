@@ -34,10 +34,20 @@ class storeServicesController extends Controller
             ->get();
         
         $serviceKilos = Services\Kilos::where('idStore', '=', $dataStoreActive->idStore)->first();
-        $serviceUnits = Services\Units::where('idStore', '=', $dataStoreActive->idStore)->first();
-        $serviceMeters = Services\Meters::where('idStore', '=', $dataStoreActive->idStore)->get();
+        $serviceUnits = Services\Units::where('idStore', '=', $dataStoreActive->idStore)->get();
+        $serviceMeters = Services\Meters::where('idStore', '=', $dataStoreActive->idStore)->first();
         $serviceShipping = Services\Shipping::where('idStore', '=', $dataStoreActive->idStore)->first();
         return view('pages.stores.services.index', compact('dataStoreActive', 'dataStore', 'serviceKilos', 'serviceUnits', 'serviceMeters', 'serviceShipping'));
+    }
+    public function showServiceUnits() {
+        $idUser = Auth::user()->idUser;
+        $dataStoreActive = StorePermitt::where('store_permitt.idUser', '=', $idUser)
+            ->where('store_permitt.active', '=', true)
+            ->join('stores', 'stores.idStore', '=', 'store_permitt.idStore')
+            ->select('stores.*')
+            ->first();
+        $serviceUnits = Services\Units::where('idStore', '=', $dataStoreActive->idStore)->get();
+        return view('pages.stores.services.servcUnit', compact('serviceUnits'));
     }
 
     public function saveServiceKilos(Request $request) {
@@ -110,55 +120,162 @@ class storeServicesController extends Controller
             return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
         }
         
-        $eMessage = [];
+        // $eMessage = [];
+        // $delMessage = [];
         $listUnitService = $request->listUnitService;
-        $uuidUnitActive = Services\Units::where('idStore', '=', $idStoreActive)->select('idUnit')->get()->idUnit;
-        if ($uuidUnitActive->isNotEmpty()) {
-            $newUuidUnit = [];
-            foreach ($listUnitService as $unit) {
-                if (isset($unit['uuidUnit'])) {
-                    $newUuidUnit[] = $unit['uuidUnit'];
-                }
-            }
-            
-            foreach ($uuidUnitActive as $k => $uuidUnit) {
-                if (!(in_array($uuidUnit, $newUuidUnit))) {
-                    Services\Units::where('idUnit', '=', $uuidUnit)->delete();
-                }
-            }
-        }
         
-        foreach ($listUnitService as $k => $unitS) {
-            $statusUnit = $unitS['statusUnit'];
-            $nameUnit = $unitS['nameUnit'];
-            $priceUnit = $unitS['priceUnit'];
-            
-            if (isset($unitS['uuidUnit'])) {
-                $uuidUnit = $unitS['uuidUnit'];
-                if (Services\Units::where('idUnit','=', $uuidUnit)->exists()) {
-                    Services\Units::where('idUnit','=', $uuidUnit)->update([
-                        'unit_name' => $nameUnit,
-                        'price' => $priceUnit,
-                        'active' => $statusUnit,
-                    ]);
-                }
-            } else {
-                $isIdUnique = false;
-                $uuidNewUnit = '';
-                while ($isIdUnique) {
-                    $uuidNewUnit = Uuid::uuid6();
-                    if (!(Services\Units::where('idUnit','=', $uuidNewUnit)->exists())) {
-                        $isIdUnique = true;
+        if (!empty($listUnitService)) {
+            // Hapus unit yang tidak ada dalam daftar baru
+            $uuidUnitSaved = Services\Units::where('idStore', '=', $idStoreActive)->select('idUnit')->get();
+            if ($uuidUnitSaved->isNotEmpty()) {
+                $newUuidUnit = [];
+                foreach ($listUnitService as $unit) {
+                    if (isset($unit['uuidUnit'])) {
+                        $newUuidUnit[] = $unit['uuidUnit'];
                     }
                 }
-                Services\Units::create([
-                    'idUnit' => $uuidNewUnit,
-                    'idStore' => $idStoreActive,
-                    'unit_name' => $nameUnit,
-                    'price' => $priceUnit,
-                    'active' => $statusUnit,
-                ]);
+                
+                foreach ($uuidUnitSaved as $k => $idItem) {
+                    $uuidUnit = $idItem->idUnit;
+                    if (!(in_array($uuidUnit, $newUuidUnit))) {
+                        $unitDel = Services\Units::where('idUnit', '=', $uuidUnit)->select('unit_name')->first()->unit_name;
+                        // $delMessage[] = ['message' => $unitDel . ' successfully deleted'];
+                        
+                        Services\Units::where('idUnit', '=', $uuidUnit)->delete();
+                    }
+                    echo $uuidUnit;
+                }
             }
+            
+            // Update atau buat unit baru
+            $updateUnit = [];
+            $newUnit = [];
+            foreach ($listUnitService as $k => $unit) {
+                if (isset($unit['uuidUnit'])){
+                    $updateUnit[] = $unit;
+                } else {
+                    $newUnit[] = $unit;
+                }
+            }
+            
+            if (isset($updateUnit)) {
+                foreach ($updateUnit as $k => $unitS) {
+                    $statusUnit = $unitS['statusUnit'];
+                    $nameUnit = $unitS['nameUnit'];
+                    $priceUnit = $unitS['priceUnit'];
+                    
+                    $priceService = (float)preg_replace('/[^0-9.]/', '', $priceUnit);
+                    
+                    $uuidUnit = $unitS['uuidUnit'];
+                    if (Services\Units::where('idUnit','=', $uuidUnit)->exists()) {
+                        $prevUnit = Services\Units::where('idUnit','=', $uuidUnit)->first();
+                        if ($prevUnit->unit_name != $nameUnit || $prevUnit->price != $priceService || $prevUnit->active != $statusUnit) {
+                            Services\Units::where('idUnit','=', $uuidUnit)->update([
+                                'unit_name' => $nameUnit,
+                                'price' => $priceService,
+                                'active' => $statusUnit,
+                            ]);
+                            // $eMessage[] = ['message' => $nameUnit . ' successfully updated'];
+                        }
+                    }
+                }
+            } 
+            if (isset($newUnit)) {
+                foreach ($newUnit as $k => $unitS) {
+                    $statusUnit = $unitS['statusUnit'];
+                    $nameUnit = $unitS['nameUnit'];
+                    $priceUnit = $unitS['priceUnit'];
+                    
+                    $priceService = (float)preg_replace('/[^0-9.]/', '', $priceUnit);
+                    
+                    $uuidNewUnit = '';
+                    $isIdUnique = false;
+                    while (!$isIdUnique) {
+                        $uuidNewUnit = Uuid::uuid6();
+                        if (!(Services\Units::where('idUnit','=', $uuidNewUnit)->exists())) {
+                            $isIdUnique = true;
+                        }
+                    }
+                    Services\Units::create([
+                        'idUnit' => $uuidNewUnit,
+                        'idStore' => $idStoreActive,
+                        'unit_name' => $nameUnit,
+                        'price' => $priceService,
+                        'active' => $statusUnit,
+                    ]);
+                    // $eMessage[] = ['message' => $nameUnit . ' successfully created'];
+                }
+            }
+            // if (!empty($delMessage)) {
+            //     $eMessage = array_merge($eMessage, $delMessage);
+            // }
+            
+            return response()->json(['status' => 'success', 'message' => 'Successfully processed all service units'], 200);
         }
+        return response()->json(['status' => 'error', 'message' => 'No service units provided.'], 400);
+    }
+    public function deleteServiceUnits(Request $request) {
+        $idUser = Auth::user()->idUser;
+        $eMessage = '';
+        $idStoreActive = StorePermitt::where('idUser', '=', $idUser)->where('active', '=', true)->select('idStore')->first()->idStore;
+        if (Services\Units::where('idStore', '=', $idStoreActive)->exists()) {
+            Services\Units::where('idStore', '=', $idStoreActive)->delete();
+            $eMessage = ['message' => 'successfully deleted all units service'];
+        }
+        
+        return response()->json(['status' => 'success', 'message' => $eMessage], 200);
+    }
+    
+    
+    public function saveServiceMeters(Request $request) {
+        $idUser = Auth::user()->idUser;
+        $idStoreActive = StorePermitt::where('idUser', '=', $idUser)->where('active', '=', true)->select('idStore')->first()->idStore;
+        
+        $dataReq = $request->all();
+        $rulesReq = [
+            'inpServiceStorePriceMeters' => 'required|string|max:255',
+            'actvThsMetersServc' => 'sometimes|boolean',
+        ];
+        $messagesReq = [
+            'inpServiceStorePriceMeters.required' => 'Price\'s required.',
+            'inpServiceStorePriceMeters.max' => 'Max 255 Character.',
+            'actvThsMetersServc.accepted' => 'The service must be set as active or not.',
+        ];
+        $validator = Validator::make($dataReq, $rulesReq, $messagesReq);
+        if ($validator->fails()) {
+            return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
+        }
+        
+        $priceService = (float)preg_replace('/[^0-9.]/', '', $request->inpServiceStorePriceMeters);
+        
+        $kilosRecord = Services\Meters::where('idStore', '=', $idStoreActive)->first();
+        $kilosSave = null;
+        
+        if($kilosRecord) {
+            $prevPrice = $kilosRecord->price;
+            $prevActive = $kilosRecord->active;
+            if ($prevPrice == $priceService && $prevActive == $request->actvThsMetersServc) {
+                return response()->json(['status' => 'success', 'message' => 'Nothing have to change.']);
+            }
+            
+            $kilosSave = Services\Meters::where('idStore', '=', $idStoreActive)->update([
+                'price' => $priceService,
+                'active' => $request->actvThsMetersServc,
+            ]);
+        } else {
+            $uuidService = Uuid::uuid6();
+            $kilosSave = Services\Meters::create([
+                'idMeters' => $uuidService,
+                'idStore' => $idStoreActive,
+                'price' => $priceService,
+                'active' => $request->actvThsMetersServc,
+            ]);
+        }
+        
+        if ($kilosSave) {
+            return response()->json(['status' => 'success', 'message' => 'Price saved successfully.', 'activeServc' => $request->actvThsMetersServc ? true : false]);
+        }
+        
+        return response()->json(['status' => 'error', 'errors' => $validator->errors()], 422);
     }
 }

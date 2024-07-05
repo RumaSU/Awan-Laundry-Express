@@ -4,22 +4,23 @@ $.ajaxSetup({
     }
 });
 
-$('.btn-sveServcKilos').click((e) => {
+$('.btn-sveServcMeters').click((e) => {
     e.preventDefault();
     const $ELMN_BUTTON = $(e.target.closest('button'));
     const $ELEMN_THS = $(e.target.closest('.formFieldSveServc'));
     const PAR_ELMN = $ELEMN_THS.closest('.ctr-cServcItm');
     const URL = $ELEMN_THS.attr('data-saveServcUrl');
-    const $ELEMN_STATUS = $(PAR_ELMN.find('.ctr-rghtStatus'));
     
-    const VAL_PRC = $ELEMN_THS.find('#inpServiceStorePriceKilos').val();
-    const VAL_ACTV = $ELEMN_THS.find('#actvThsKilosServc').is(':checked') ? 1 : 0;
+    const VAL_PRC = $ELEMN_THS.find('#inpServiceStorePriceMeters').val();
+    const VAL_ACTV = $ELEMN_THS.find('#actvThsMetersServc').is(':checked') ? 1 : 0;
     
     let dataAjax = {
-        'inpServiceStorePriceKilos': VAL_PRC,
-        'actvThsKilosServc': VAL_ACTV,
+        'inpServiceStorePriceMeters': VAL_PRC,
+        'actvThsMetersServc': VAL_ACTV,
     }
     
+    console.log(URL);
+    console.log(dataAjax);
     let responseData;
     
     $.ajax({
@@ -37,7 +38,6 @@ $('.btn-sveServcKilos').click((e) => {
         complete: function() {
             PAR_ELMN.removeClass('animate-pulse');
             $ELMN_BUTTON.hide();
-            console.log(responseData.activeServc);
             if (responseData.activeServc === true) {
                 PAR_ELMN.find('.cStatusServc').addClass('bg-[#FF3377] text-white font-bold');
                 PAR_ELMN.find('.cStatusServc').removeClass('bg-[#D9D9D9] text-gray-800');

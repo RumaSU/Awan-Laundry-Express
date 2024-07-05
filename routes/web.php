@@ -120,7 +120,10 @@ Route::middleware('auth')->group(function() {
         
         Route::get('/store/services', [Store\storeServicesController::class, 'index'])->name('store\services');
         Route::post('/store/services/kilos', [Store\storeServicesController::class, 'saveServiceKilos'])->name('store\services\kilos');
+        Route::post('/store/services/meters', [Store\storeServicesController::class, 'saveServiceMeters'])->name('store\services\meters');
         Route::post('/store/services/units', [Store\storeServicesController::class, 'saveServiceUnits'])->name('store\services\units');
+        Route::post('/store/services/unitsempty', [Store\storeServicesController::class, 'deleteServiceUnits'])->name('store\services\emptyUnits');
+        Route::get('/store/services/listUnits', [Store\storeServicesController::class, 'showServiceUnits'])->name('store\services\listUnits');
         
         Route::get('/store/maps', [Store\storeMapsController::class, 'index'])->name('store/maps');
         Route::get('/store/notification', [Store\storeNotificationController::class, 'index'])->name('store\notification');

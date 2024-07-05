@@ -13,6 +13,7 @@ class Meters extends Model
         "idMeters",
         "idStore",
         "price",
+        "active",
     ];
     protected $hidden = [
         'idStore',
