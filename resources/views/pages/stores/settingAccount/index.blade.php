@@ -1,5 +1,5 @@
 @extends('layouts.store.index')
-@section('titlePage', 'Pengaturan Toko')
+@section('titlePage', 'Toko - Setting')
 
 @section('head-link-field')
 <link rel="stylesheet" href="{{ asset('assets/css/stores/pengaturan.css') }}">

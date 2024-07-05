@@ -114,7 +114,7 @@
                         </li>
                         <li>
                             <div class="stores-sb">
-                                <a href="" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'stores') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
+                                <a href="{{ route('store\myStore') }}" class="rounded-lg border block px-4 py-2 group {{($urlChoosed === 'stores') ? $ifChoosedAHref : $ifNotChoosedAHref}}">
                                     <div class="c flex items-center gap-4">
                                         <div class="icn flex items-center justify-center w-14 aspect-square rounded-xl border-2 {{($urlChoosed === 'stores') ? $ifChoosedIcn : $ifNotChoosedIcn}}">
                                             <span class="icnStores text-2xl">

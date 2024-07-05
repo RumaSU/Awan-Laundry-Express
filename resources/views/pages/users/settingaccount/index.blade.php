@@ -1,5 +1,5 @@
 @extends('layouts.user.index')
-@section('titlePage', 'Akun saya')
+@section('titlePage', 'Akun - Setting')
 
 @section('head-link-field')
     <meta name="csrf-token" content="{{ csrf_token() }}">

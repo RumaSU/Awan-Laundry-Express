@@ -1,5 +1,5 @@
 @extends('layouts.main.index')
-@section('titlePage', 'Homepage')
+@section('titlePage', 'Awan Laundry Express')
 
 {{-- @section('head-field')
 <link rel="stylesheet" href="{{ asset('assets/css/page/homepage_promo.css') }}">
@@ -95,7 +95,7 @@
                             </div>
                             <div class="ctr-clickCreateOrder mt-12">
                                 <div class="cClickCreateOrder font-bold">
-                                    <a href="" class="clCreateOrder w-fit px-8 py-2 text-sm rounded-xl border border-black block">
+                                    <a href="{{ route('transaction') }}" class="clCreateOrder w-fit px-8 py-2 text-sm rounded-xl border border-black block">
                                         <div class="txCr">
                                             <p>Buat Pesanan</p>
                                         </div>

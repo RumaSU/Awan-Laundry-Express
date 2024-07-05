@@ -1,5 +1,5 @@
 @extends('layouts.store.index')
-@section('titlePage', 'Toko saya')
+@section('titlePage', 'Toko - Maps')
 
 @section('head-link-field')
     <link rel="stylesheet" href="{{ asset('assets/css/stores/maps.css') }}">

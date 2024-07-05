@@ -1,5 +1,5 @@
 @extends('layouts.store.index')
-@section('titlePage', 'Notifikasi')
+@section('titlePage', 'Toko - Notifikasi')
 
 {{-- @section('head-field')
 <link rel="stylesheet" href="{{ asset('assets/components/css/page/notifikasi.css') }}">

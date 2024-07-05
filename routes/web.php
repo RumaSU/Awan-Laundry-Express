@@ -7,6 +7,7 @@ use App\Http\Controllers\User\myTransactionController;
 use App\Http\Controllers\User\Settings;
 use App\Http\Controllers\Store;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\transactionController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ForgotPWController;
@@ -94,9 +95,12 @@ Route::post('/resetPassword', [ResetPasswordController::class, 'reset'])
 
 Route::middleware('auth')->group(function() {
     // Route::view('/', 'pages.users.homepage.index');
+    Route::get('/transaction', [transactionController::class, 'index'])->name('transaction');
+    
+    
     Route::get('/user/account', [myAccountController::class, 'index'])->name('user\myAccount');
     Route::get('/user/promo', [myPromoController::class, 'index'])->name('user\myPromo');
-    Route::view('/user/notification', 'pages.users.notifikasi.index')->name('user\notification');
+    Route::view('/user/notification', 'pages.users.notification.index')->name('user\notification');
     Route::view('/user/coba', 'pages.users.homepage.coba')->name('user\coba');
     Route::get('/user/transaction', [myTransactionController::class, 'index'])->name('user\myTransaction');
     Route::get('/user/settings', [SettingAccountController::class, 'index'])->name('user\settings');

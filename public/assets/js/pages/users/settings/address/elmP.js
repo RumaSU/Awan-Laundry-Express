@@ -44,6 +44,7 @@ $('.cMainSetting').on('click', '.btnAddUserAddress', (e) => {
     $('.popupContent').addClass('hidden');
     $('.popupContent').find('input').val('');
     $('.popupContent').removeClass('hidden');
+    dataAddressId = undefined;
 });
 
 $('.cMainSetting').on('click', '.sbmAddressDataUser', (e) => {
@@ -88,11 +89,10 @@ $('.cMainSetting').on('click', '.sbmAddressDataUser', (e) => {
             $('.cMainSetting').addClass('animate-pulse');
             $.get(URL_REFRESH, function(html) {
                 $('.cMainSetting').html(html);
-                setMaxDateBirth();
             });
         },
         complete: function() {
-            $ELEMN_CNTN.removeClass('animate-pulse');
+            $('.cMainSetting').removeClass('animate-pulse');
         },
         error: function(xhr) {
             $('.cMainSetting').removeClass('animate-pulse');

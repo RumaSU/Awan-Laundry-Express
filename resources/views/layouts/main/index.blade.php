@@ -1,5 +1,6 @@
 @php
-    $isThisStore = explode('/', url()->current());
+    $tempLink = explode('/', url()->current());
+    $isThisStore = in_array('store', $tempLink);
 @endphp
 
 <!DOCTYPE html>
@@ -21,10 +22,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/main/s.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/stores/cLStr.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/main/stores/cMdlStr.css')}}">
-    @if (count($isThisStore) > 3)
-        @if ($isThisStore[3] === 'store')
-            <link rel="stylesheet" href="{{asset('assets/css/main/stores/s.css')}}">
-        @endif
+    @if ($isThisStore)
+        <link rel="stylesheet" href="{{asset('assets/css/main/stores/s.css')}}">
     @endif
     @yield('head-link-field')
     <script src="https://kit.fontawesome.com/15f35fc9f3.js" crossorigin="anonymous"></script>
@@ -35,7 +34,7 @@
         @include('layouts.main.header')
     </header>
     @auth
-        <nav class="py-2 md:py-4 lg:py-6 bg-[#FFDCE8] sticky top-0 z-[80]">
+        <nav class="py-1.5 md:py-2 lg:py-3 bg-[#FFDCE8] sticky top-0 z-[80]">
             @include('layouts.main.nav')
         </nav>
     @endauth
@@ -93,10 +92,8 @@
         @if (!(Auth::user()->UserStore()->exists()))
             <script src="{{ asset('assets/js/main/crtS.js') }}"></script>
         @endif
-        @if (count($isThisStore) > 3)
-            @if ($isThisStore[3] === 'store')
-                <script src="{{asset('assets/js/pages/stores/sidebar/s.js')}}"></script>
-            @endif
+        @if ($isThisStore)
+            <script src="{{asset('assets/js/pages/stores/sidebar/s.js')}}"></script>
         @endif
     @endauth
     @yield('script-field')

@@ -1,5 +1,5 @@
 @extends('layouts.user.index')
-@section('titlePage', 'Akun - Promo')
+@section('titlePage', 'Akun - Transaksi')
 
 @section('head-link-field')
     
@@ -80,14 +80,13 @@
                                 <div class="nameUser">
                                     <div class="txNmU text-sm md:text-lg font-light line-clamp-1">
                                         <p>
-                                            @{{Nama User}}
-                                            @{{Nama User}}
+                                            {{ Auth::user()->UserDetail->name }}
                                         </p>
                                     </div>
                                 </div>
                                 <div class="emailUser">
                                     <div class="txEmU text-xs md:text-sm line-clamp-1">
-                                        <p>@{{emailuser@gmail.com}}</p>
+                                        <p>{{ Auth::user()->email }}</p>
                                     </div>
                                 </div>
                             </div>
